@@ -1,0 +1,43 @@
+<div class="container mt-3" id="carrera">
+  <div class="row text-center mx-5">
+
+    <h2 class="py-3">Información SAN ROMILLA</h2>
+    <form class="mx-5" id="formInfo">
+
+      <div class="form-group pb-1">
+        <label for="fecha" class="col-2 col-form-label">Fecha</label>
+        <input type="date" class="col-10 form-control" id="fecha" name="fecha">
+      </div>
+      <div class="form-group pb-1">
+        <label for="hora" class="col-2 col-form-label">Hora</label>
+        <input type="time" class="col-10 form-control" id="hora" name="hora">
+      </div>
+      <div class="form-group pb-1">
+        <label for="cartel" class="col-2 col-form-label">Cartel (png, jpg)</label>
+        <input type="file" accept="image/png, image/jpg" class="form-control" id="cartel" name="cartel">
+      </div>
+      <div class="form-group pb-1">
+        <label for="reglamento" class="col-2 col-form-label">Reglamento (pdf)</label>
+        <input type="file" accept="application/pdf" class="form-control" id="reglamento" name="reglamento">
+      </div>
+      <div class="form-group pb-1">
+        <label for="inicio_inscripcion" class="col-2 col-form-label">Inicio Inscripción</label>
+        <input type="date" class="form-control" id="inicio_inscripcion" name="inicio_inscripcion">
+      </div>
+      <div class="form-group pb-1">
+        <label for="fin_inscripcion" class="col-2 col-form-label">Fin Inscripción</label>
+        <input type="date" class="form-control" id="fin_inscripcion" name="fin_inscripcion">
+      </div>
+      <div class="form-group pb-1">
+        <label for="precio_camiseta" class="col-2 col-form-label">Precio Camiseta</label>
+        <input type="number" class="form-control" id="precio_camiseta" name="precio_camiseta">
+      </div>
+      <div class="form-group pb-1">
+        <label for="beneficio_camiseta" class="col-2 col-form-label">Beneficio Camiseta</label>
+        <input type="number" class="form-control" id="beneficio_camiseta" name="beneficio_camiseta">
+      </div>
+      <button type="button" class="btn btn-primary mt-3" id="modificar">Modificar</button>
+    </form>
+  </div>
+  <div id="vistas-previas"></div>
+</div>

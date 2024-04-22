@@ -1,0 +1,397 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
+
+*{
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    height: 100vh;
+}
+
+#nav{
+    height: 10vh;
+}
+
+#navTop{
+    height: 6vh;
+}
+
+#app-container{
+    min-height: 74vh;
+}
+
+footer{
+    height: 10vh;
+}
+
+.hide{
+    display:none !important;
+}
+
+.swal2-confirm{
+    background-color: #1FA2BF !important;
+}
+
+#sesion-nombre{
+    cursor: auto;
+}
+
+#sesion-nombre:hover{
+    color: black !important;
+}
+
+#tabla-datos >tbody{
+    margin-top: 20px;
+}
+
+hr{
+    width: 80%;
+    margin: 0 auto !important;
+}
+#nav{
+    background-color: #1FA2BF !important;
+}
+
+#collapsibleNavbar{
+    background-color: #1FA2BF !important;
+    padding: 10px 0 0 10px;
+}
+
+.container-fluid{
+    --bs-gutter-x: 0 !important;
+}
+
+nav li a{
+    margin-right:30px;
+    cursor: pointer;
+}
+
+.nav-link{
+    color: black !important;
+    transition: 0.7s !important;
+}
+
+.nav-link:hover{
+    color: #352d00 !important;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none !important;
+    color: black !important;
+    transition: 0.7s;
+}
+
+a:hover{
+    color:#1FA2BF !important;
+}
+
+#sanromilla{
+    font-weight: 900;
+    margin-left: 20px;
+}
+
+#sanromilla:hover{
+    color: darkslategray !important;
+}
+
+
+.tallas{
+    margin: 0 auto;
+}
+
+#contacto, #contacto a{
+    color: white !important;
+    
+}
+#contacto a{
+    display: inline-block !important;
+}
+
+#contacto a:hover{
+    color: #1FA2BF !important;
+}
+
+.fotos{
+    transition: 0.6s;
+}
+
+.fotos:hover{
+    cursor: pointer;
+    height: 215px !important;
+}
+
+#footer{
+    background-color: #1FA2BF;
+}
+
+#footer h4{
+    font-weight: 900;
+}
+
+#organizadores img{
+    height: 50px;
+}
+
+#inscripcion .form-check-input, #inscripcion .form-check-label{
+    margin-top: 15px;
+}
+
+#femenino, #femenino_l, #masculino, #masculino_l{
+    margin-top:0 !important;
+    vertical-align: middle !important;
+}
+
+.strong{
+    font-weight: 900 !important;
+    font-size: 4em;
+    margin: 100px 0;
+}
+
+/* Para quitar un ancho extra que añade la clase row de bootstrap */
+.row {
+    --bs-gutter-x: 0 !important;        
+}
+
+.form-control, .form-select{
+    width: 70% !important;
+    display: inline-block !important;
+}
+
+.form-label{
+    width: 30% !important;
+}
+
+#textarea{
+    vertical-align: top;
+}
+
+#col1 {
+    height: 200px;
+    background-image: url(../assets/images/col1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#col2{
+    height: 200px;
+    background-image: url(../assets/images/col2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+ #col3{
+    height: 200px;
+    background-image: url(../assets/images/col3.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
+/** Cartas administración **/
+
+.carta-home{
+    height: 200px!important;
+    cursor: pointer;
+}
+
+
+
+
+
+/** vista Pagos **/
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+  
+th, td {
+    border-bottom: 1px solid black;
+}
+
+thead th {
+    border-bottom-width: 2px;
+}
+
+th#total {
+    border-top: 2px solid black;
+}
+
+.formStyle{
+    border: 1px solid #1fa2bf ;
+}
+
+.card{
+    border: 1px solid #1fa2bf !important;
+}
+
+/** Vista inicio-login **/
+
+#divGoogleLogin{
+
+}
+
+
+/** Vista fotos admin **/
+#dropzone{
+    padding: 18px 40px;
+    background: #ccc;
+}
+#dropzone p{
+    margin-bottom: 0px;
+    padding: 20px 10px;
+    background: white;
+    text-align: center;
+    border: 2px dashed #333;
+}
+
+#dropzone label{
+    border-bottom: 1px solid blue;
+    color: blue;
+    cursor: pointer;
+}
+
+#dropzone input{
+    display: none;
+}
+
+#fotos{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#fotos img{
+    height: 100px;
+}
+
+
+/** Vista Eliminar Fotos **/
+.ekko-lightbox-nav-overlay a {
+    color: goldenrod !important;
+}
+.gallery-title {
+    text-align: center !important;
+    font-weight: 500 !important;
+    border-bottom: 1px dotted orange !important;
+    margin-top: 1em !important;
+}
+.div-imagen-eliminar{
+    margin: 10px;
+}
+
+.image-container {
+    margin-bottom: 20px;
+}
+.image-container h2 {
+    margin-bottom: 10px;
+}
+.image-container img {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+    margin: 10px;
+}
+.image-container img.selected {
+    border-color: rgba(255, 0, 0, 0.58);
+}
+
+/** Vista usuarios **/
+
+.iconos-acciones{
+    text-align: center;
+    margin: 0px 5px;
+}
+
+.iconos-acciones:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#btn-crear-usuario{
+    position: absolute;
+    top: 130px;
+    right: 65px;
+}
+
+
+@media (max-width: 1000px) {
+    #col1 , #col2 , #col3{
+        height: 150px;
+    }
+    #col1:hover , #col2:hover , #col3:hover{
+        height: 170px;
+    }
+
+    /** Fotos admin **/
+    #previewContainer{
+        grid-template-columns: repeat(6, 1fr) !important;
+    }
+}
+
+@media (max-width: 880px) {
+    #carousel{
+        height: 20%;
+    }
+    #carousel img{
+        width: 20%;
+    }
+
+    #cartel{
+        width: 80%;
+    }
+    #col1 , #col2 , #col3{
+        height: 100px;
+    }
+
+    #col1:hover , #col2:hover , #col3:hover{
+        height: 120px;
+    }
+
+    /** Fotos admin **/
+    #previewContainer{
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+
+}
+
+@media (max-width: 776px) {
+
+    #col1 , #col2 , #col3{
+        margin: 20px;
+        height: 150px;
+    }
+
+    #botones button{
+        margin: 9px !important;
+    }
+
+    /** Fotos admin **/
+    #previewContainer{
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #botones{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+ 

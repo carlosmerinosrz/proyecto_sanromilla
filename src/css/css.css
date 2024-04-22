@@ -1,0 +1,385 @@
+/* TIPOGRAFIAS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
+
+
+
+/* ------GENERALES------- */
+*{
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+}
+
+hr{
+    width: 80%;
+    margin: 0 auto !important;
+}
+
+.container-fluid{
+    --bs-gutter-x: 0 !important;
+}
+
+a{
+    text-decoration: none !important;
+    color: black !important;
+    transition: 0.7s;
+}
+
+a:hover{
+    color:#1FA2BF !important;
+}
+
+.strong{
+    font-weight: 900 !important;
+    font-size: 4em;
+    margin: 100px 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+    cursor:pointer;
+}
+
+select:hover{
+    cursor:pointer;
+}
+
+#app-container{
+    min-height: 100vh;
+}
+
+.swal2-confirm{
+    background-color: #1FA2BF !important;
+}
+
+
+
+/* ---------NAV------------ */
+
+#nav{
+    height: 90px;
+    background-color: #1FA2BF !important;
+}
+
+#collapsibleNavbar{
+    background-color: #1FA2BF !important;
+    padding: 10px 0 0 10px;
+}
+
+nav li a{
+    margin-right:30px;
+}
+
+.nav-link{
+    color: black !important;
+    transition: 0.7s !important;
+}
+
+.nav-link:hover{
+    color: #352d00 !important;
+    cursor: pointer;
+}
+
+#logo{
+    height: 50px;
+}
+
+#sanromilla{
+    font-weight: 900;
+    margin-left: 20px;
+}
+
+#sanromilla:hover{
+    color: darkslategray !important;
+}
+
+#fotos{
+    padding-bottom: 10px;
+}
+
+
+/* --------CARRUSEL--------- */
+
+#carousel{
+    height: 30rem;
+    overflow: hidden;
+}
+
+#carousel img{
+    min-height: 80%;
+}
+
+
+
+
+
+/* ---------INICIO----------- */
+
+.fotos{
+    transition: 0.6s;
+}
+
+.fotos:hover{
+    height: 215px !important;
+}
+
+#col1 {
+    height: 200px;
+    background-image: url(../assets/images/col1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#col2{
+    height: 200px;
+    background-image: url(../assets/images/col2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#col3{
+    height: 200px;
+    background-image: url(../assets/images/col3.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
+
+/* --------INSCRIPCIONES--------- */
+
+.tallas{
+    margin: 0 auto;
+}
+
+#contacto, #contacto a{
+    color: white !important;
+    
+}
+
+#contacto a{
+    display: inline-block !important;
+}
+
+#contacto a:hover{
+    color: #1FA2BF !important;
+}
+
+
+#inscripcion .form-check-input, #inscripcion .form-check-label{
+    margin-top: 15px;
+}
+
+#femenino, #femenino_l, #masculino, #masculino_l{
+    margin-top:0 !important;
+    vertical-align: middle !important;
+}
+
+#textarea{
+    vertical-align: top;
+}
+
+
+
+
+/* ---------CLASIFICACION---------- */
+
+
+
+
+
+
+
+
+
+
+/* ----------FOTOS--------- */
+
+#fotosNada{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#divFotoNada{
+    background-image: url('../assets/images/iconoCorrer.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    margin-top: 50px;
+}
+
+.fotosCarrera{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+}
+
+.titulosFotos{
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+/* ----------FOOTER------------ */
+#footer{
+    height: auto;
+    background-color: #1FA2BF;
+}
+
+#footer h4{
+    font-weight: 900;
+}
+
+#footerLegales{
+    text-decoration: underline !important;
+}
+#footerLegales:hover{
+    color: #352d00 !important;
+}
+
+
+/* ------------OVERRIDE BOOTSTRAP---------- */
+
+/* Para quitar un ancho extra que añade la clase row de bootstrap */
+.row {
+    --bs-gutter-x: 0 !important;        
+}
+
+.form-control, .form-select{
+    width: 82% !important;
+    display: inline-block !important;
+}
+
+.form-label{
+    width: 18% !important;
+}
+
+.i-collapse-inscripciones{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.col-sm-3{
+    width: 30% !important;
+}
+
+/* .card-header{
+    background-color: #ffc720 !important;
+} */
+
+.card{
+    --bs-card-border-color: #1fa2bf !important; 
+}
+
+/* --------MEDIASQUERY----------- */
+
+@media (max-width: 1000px) {
+    #col1 , #col2 , #col3{
+        height: 150px;
+    }
+    #col1:hover , #col2:hover , #col3:hover{
+        height: 170px;
+    }
+
+    #botones button{
+        margin-top: 9px !important;
+        width: 70%;
+    }
+    .col-sm-7 {
+        flex: 0 0 auto;
+        width: 58.33333333% !important;
+    }
+    
+    
+}
+
+@media (max-width: 880px) {
+    #carousel{
+        height: 20%;
+    }
+    #carousel img{
+        width: 20%;
+    }
+
+    #cartel{
+        width: 80%;
+    }
+    #col1 , #col2 , #col3{
+        margin: 20px 0px;
+        height: 150px;
+    }
+
+    #col1:hover , #col2:hover , #col3:hover{
+        height: 120px;
+    }
+
+    .row>* {
+        flex-shrink: 0;
+        width: 100% !important;
+    }
+
+    .form-check-input {
+        width: 1em !important;
+    }
+
+    .col-sm-9 {
+        flex: 0 0 auto;
+        width: 75% !important;
+    }
+
+    .container{
+        max-width: 850px !important;
+    }
+
+    .fotosCarrera{
+        height: 300px;
+    }
+
+    .form-label{
+        width: 30% !important;
+        font-size: 0.9em !important;
+    }
+    .form-control, .form-select{
+        width: 70% !important;
+    }
+
+    .form-check-label{
+        font-size: 0.9em !important;
+    }
+}
+
+@media (max-width: 776px) {
+    
+    #app-container {
+        min-height: 70vh;
+    }
+
+    #correo{
+        width: 100% !important;
+    }
+
+    #confirmacion #btnVolver, #confirmacion #btnPagar{
+        margin:0 !important;
+        margin-top: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+
+    #divFotoNada{
+        margin-top: 0;
+    }
+ 
+}
+
+ 

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: vistas/carrera/carrera.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: vistas/carrera/carrera.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict" //activo modo estricto
+/**
+ * Clase Carrera
+ */
+export class Carrera {
+
+    constructor(controlador){
+        this.controlador=controlador
+        window.setTimeout(this.iniciar.bind(this), 500)
+    }
+
+    /**
+     * Método que inicia la vista
+     * @param {*} controlador
+     */
+    async iniciar(controlador){
+        this.div=document.getElementById('carrera')
+        this.activeNavbar();
+        this.getInformacion();
+
+        this.btnModificar = document.getElementById('modificar');
+        this.btnModificar.onclick = await this.modificarInfo.bind(this);
+        this.btnModificar.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter'){this.modificarInfo();}
+        }.bind(this));
+
+    }
+
+    /**
+     * Método que coge la información general
+     */
+    async getInformacion(){
+        this.datos=await this.controlador.getInformacion()
+        this.introDatos(this.datos.data[0]);
+    }
+
+    /**
+     * Método que setea los dorsales introducidos
+     */
+    async modificarInfo(){
+
+        var form = document.getElementById("formInfo");
+        var inputs = form.querySelectorAll('input');
+        var datos = {};
+
+        inputs.forEach(function(input) {
+            var id = input.id;
+            var value = input.value;
+            datos[id] = value;
+        });
+
+        var error = this.checkDatos(datos)
+
+        if(error != ''){
+            Swal.fire({
+                title: 'Algún campo mal',
+                text: error,
+                icon: 'warning',
+                confirmButtonText: 'Vale!'
+            })
+        }else{
+            var inputCartel = document.getElementById('cartel');
+            var cartel = inputCartel.files[0];
+            var inputReglamento = document.getElementById('reglamento');
+            var reglamento = inputReglamento.files[0];
+
+            var formData = new FormData();
+            formData.append('cartel', cartel);
+            formData.append('reglamento', reglamento);
+
+            if (cartel || reglamento) {
+                var modificacionArchivos = await this.controlador.modArchivos(formData);
+                console.log('modif: ', modificacionArchivos )
+            }
+
+            var modificarDatos = await this.controlador.modificarInfo(datos);
+            console.log('modif: ', modificarDatos)
+            if (modificarDatos.data >= 1){
+                Swal.fire({
+                    title: '¡Cambios realizados!',
+                    text: 'Se han registrado correctamente los cambios en la base de datos.',
+                    icon: 'success',
+                    confirmButtonText: 'Vale!'
+                })
+            }else{
+                Swal.fire({
+                    title: 'Error en la petición',
+                    text: 'Algo no ha ido bien.',
+                    icon: 'error',
+                    confirmButtonText: 'Vale!'
+                })
+            }
+        }
+    }
+
+    /**
+     * Método para introducir los datos de la información general de la carrera.
+     * @param datos
+     */
+    introDatos(datos) {
+        var fechaInput = document.getElementById('fecha');
+        var inicioInscripcionInput = document.getElementById('inicio_inscripcion');
+        var finInscripcionInput = document.getElementById('fin_inscripcion');
+        var precioCamisetaInput = document.getElementById('precio_camiseta');
+        var beneficioCamisetaInput = document.getElementById('beneficio_camiseta');
+
+        var timestamp = datos.fecha;
+        var partes = timestamp.split(' ');
+        var fecha = partes[0];
+        var hora = partes[1];
+
+        var fechaInput = document.getElementById('fecha');
+        var horaInput = document.getElementById('hora');
+
+        fechaInput.value = fecha;
+        horaInput.value = hora;
+        inicioInscripcionInput.value = datos.inicio_inscripcion;
+        finInscripcionInput.value = datos.fin_inscripcion;
+        precioCamisetaInput.value = datos.precio_camiseta;
+        beneficioCamisetaInput.value = datos.beneficio_camiseta;
+    }
+
+    /**
+     * Método para comprobar los datos del formulario.
+     * @param datos
+     * @returns {string} Código de errores.
+     */
+    checkDatos(datos) {
+        var mensaje = '';
+
+        mensaje += this.checkFechaCarrera(datos.fecha)
+        mensaje += this.checkFechasInscripcion(datos)
+        mensaje += this.checkArchivos(datos)
+
+        return mensaje;
+    }
+
+    /**
+     * Método que comprueba que la fecha de la carrera no se posterior al día actual.
+     * @param fecha
+     * @returns {string} Retorna los errores.
+     */
+    checkFechaCarrera(fecha) {
+        var fechaActual = new Date();
+        fechaActual.setHours(0, 0, 0, 0);
+
+        var fechaCarrera = new Date(fecha);
+
+        if (fechaCarrera &lt; fechaActual) { return 'La fecha de la carrera tiene que ser posterior a la actual. '}
+        return '';
+    }
+
+    /**
+     * Método para comprobar las fechas de inscripción, que la inicial no sea superior a la final ni que sea
+     * inferior o igual a la fecha de la carrera.
+     * @param datos
+     */
+    checkFechasInscripcion(datos) {
+        var fechaActual = new Date();
+        fechaActual.setHours(0, 0, 0, 0);
+
+        var fechaCarrera = new Date(datos.fecha);
+        var fechaInicio = new Date(datos.inicio_inscripcion);
+        var fechaFin = new Date(datos.fin_inscripcion);
+
+
+        if (fechaInicio &lt; fechaFin &amp;&amp; fechaInicio > fechaCarrera) {
+            return '';
+        } else {
+            return 'Fecha inicio de inscripción que ser posterior a fecha de la carrera y a la fecha de fin de inscripción. ';
+        }
+    }
+
+    /**
+     * Método para comprobar las extensiones de los archivos
+     * @returns {string} Retorna los errores
+     */
+    checkArchivos() {
+        var form = document.getElementById('formInfo');
+        var cartelInput = form.querySelector('#cartel');
+        var reglamentoInput = form.querySelector('#reglamento');
+
+        function isImageFile(file) {
+            var validExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+            var fileExtension = file.name.split('.').pop().toLowerCase();
+
+            return validExtensions.includes(fileExtension);
+        }
+
+        function isPdf(file) {
+            var validExtensions = ['pdf'];
+            var fileExtension = file.name.split('.').pop().toLowerCase();
+
+            return validExtensions.includes(fileExtension);
+        }
+
+        for (var i = 0; i &lt; cartelInput.files.length; i++) {
+            if (!isImageFile(cartelInput.files[i])) {
+                return 'El archivo del campo cartel no es una imagen válida';
+            }
+        }
+
+        for (var j = 0; j &lt; reglamentoInput.files.length; j++) {
+            if (!isPdf(reglamentoInput.files[j])) {
+                return 'El archivo del campo reglamento no es una documento válido';
+            }
+        }
+        return "";
+    }
+
+
+    /**
+     * Para mostrar el item del navbar activo
+     */
+    activeNavbar() {
+        document.getElementById('navTop').classList.remove('d-none');
+        document.getElementById('linkHome').classList.remove('active');
+        document.getElementById('linkFotos').classList.remove('active');
+        document.getElementById('linkPagos').classList.remove('active');
+        document.getElementById('linkCarrera').classList.add('active');
+        document.getElementById('linkCategorias').classList.remove('active');
+        document.getElementById('linkInscripciones').classList.remove('active');
+    }
+
+
+
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Carrera.html">Carrera</a></li><li><a href="Controlador.html">Controlador</a></li><li><a href="EliminarFotos.html">EliminarFotos</a></li><li><a href="Fotos.html">Fotos</a></li><li><a href="Home.html">Home</a></li><li><a href="Inicio.html">Inicio</a></li><li><a href="InscripcionModel.html">InscripcionModel</a></li><li><a href="Inscripciones.html">Inscripciones</a></li><li><a href="Modelo.html">Modelo</a></li><li><a href="Pago.html">Pago</a></li><li><a href="Router.html">Router</a></li><li><a href="Usuarios.html">Usuarios</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 12 2023 20:25:29 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div class="container mt-3" id="fotos">
+    <div class="col">
+        <h1 class="text-center">Subida de imágenes</h1>
+        <form id="uploadForm">
+            <div class="form-group pb-1">
+                <label for="selectCategoria" class="col-form-label">Seleccione categoría: </label>
+                <select class="col-2 form-select my-2 w-25" id="selectCategoria">
+                    <!-- Se carga mediante DOM -->
+                </select>
+                <button id="btnSubirImagenes" class="btn btn-primary ml-2" type="button">Subir imágenes</button>
+                <button id="btnIrEliminar" class="btn btn-warning ml-2" type="button">Ir a control de imágenes</button>
+            </div>
+            <div id="dropzone" class="mb-2">
+                <p>Arrastre los archivos a esta zona <label for="archivos">o haga click aquí</label></p>
+                <input type="file" accept="image/*" id="archivos" name="archivos" multiple />
+            </div>
+        </form>
+        <div id="vistas-previas"></div>
+    </div>
+</div>

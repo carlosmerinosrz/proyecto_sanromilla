@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: controladores/app.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: controladores/app.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict" //activo modo estricto
+import {Router}  from './router.js'
+import {Modelo}  from '../modelos/modelo.js'
+import { Home } from '../vistas/home/home.js'
+import { Pago } from '../vistas/pago/pago.js'
+import { Carrera } from '../vistas/carrera/carrera.js'
+import { Inicio } from "../vistas/inicio/inicio.js"
+import { Fotos } from "../vistas/fotos/fotos.js"
+
+export class Controlador{
+
+    constructor() {
+		$(document).ready(this.iniciar.bind(this))
+        this.router=new Router;
+        this.modelo=new Modelo;
+        window.addEventListener('load', this.restoreLastView);
+        //Ejecutamos el mostrarInicio para que muestre la vista del inicio
+        this.mostrarInicio()
+	}
+
+    /**
+     * Método que inicia la web y añede los métodos a los botones 
+     */
+    iniciar(){
+        let titulo= document.getElementById('sanromillaTitulo')
+        titulo.onclick=this.mostrarInicio.bind(this)
+
+        // captura botones nav
+        let home= document.getElementById('linkHome')
+        home.onclick=this.mostrarHome.bind(this)
+        let pagos= document.getElementById('linkPagos')
+        pagos.onclick=this.mostrarPagos.bind(this)
+        let carrera= document.getElementById('linkCarrera')
+        carrera.onclick=this.mostrarCarrera.bind(this)
+        let cerrarSesion = document.getElementById('logout-nav')
+        cerrarSesion.onclick = this.doLogout.bind(this)
+        let fotos = document.getElementById('linkFotos')
+        fotos.onclick = this.mostrarFotos.bind(this)
+    }
+
+    /**
+     * Método que oculta el menú
+     * Como el menú está hecho con bootstrap, trae por defecto algunas clase como la de show que es la que muestra el desplegable del menu
+     * Con este método le quitamos esa tabla cuando hacemos click a alguna opción del menu
+     */
+    ocultarMenu(){
+        let desplegable=$('#collapsibleNavbar')
+        desplegable.removeClass('show');
+    }
+
+    /**
+     * Método que muestra la vista Inicio
+     */
+    async mostrarInicio(){
+        this.router.cargar("inicio")
+        this.vistaInicio = new Inicio(this)
+        this.ocultarMenu()
+    }
+
+    /**
+     * Método que muestra la vista Home
+     */
+    mostrarHome(){
+        this.ocultarMenu()
+        this.router.cargar("home")
+        this.vistaHome = new Home(this)
+    }
+
+    /**
+     * Método que carga la vista de pagos
+     */
+    mostrarPagos(){
+        this.ocultarMenu()
+        this.router.cargar("pago")
+        this.vistaPago = new Pago(this)
+    }
+
+    mostrarCarrera(){
+        this.ocultarMenu()
+        this.router.cargar("carrera")
+        this.vistaCarrera = new Carrera(this)
+    }
+
+    /**
+     * Método que carga la vista de fotos
+     */
+    mostrarFotos(){
+        this.ocultarMenu()
+        this.router.cargar("fotos")
+        this.vistaFotos = new Fotos(this)
+    }
+
+
+    /**
+     * Cierra la sesión
+     */
+    doLogout(){
+        sessionStorage.clear();
+        localStorage.clear();
+        window.location.reload();
+        this.mostrarInicio();
+    }
+
+    /**
+     * Método que llama al modelo para obtener las inscripciones
+     * @param {int} codigo 
+     * @returns aray
+     */
+    async getInscripciones(tipoBusqueda, codigo){
+        let datos = await this.modelo.getInscripciones(tipoBusqueda, codigo)
+        return datos;
+    }
+
+    /**
+     * Método para obtener la información de la carrera.
+     * @returns {Promise&lt;unknown>}
+     */
+    async getInformacion(){
+        let datos = await this.modelo.getInformacion()
+        return datos;
+    }
+
+    async setDorsal(datos){
+        let seteado = await this.modelo.setDorsal(datos)
+        return seteado;
+    }
+
+    /**
+     * Método para realizar el login comprobando usuario en la bbdd
+     * @param token
+     * @returns {Promise&lt;void>}
+     */
+    async loginGoogle(credenciales){
+        return await this.modelo.doLogin(credenciales)
+    }
+
+
+    //Recuperar y restaurar la última vista almacenada después de la recarga
+    restoreLastView = () => {
+        var lastViewHTML = localStorage.getItem('lastView');
+        if (lastViewHTML) {
+            document.body.innerHTML = lastViewHTML;
+            this.iniciar();
+        }
+    }
+
+}
+const app= new Controlador()</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Router.html">Router</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Jun 06 2023 09:33:36 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
