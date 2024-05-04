@@ -87,7 +87,7 @@ class ModeloInscripciones{
                 return $array;
             }
 
-            if($tipoBusqueda == 'dni'){
+            if($tipoBusqueda == 'telefono'){
                 $resultado= $this->conexion->prepare("SELECT MIN(id_inscripcion) as id_inscripcion, codigo_inscripcion, MIN(fecha_inscripcion) as fecha_inscripcion FROM inscripciones WHERE telefono = ? AND estado_pago = 0 GROUP BY codigo_inscripcion;");
                 $resultado->bind_param('s', $argumento);
                 $resultado->execute();
@@ -102,10 +102,10 @@ class ModeloInscripciones{
                 $resultado->execute();
                 $datos = $resultado->get_result();
                 $array=$datos->fetch_all(MYSQLI_ASSOC);
+                $resultado->close();
                 return $array;
             }
 
-            $resultado->close();
         }else{
             return -1;
         }
@@ -114,4 +114,3 @@ class ModeloInscripciones{
 
 }
 
-?>
