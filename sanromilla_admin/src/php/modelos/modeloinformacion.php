@@ -123,6 +123,17 @@ class ModeloInformacion{
         return $array;
     }
 
+    function getTallasCamiseta(){
+        $this->conectar();
+
+        $resultado= $this->conexion->prepare("SELECT tallas_camisetas FROM tallas_camisetas");
+        $resultado->execute();
+        $datos = $resultado->get_result();
+        $array=$datos->fetch_all(MYSQLI_ASSOC);
+        $resultado->close();
+        return $array;
+    }
+
     /* Función para comprobar si la extensión de la imagen es válida o no.
     */
     function esPngOJpg($archivo) {

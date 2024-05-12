@@ -161,6 +161,11 @@ export class Controlador{
         return precio.data[0]['precio_camiseta'];
     }
 
+    async getTallasCamisetas(){
+        let datos = await this.modelo.getTallasCamisetas()
+        return datos;
+    }
+
     /**
      * Método para obtener la información de la carrera.
      * @returns {Promise<unknown>}
@@ -317,6 +322,7 @@ export class Controlador{
      * @returns array
      */
     async updateUsuario(id,nombre,correo,rol){
+        //console.log(rol);
         let datos = await this.modelo.updateUsuario(id,nombre, correo, rol)
         return datos;
     }

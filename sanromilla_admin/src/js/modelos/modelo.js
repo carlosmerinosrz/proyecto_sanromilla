@@ -73,6 +73,16 @@ export class Modelo{
         });
     }
 
+    async getTallasCamisetas(){
+        return new Promise(resolve => {
+            $.get(this.base_url + 'tallas/'+'getTallasCamisetas', (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
     /**
      * Método para setear el dorsal
      * @param datos

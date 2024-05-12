@@ -42,19 +42,26 @@ class ModeloInscripciones{
                 foreach ($datos as $dato) {
                     $dorsal = $dato->dorsal;
                     $id_inscripcion = $dato->idInscripcion;
-                    $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago=1 WHERE id_inscripcion = ?");
-                    $upd->bind_param('ii', $dorsal, $id_inscripcion);
+                    $id_talla = $dato->idInscripcion;
+                    $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago=1, id_talla=? WHERE id_inscripcion = ?");
+                    $upd->bind_param('iii', $dorsal, $id_inscripcion, $id_talla);
+
                     $upd->execute();
                 }
                 $upd->close();
                 return 1;
-            }
-            catch(Exception $e){
-                return -1;
+            }catch(Exception $e){
+                return $e->getMessage(); // Devuelve el mensaje de error
             }  
         }else{
                 return 0;
         }
+        //     catch(Exception $e){
+        //         return -1;
+        //     }  
+        // }else{
+        //         return 0;
+        // }
     }
 
     /**
@@ -87,6 +94,7 @@ class ModeloInscripciones{
                 return $array;
             }
 
+            // Nuevo Carlos, permitir la búsqueda mediante teléfono
             if($tipoBusqueda == 'telefono'){
                 $resultado= $this->conexion->prepare("SELECT MIN(id_inscripcion) as id_inscripcion, codigo_inscripcion, MIN(fecha_inscripcion) as fecha_inscripcion FROM inscripciones WHERE telefono = ? AND estado_pago = 0 GROUP BY codigo_inscripcion;");
                 $resultado->bind_param('s', $argumento);

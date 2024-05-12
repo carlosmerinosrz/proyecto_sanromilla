@@ -43,12 +43,12 @@ class informacionController{
     /**
         * Método para obtener la el precio de la camiseta.
         */
-        public function getPrecioCamiseta(){
-            $datos= $this->modelo->getPrecioCamiseta();
-            header('Content-type: application/json; charset=uft-8');
-            $cosas= json_encode($datos);
-            echo $cosas;
-        }
+    public function getPrecioCamiseta(){
+        $datos= $this->modelo->getPrecioCamiseta();
+        header('Content-type: application/json; charset=uft-8');
+        $cosas= json_encode($datos);
+        echo $cosas;
+    }
 }
 
 ?>

@@ -9,8 +9,13 @@
     // define('CONTRASENIA', '');
     // define('BD', 'san_romilla_db');
 
-    define('SERVIDOR', '2daw.esvirgua.com');
-    define('USUARIO', 'user2daw_22');
-    define('CONTRASENIA', 'eJtFSfaZhqcI');
-    define('BD', 'user2daw_BD1-22');
+    // define('SERVIDOR', '2daw.esvirgua.com');
+    // define('USUARIO', 'user2daw_22');
+    // define('CONTRASENIA', 'eJtFSfaZhqcI');
+    // define('BD', 'user2daw_BD1-22');
+
+    define('SERVIDOR', '04.proyectos.esvirgua.com');
+    define('USUARIO', 'proyectosevg_04');
+    define('CONTRASENIA', 'Q%v@oDijnY6g');
+    define('BD', 'proyectosevg_BD2-04');
 ?>

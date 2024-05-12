@@ -1,4 +1,8 @@
 <?php
+
+// URL, que podemos acceder si no estamos logeados. Es decir nos permite ver las inscripciones (No tiene seguridad)
+// http://localhost/proyecto_sanromilla/sanromilla_admin/src/php/index.php/inscripciones/getInscripciones?tipoBusqueda=all&codigo=1
+
 require_once('config/configdb.php');
 
 /**

@@ -6,6 +6,7 @@
 export class Pago{
 
     precioCamiseta;
+    tallasCamisetas = [];
     precioTotal = 0;
       
     constructor(controlador){
@@ -33,15 +34,13 @@ export class Pago{
         this.btnConfirmar.onclick = this.setDorsal.bind(this);
 
 
-        this.btnActualizar = document.getElementById('actualizarPrecio');
-        this.btnActualizar.onclick = this.actualizarPrecio.bind(this);
+        // this.btnActualizar = document.getElementById('actualizarPrecio');
+        // this.btnActualizar.onclick = this.actualizarPrecio.bind(this);
 
         var codigoBuscar = document.getElementById('codigoBuscar');
         codigoBuscar.addEventListener('keypress', function(event) {
             if (event.key === 'Enter'){this.buscarInscripciones();}
         }.bind(this));
-
-        this.precioCamiseta = await this.controlador.getPrecioCamiseta();
 
         document.getElementById('navTop').classList.remove('d-none');
         document.getElementById('linkHome').classList.remove('active');
@@ -63,19 +62,17 @@ export class Pago{
     async buscarInscripciones(){
         let inputBuscar = $('#codigoBuscar').val();
 
-        // Verificar si el texto introducido es un código de inscripción o un número de teléfono
+        //Nuevo Carlos, verificamos si el texto introduccido es un codigo de inscripción o un número de teléfono
         let tipoBusqueda;
         if (inputBuscar.length >= 1 && inputBuscar.length <= 8) {
-            tipoBusqueda = 'codigo'; // Si tiene entre 1 y 8 cifras, es un código de inscripción
+            tipoBusqueda = 'codigo'; 
         } else if (inputBuscar.length === 9 && /^\d+$/.test(inputBuscar)) {
-            tipoBusqueda = 'telefono'; // Si tiene 9 cifras y es numérico, es un número de teléfono
+            tipoBusqueda = 'telefono'; 
         } else {
-            // Si no cumple ninguna de las condiciones anteriores, no se puede determinar el tipo de búsqueda
             console.error('No se puede determinar el tipo de búsqueda.');
             return;
         }
 
-        // Realizar la búsqueda utilizando el tipo determinado automáticamente
         this.datos = await this.controlador.getInscripciones(tipoBusqueda, inputBuscar);
 
         if (this.datos.data.length != 0) {
@@ -102,6 +99,8 @@ export class Pago{
         for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
             var dorsal = input.value;
+            var select = input.parentNode.nextElementSibling.querySelector('select'); // Obtener el elemento <select> del mismo padre que el input
+            var id_talla = select.value;
 
             if(!this.validarDato(dorsal)){
                 Swal.fire({
@@ -116,7 +115,7 @@ export class Pago{
             var id = input.getAttribute("id");
 
             if (dorsal != ''){
-                datos.push({ dorsal: dorsal, idInscripcion: id });
+                datos.push({ dorsal: dorsal, idInscripcion: id , id_talla: id_talla});
             }else{
                 Swal.fire({
                     title: 'Dorsales vacíos',
@@ -168,142 +167,139 @@ export class Pago{
         }
     }
 
-
-    introDatos(datos){
+    introDatos(datos) {
         console.log(datos);
-        let importe=0
+        let importe = 0;
         var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
         $('#tabla-datos > tbody').empty();
+    
+        // Obtener todas las promesas para obtener las tallas de camisetas
+        const promises = datos.map(dato => this.controlador.getTallasCamisetas());
+        //console.log(promises);
+        // Esperar a que todas las promesas se completen
+        Promise.all(promises)
+            .then(responses => {
+                // Obtener todas las tallas de camisetas de todas las respuestas
+                const tallasCamisetas = responses.flatMap(response => response.data);
+                // console.log(tallasCamisetas.map(talla=>talla.talla));
+                // console.log(tallasCamisetas.map(talla=>talla.id_talla));
+                // Crear un conjunto de tallas únicas
+                const tallasUnicas = [...new Set(tallasCamisetas.map(talla => ({ id_talla: talla.id_talla, talla: talla.talla })))];
+    
+                for (let dato of datos) {
+                    if (dato.nombre == null) {
+                        var fila = document.createElement('tr');
+                        var inscripcion = document.createElement('td');
+                        var enlace = document.createElement("p");
+                        enlace.textContent = dato.codigo_inscripcion;
+                        enlace.onclick = this.buscarInscripciones2.bind(this, dato.codigo_inscripcion);
+                        inscripcion.appendChild(enlace);
+                        fila.appendChild(inscripcion);
+                        var fechaInscripcion = document.createElement('td');
+                        fechaInscripcion.textContent = dato.fecha_inscripcion;
+                        fila.appendChild(fechaInscripcion);
+                        tbody.appendChild(fila);
+                    } else {
+                        var fila = document.createElement("tr");
+                        var inscripcion = document.createElement("td");
+                        inscripcion.textContent = dato.codigo_inscripcion;
+                        fila.appendChild(inscripcion);
+                        var nombre = document.createElement("td");
+                        nombre.textContent = dato.nombre + ' ' + dato.apellidos;
+                        fila.appendChild(nombre);
+                        var dorsal = document.createElement("td");
+                        if (dato.dorsal === null) {
+                            var inputDorsal = document.createElement("input");
+                            inputDorsal.setAttribute("type", "text");
+                            var id = dato.id_inscripcion;
+                            inputDorsal.setAttribute("id", id);
+                            inputDorsal.setAttribute("placeholder", "nº dorsal");
+                            inputDorsal.classList.add("text-center");
+                            dorsal.appendChild(inputDorsal);
+                            fila.appendChild(dorsal);
+                        } else {
+                            dorsal.textContent = dato.dorsal;
+                            fila.appendChild(dorsal);
+                        }
+    
+                        var camiseta = document.createElement("td");
+                        var selectCamiseta = document.createElement("select");
+                        selectCamiseta.setAttribute("id", dato.id_inscripcion);
+                        selectCamiseta.classList.add("text-center");
+                        selectCamiseta.addEventListener("change", this.actualizarPrecio.bind(this));
+    
+                        const sinCamisetaOption = document.createElement('option');
+                        sinCamisetaOption.value = null;
+                        sinCamisetaOption.textContent = 'Sin camiseta';
+                        selectCamiseta.appendChild(sinCamisetaOption);
 
-        for(let dato of datos) {
-            if(dato.nombre == null){
-                var thead = document.getElementById("tabla-datos").getElementsByTagName("thead")[0];
-                $('#tabla-datos > thead').empty();
-                var filaEncabezado = document.createElement("tr");
-                var celda1 = document.createElement("th");
-                celda1.style.width = "30%";
-                celda1.textContent = "Inscripción";
-                celda1.classList.add("text-center");
-                filaEncabezado.appendChild(celda1);
-                var celda2 = document.createElement("th");
-                celda2.style.width = "30%";
-                celda2.textContent = "Fecha Inscripción";
-                celda2.classList.add("text-center");
-                filaEncabezado.appendChild(celda2);
-                thead.appendChild(filaEncabezado);
-            }else{
-                var thead = document.getElementById("tabla-datos").getElementsByTagName("thead")[0];
-                $('#tabla-datos > thead').empty();
-                var fila = document.createElement('tr');
-                var celdaInscripcion = document.createElement('th');
-                celdaInscripcion.style.width = '15%';
-                celdaInscripcion.textContent = 'Inscripción';
-                var celdaNombre = document.createElement('th');
-                celdaNombre.style.width = '50%';
-                celdaNombre.textContent = 'Nombre';
-                var celdaDorsal = document.createElement('th');
-                celdaDorsal.style.width = '15%';
-                celdaDorsal.textContent = 'Dorsal';
-                var celdaCamiseta = document.createElement('th');
-                celdaCamiseta.style.width = '10%';
-                celdaCamiseta.textContent = 'Camiseta';
-                var celdaImporte = document.createElement('th');
-                celdaImporte.style.width = '10%';
-                celdaImporte.textContent = 'Importe';
-                fila.appendChild(celdaInscripcion);
-                fila.appendChild(celdaNombre);
-                fila.appendChild(celdaDorsal);
-                fila.appendChild(celdaCamiseta);
-                fila.appendChild(celdaImporte);
-                thead.appendChild(fila);
-            }
-        }
-
-        for(let dato of datos)  {
-            console.log(dato);
-            if(dato.nombre == null){
-                var fila = document.createElement('tr');
-                var inscripcion = document.createElement('td');
-                var enlace = document.createElement("p");
-                enlace.textContent = dato.codigo_inscripcion;
-                enlace.onclick = this.buscarInscripciones2.bind(this, dato.codigo_inscripcion);
-                inscripcion.appendChild(enlace);
-                fila.appendChild(inscripcion);
-                var fechaInscripcion = document.createElement('td');
-                fechaInscripcion.textContent = dato.fecha_inscripcion;
-                fila.appendChild(fechaInscripcion);
-                tbody.appendChild(fila);
-            }else{
-                var fila = document.createElement("tr");
-                var inscripcion = document.createElement("td");
-                inscripcion.textContent = dato.codigo_inscripcion;
-                fila.appendChild(inscripcion)
-                var nombre = document.createElement("td")
-                nombre.textContent = dato.nombre + ' ' + dato.apellidos
-                fila.appendChild(nombre)
-                var dorsal = document.createElement("td")
-                if(dato.dorsal === null){
-                    var inputDorsal = document.createElement("input")
-                    inputDorsal.setAttribute("type", "text")
-                    var id = dato.id_inscripcion
-                    inputDorsal.setAttribute("id", id)
-                    inputDorsal.setAttribute("placeholder", "nº dorsal")
-                    inputDorsal.classList.add("text-center")
-                    dorsal.appendChild(inputDorsal)
-                    fila.appendChild(dorsal)
-                }else{
-                    dorsal.textContent = dato.dorsal
-                    fila.appendChild(dorsal)
+                        // Crear las opciones para cada talla única
+                        tallasUnicas.forEach(talla => {
+                            console.log(talla);
+                            const option = document.createElement('option');
+                            option.value = talla.id_talla;
+                            option.textContent = talla.talla;
+                            selectCamiseta.appendChild(option);
+                        });
+    
+                        camiseta.appendChild(selectCamiseta);
+                        fila.appendChild(camiseta);
+    
+                        var euros = document.createElement("td");
+                        euros.textContent = dato.importe + '€';
+                        fila.appendChild(euros);
+                        if (dato.estado_pago === 0) {
+                            importe += dato.importe;
+                        } else {
+                            fila.style.backgroundColor = 'lightgreen';
+                        }
+                        tbody.appendChild(fila);
+                    }
                 }
-                var camiseta = document.createElement("td")
-                var inputCamiseta = document.createElement("input")
-                inputCamiseta.setAttribute("type", "checkbox")
-                inputCamiseta.setAttribute("id", dato.id_inscripcion)
-                inputCamiseta.classList.add("text-center")
-                inputCamiseta.onclick = this.actualizarPrecio.bind(this);
-                camiseta.appendChild(inputCamiseta)
-                fila.appendChild(camiseta)
-                var euros = document.createElement("td")
-                euros.textContent = dato.importe + '€'
-                fila.appendChild(euros)
-                if(dato.estado_pago === 0){
-                    importe+=dato.importe
-                }else{
-                    fila.style.backgroundColor = 'lightgreen';
-                }
-                tbody.appendChild(fila)
-            }
-        }
-        document.getElementsByClassName('card')[0].setAttribute('style', 'display:block !important');
-        this.precioTotal = importe;
-        this.activeBtnConfirmar(importe);
-        $('#total').text(this.precioTotal+'€')
+                document.getElementsByClassName('card')[0].setAttribute('style', 'display:block !important');
+                this.precioTotal = importe;
+                this.activeBtnConfirmar(importe);
+                $('#total').text(this.precioTotal + '€');
+            })
+            .catch(error => {
+                console.error('Error al obtener tallas de camisetas:', error);
+            });
     }
+    
 
+    actualizarPrecio() {
+        var table = document.getElementById('tabla-datos');
+        var selects = table.querySelectorAll('select');
+        var count = 0;
+        var precioCamiseta;
+    
+        this.controlador.getPrecioCamiseta()
+            .then(valor => {
+                precioCamiseta = parseFloat(valor);
+    
+                selects.forEach(function(select) {
+                    var selectedOption = select.options[select.selectedIndex];
+                    if (selectedOption && selectedOption.value !== 'null') {
+                        count++;
+                    }
+                });
+    
+                var importe = (count * precioCamiseta) + parseFloat(this.precioTotal);
+    
+                $('#total').text(importe + '€');
+            });
+    }
+    
+    
+    
     activeBtnConfirmar(importe) {
+        //console.log('IMPORTE: ' + importe);
         (importe <= 0) ? this.btnConfirmar.classList.add('disabled') : this.btnConfirmar.classList.remove('disabled')
     }
 
     saveViewState() {
         var bodyHTML = document.body.innerHTML;
         localStorage.setItem('lastView', bodyHTML);
-    }
-
-    actualizarPrecio() {
-        var table = document.getElementById('tabla-datos');
-        var checkboxes = table.querySelectorAll('input[type="checkbox"]');
-        var count = 0;
-
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                count++;
-            }
-        }
-
-        var importe = (count * this.precioCamiseta) + this.precioTotal;
-
-        $('#total').text(importe+'€');
-        return 0;
     }
 
     validarDato(dato) {
