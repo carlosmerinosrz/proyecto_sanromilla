@@ -9,6 +9,7 @@ import {Inscripciones} from "../vistas/inscripciones/inscripciones.js"
 import { Fotos } from "../vistas/fotos/fotos.js"
 import { EliminarFotos } from "../vistas/eliminarfotos/eliminarfotos.js"
 import { Usuarios } from "../vistas/usuarios/usuarios.js"
+import { Categorias } from "../vistas/categorias/categorias.js"
 
 /**
  * Clase Controlador que maneja todas las vistas de Administración
@@ -47,6 +48,8 @@ export class Controlador{
         fotos.onclick = this.mostrarFotos.bind(this)
         let usuarios = document.getElementById('linkUsuarios')
         usuarios.onclick = this.mostrarUsuarios.bind(this)
+        let categorias = document.getElementById('linkCategorias')
+        categorias.onclick = this.mostrarCategorias.bind(this)
     }
 
     /**
@@ -129,6 +132,12 @@ export class Controlador{
         this.ocultarMenu()
         this.router.cargar("usuarios")
         this.visitarUsuarios = new Usuarios(this)
+    }
+
+    mostrarCategorias(){
+        this.ocultarMenu()
+        this.router.cargar("categorias")
+        this.vistaCategorias = new Categorias(this)
     }
 
 
@@ -327,5 +336,26 @@ export class Controlador{
         return datos;
     }
 
+    // Nuevo @carlosmerinosrz
+    async getCategorias(){
+        this.data = await this.modelo.getCategorias();
+        return this.data;
+    }
+
+    async newCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido){
+        console.log(nombre);
+        let datos = await this.modelo.newCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido)
+        return datos;
+    }
+
+    async validarNameCategoria(nombre){
+        this.data = await this.modelo.validarNameCategoria(nombre);
+        return this.data;
+    }
+
+    async eliminarCategoria(id){
+        this.data = await this.modelo.eliminarCategoria(id);
+        return this.data;
+    }
 }
 const app= new Controlador()

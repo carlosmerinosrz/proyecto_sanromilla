@@ -42,7 +42,7 @@ class ModeloInscripciones{
                 foreach ($datos as $dato) {
                     $dorsal = $dato->dorsal;
                     $id_inscripcion = $dato->idInscripcion;
-                    $id_talla = $dato->idInscripcion;
+                    $id_talla = $dato->id_talla;
                     $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago=1, id_talla=? WHERE id_inscripcion = ?");
                     $upd->bind_param('iii', $dorsal, $id_inscripcion, $id_talla);
 

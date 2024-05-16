@@ -99,7 +99,7 @@ export class Pago{
         for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
             var dorsal = input.value;
-            var select = input.parentNode.nextElementSibling.querySelector('select'); // Obtener el elemento <select> del mismo padre que el input
+            var select = input.parentNode.nextElementSibling.querySelector('select'); 
             var id_talla = select.value;
 
             if(!this.validarDato(dorsal)){
@@ -115,6 +115,7 @@ export class Pago{
             var id = input.getAttribute("id");
 
             if (dorsal != ''){
+                console.log(id_talla);
                 datos.push({ dorsal: dorsal, idInscripcion: id , id_talla: id_talla});
             }else{
                 Swal.fire({
@@ -128,6 +129,7 @@ export class Pago{
         }
 
         var seteado = await this.controlador.setDorsal(datos);
+        console.log(seteado);
         if (seteado.data >= 1){
             $('#total').text(0+'€');
             Swal.fire({
@@ -184,7 +186,8 @@ export class Pago{
                 // console.log(tallasCamisetas.map(talla=>talla.talla));
                 // console.log(tallasCamisetas.map(talla=>talla.id_talla));
                 // Crear un conjunto de tallas únicas
-                const tallasUnicas = [...new Set(tallasCamisetas.map(talla => ({ id_talla: talla.id_talla, talla: talla.talla })))];
+                console.log(tallasCamisetas);
+                const tallasUnicas = [...new Set(tallasCamisetas.map(talla => ({ id_camiseta: talla.id_camiseta, talla: talla.talla })))];
     
                 for (let dato of datos) {
                     if (dato.nombre == null) {
@@ -237,7 +240,7 @@ export class Pago{
                         tallasUnicas.forEach(talla => {
                             console.log(talla);
                             const option = document.createElement('option');
-                            option.value = talla.id_talla;
+                            option.value = talla.id_camiseta;
                             option.textContent = talla.talla;
                             selectCamiseta.appendChild(option);
                         });

@@ -10,7 +10,7 @@ export  class Router  {
      * @param {string} route 
      */
     cargar(route){
-        console.log(route)
+        // console.log(route)
         $('#app-container').load('./js/vistas/' + route + '/'+route +'.html?', () => {});
     }
 

@@ -20,21 +20,19 @@ class inscripcionesController{
     public function asignarDorsal(){
 
         $datos = json_decode($_POST['datos']);
-        print_r('CONTROLADOR INSCRIPCIONES: /n');
-        print_r($datos);
         $datos= $this->modelo->asignarDorsal($datos);
         print_r($datos);
-        // if($datos >= 1){
-        //     echo $datos;
-        //     return $datos;
-        // }
-        // else if($datos == -1){  //error
-        //     echo $datos;
-        // }
-        // else{       //falta algún dato
-        //     echo 0;
-        //     return 0;
-        // }
+        if($datos >= 1){
+            echo $datos;
+            return $datos;
+        }
+        else if($datos == -1){  //error
+            echo $datos;
+        }
+        else{       //falta algún dato
+            echo 0;
+            return 0;
+        }
     }
 
     /**

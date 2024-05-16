@@ -346,4 +346,66 @@ export class Modelo{
         });
     }
 
+    async getCategorias() {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: `${this.base_url}categorias/getCategorias`,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    resolve(data);
+                },
+                error: function(xhr, status, error) {
+                    reject(error);
+                }
+            });
+        });
+    }
+
+    async newCategorias(nombre, descripcion, edad, precio, distancia, recorrido, hora){
+        return new Promise(resolve => {
+            $.get(this.base_url + 'categorias/'+'newCategorias', {
+                nombre:nombre,
+                descripcion:descripcion,
+                edad:edad,
+                precio:precio,
+                distancia:distancia,
+                recorrido:recorrido,
+                hora:hora,
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
+    async validarNameCategoria(nombre){
+        return new Promise(resolve => {
+            $.get(this.base_url + 'categorias/'+'validarNameCategoria', {
+                nombre:nombre,
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
+    async eliminarCategoria(id) {
+        try {
+            const response = await $.ajax({
+                url: `${this.base_url}categorias/eliminarCategoria`,
+                type: 'POST',
+                data: JSON.stringify({ id }),
+                contentType: 'application/json',
+            });
+            console.log(response);
+            return response;
+        } catch (error) {
+            console.log('Error en la solicitud:', error.responseText);
+            return error;
+        }
+    }
+
 }
