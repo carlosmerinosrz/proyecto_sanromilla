@@ -23,7 +23,7 @@ export class Pago{
 
         this.btnBuscar = document.getElementById('buscar');
         this.btnBuscar.onclick = this.buscarInscripciones.bind(this);
-        console.log(this.btnBuscar)
+        // console.log(this.btnBuscar)
 
         this.btnCancelar = document.getElementById('confirmar');
         this.btnCancelar.onclick = function() {
@@ -115,8 +115,8 @@ export class Pago{
             var id = input.getAttribute("id");
 
             if (dorsal != ''){
-                console.log(id_talla);
-                datos.push({ dorsal: dorsal, idInscripcion: id , id_talla: id_talla});
+                // console.log(id_talla);
+                datos.push({id_talla: id_talla, dorsal: dorsal, idInscripcion: id});
             }else{
                 Swal.fire({
                     title: 'Dorsales vacíos',
@@ -129,7 +129,7 @@ export class Pago{
         }
 
         var seteado = await this.controlador.setDorsal(datos);
-        console.log(seteado);
+        // console.log(seteado);
         if (seteado.data >= 1){
             $('#total').text(0+'€');
             Swal.fire({
@@ -152,7 +152,7 @@ export class Pago{
     async buscarInscripciones2(codigo){
 
         this.datos=await this.controlador.getInscripciones('codigo', codigo)
-        console.log(codigo)
+        // console.log(codigo)
         
         if(this.datos.data.length!=0){
             this.introDatos(this.datos.data)
@@ -170,7 +170,7 @@ export class Pago{
     }
 
     introDatos(datos) {
-        console.log(datos);
+        // console.log(datos);
         let importe = 0;
         var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
         $('#tabla-datos > tbody').empty();
@@ -186,8 +186,8 @@ export class Pago{
                 // console.log(tallasCamisetas.map(talla=>talla.talla));
                 // console.log(tallasCamisetas.map(talla=>talla.id_talla));
                 // Crear un conjunto de tallas únicas
-                console.log(tallasCamisetas);
-                const tallasUnicas = [...new Set(tallasCamisetas.map(talla => ({ id_camiseta: talla.id_camiseta, talla: talla.talla })))];
+                // console.log(tallasCamisetas);
+                const tallasUnicas = [...new Set(tallasCamisetas.map(talla => ({ id_talla: talla.id_talla, talla: talla.talla })))];
     
                 for (let dato of datos) {
                     if (dato.nombre == null) {
@@ -238,9 +238,9 @@ export class Pago{
 
                         // Crear las opciones para cada talla única
                         tallasUnicas.forEach(talla => {
-                            console.log(talla);
+                            // console.log(talla);
                             const option = document.createElement('option');
-                            option.value = talla.id_camiseta;
+                            option.value = talla.id_talla;
                             option.textContent = talla.talla;
                             selectCamiseta.appendChild(option);
                         });

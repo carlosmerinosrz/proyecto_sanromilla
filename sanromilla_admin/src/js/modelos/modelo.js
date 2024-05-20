@@ -89,6 +89,8 @@ export class Modelo{
      * @returns {Promise<unknown>}
      */
     async setDorsal(datos) {
+        console.log('Model:');
+        console.log(datos);
         return new Promise(resolve => {
             $.ajax({
                 url: this.base_url + 'inscripciones/asignarDorsal',

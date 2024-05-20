@@ -191,6 +191,8 @@ export class Controlador{
      * @returns {Promise<unknown>}
      */
     async setDorsal(datos){
+        console.log('controllers:');
+        console.log(datos)
         let seteado = await this.modelo.setDorsal(datos)
         return seteado;
     }

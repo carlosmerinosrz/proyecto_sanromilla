@@ -34,17 +34,22 @@ class ModeloInscripciones{
      * Si no se envían todos los datos devuelve 0
      */
     public function asignarDorsal($datos){
-
+        // print_r($datos);
         if($datos){
             $this->conectar();
 
             try{
                 foreach ($datos as $dato) {
+                    //print_r($dato);
+                    $id_talla = $dato->id_talla;
                     $dorsal = $dato->dorsal;
                     $id_inscripcion = $dato->idInscripcion;
-                    $id_talla = $dato->id_talla;
+                    
+                    // echo "Valor de \$dato->idInscripcion: " . $dato->idInscripcion . "<br>";
+                    // echo "Valor de \$id_inscripcion: $id_inscripcion************************************************************************<br>";
+                    //echo "UPDATE inscripciones SET dorsal = $dorsal, estado_pago=1, id_talla=$id_talla WHERE id_inscripcion = $id_inscripcion";
                     $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago=1, id_talla=? WHERE id_inscripcion = ?");
-                    $upd->bind_param('iii', $dorsal, $id_inscripcion, $id_talla);
+                    $upd->bind_param('iii', $dorsal, $id_talla, $id_inscripcion);
 
                     $upd->execute();
                 }
