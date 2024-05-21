@@ -33,41 +33,40 @@ class ModeloInscripciones{
      * Si la modificación va mal devuelve -1
      * Si no se envían todos los datos devuelve 0
      */
-    public function asignarDorsal($datos){
-        // print_r($datos);
-        if($datos){
+    public function asignarDorsal($datos) {
+        if ($datos) {
             $this->conectar();
-
-            try{
+    
+            try {
                 foreach ($datos as $dato) {
-                    //print_r($dato);
-                    $id_talla = $dato->id_talla;
+                    // Extraer los datos del objeto actual
                     $dorsal = $dato->dorsal;
                     $id_inscripcion = $dato->idInscripcion;
-                    
-                    // echo "Valor de \$dato->idInscripcion: " . $dato->idInscripcion . "<br>";
-                    // echo "Valor de \$id_inscripcion: $id_inscripcion************************************************************************<br>";
-                    //echo "UPDATE inscripciones SET dorsal = $dorsal, estado_pago=1, id_talla=$id_talla WHERE id_inscripcion = $id_inscripcion";
-                    $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago=1, id_talla=? WHERE id_inscripcion = ?");
-                    $upd->bind_param('iii', $dorsal, $id_talla, $id_inscripcion);
-
+                    $id_talla = $dato->id_talla;
+                    // $importe = $dato->importe;
+    
+                    // Preparar la consulta SQL según si id_talla es null o no
+                    if ($id_talla === 'null') {
+                        $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago = 1, id_talla = null WHERE id_inscripcion = ?");
+                        $upd->bind_param('ii', $dorsal, $id_inscripcion);
+                    } else {
+                        $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago = 1, id_talla = ? WHERE id_inscripcion = ?");
+                        $upd->bind_param('iii', $dorsal, $id_talla, $id_inscripcion);
+                    }
+    
+                    // Ejecutar la consulta
                     $upd->execute();
+                    $upd->close();
                 }
-                $upd->close();
-                return 1;
-            }catch(Exception $e){
+                return 1; // Operación exitosa
+            } catch (Exception $e) {
                 return $e->getMessage(); // Devuelve el mensaje de error
-            }  
-        }else{
-                return 0;
+            }
+        } else {
+            return 0; // No se proporcionaron datos
         }
-        //     catch(Exception $e){
-        //         return -1;
-        //     }  
-        // }else{
-        //         return 0;
-        // }
     }
+    
 
     /**
      * Método que busca según el filtro de inscripciones

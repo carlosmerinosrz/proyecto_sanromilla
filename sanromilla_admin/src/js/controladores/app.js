@@ -191,8 +191,8 @@ export class Controlador{
      * @returns {Promise<unknown>}
      */
     async setDorsal(datos){
-        console.log('controllers:');
-        console.log(datos)
+        //console.log('controllers: ');
+        //console.log(datos)
         let seteado = await this.modelo.setDorsal(datos)
         return seteado;
     }
@@ -345,8 +345,12 @@ export class Controlador{
     }
 
     async newCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido){
-        console.log(nombre);
         let datos = await this.modelo.newCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido)
+        return datos;
+    }
+
+    async updateCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido, id){
+        let datos = await this.modelo.updateCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido, id)
         return datos;
     }
 

@@ -89,8 +89,7 @@ export class Modelo{
      * @returns {Promise<unknown>}
      */
     async setDorsal(datos) {
-        console.log('Model:');
-        console.log(datos);
+      
         return new Promise(resolve => {
             $.ajax({
                 url: this.base_url + 'inscripciones/asignarDorsal',
@@ -364,7 +363,9 @@ export class Modelo{
         });
     }
 
-    async newCategorias(nombre, descripcion, edad, precio, distancia, recorrido, hora){
+    async newCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido){
+        // console.log(precio);
+        // console.log(nombre);
         return new Promise(resolve => {
             $.get(this.base_url + 'categorias/'+'newCategorias', {
                 nombre:nombre,
@@ -374,6 +375,25 @@ export class Modelo{
                 distancia:distancia,
                 recorrido:recorrido,
                 hora:hora,
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
+    async updateCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido, id){
+        return new Promise(resolve => {
+            $.get(this.base_url + 'categorias/'+'updateCategorias', {
+                nombre:nombre,
+                descripcion:descripcion,
+                edad:edad,
+                precio:precio,
+                distancia:distancia,
+                recorrido:recorrido,
+                hora:hora,
+                id: id,
             }, (data) => {
                 resolve({
                     data

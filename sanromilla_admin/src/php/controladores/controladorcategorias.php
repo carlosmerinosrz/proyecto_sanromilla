@@ -27,6 +27,11 @@ class categoriasController{
         echo $respuesta;
     }
 
+    public function updateCategorias(){
+        $respuesta = $this->modelo->updateCategorias();
+        echo $respuesta;
+    }
+
     public function validarNameCategoria(){
         $respuesta = $this->modelo->validarNameCategoria();
         echo $respuesta;

@@ -135,7 +135,7 @@ export class Categorias {
      * @param {array} categoria 
      */
     async editarCategoria(categoria){
-        console.log(categoria)
+        // console.log(categoria)
         $('#app-container').empty()
     
         let contenedor=document.createElement('div')
@@ -446,51 +446,69 @@ export class Categorias {
     /**
      * Método que coge los datos para modificar un usuario y lo manda al controlador
      */
-    async enviarModificado(usuario){
-        let nombre = $('#nombreUsuario').val();
-        let correo = $('#correoUsuario').val();
-        let rolesSeleccionados = [];
-        $("input[name='roles']:checked").each(function () {
-            rolesSeleccionados.push($(this).attr('id').split('_')[1]);
-        });
+    async enviarModificado(categoria){
+        let nombre = $('#nombreCategoria').val();
+        let descripcion = $('#descripcionCategoria').val();
+        let edad = $('#edadCategoria').val();
+        let hora = $('#horaCategoria').val();
+        let precio = $('#precioCategoria').val();
+        let distancia = $('#distanciaCategoria').val();
+        let recorrido = $('#recorridoCategoria').val();
     
-        if(nombre === ''){
+        if (nombre === '') {
             Swal.fire({
                 title: 'Nombre vacío',
                 text: 'Recuerde rellenar el nombre.',
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
-        } else if(correo === ''){
-            Swal.fire({
-                title: 'Correo vacío',
-                text: 'Recuerde rellenar el correo.',
-                icon: 'error',
-                confirmButtonText: 'Ok'
-            });
-        } else {
-            if(this.validarCorreoElectronico(correo)){
-                let respuesta = await this.controlador.updateUsuario(usuario.id_colaborador, nombre, correo, rolesSeleccionados);
-                if(respuesta.data > 0){
+        }else{
+            let validacion = await this.validarNombreCategoria(nombre);
+            if(validacion === '0'){
+                if (edad === '') {
                     Swal.fire({
-                        title: 'Usuario modificado',
-                        text: 'Se ha guardado el usuario con éxito.',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    });
-                    this.controlador.mostrarUsuarios();
-                } else {
-                    Swal.fire({
-                        title: 'Ups.. ha habido algún error',
-                        text: 'Contacta con algún administrador.',
+                        title: 'Edad vacía',
+                        text: 'Recuerde rellenar la edad.',
                         icon: 'error',
                         confirmButtonText: 'Ok'
                     });
+                } else if (precio === '') {
+                    Swal.fire({
+                        title: 'Precio vacío',
+                        text: 'Recuerde rellenar el precio.',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
+                } else if (distancia === '') {
+                    Swal.fire({
+                        title: 'Distancia vacía',
+                        text: 'Recuerde rellenar la distancia.',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
+                } else {
+                    let respuesta = await this.controlador.updateCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido, categoria.id_categoria);
+                    if (respuesta.data > 0) {
+                        Swal.fire({
+                            title: 'Categoría guardada',
+                            text: 'Se ha guardado la categoría con éxito.',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        });
+                        this.controlador.mostrarCategorias();
+                    } else {
+                        Swal.fire({
+                            title: 'Ups.. ha habido algún error',
+                            text: 'Contacta con algún administrador.',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        });
+                    }
                 }
-            } else {
+            }else{
                 Swal.fire({
-                    title: 'Correo no válido',
-                    text: 'Compruebe y vuelva a enviar.',
+                    title: 'Nombre Duplicado',
+                    text: 'Recuerde no poner el mismo nombre que otra categoría',
                     icon: 'error',
                     confirmButtonText: 'Ok'
                 });

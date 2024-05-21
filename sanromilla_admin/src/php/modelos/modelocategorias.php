@@ -39,6 +39,7 @@ class ModeloCategorias{
     }
 
     public function newCategorias(){
+        
         $this->conectar();
         $consulta = $this->conexion->prepare("INSERT INTO categorias (nombre,descripcion, edad, precio, distancia, recorrido, hora) VALUES(?,?,?,?,?,?,?)");
         try {
@@ -58,6 +59,61 @@ class ModeloCategorias{
             $this->conexion->close();
         }
     }
+
+    public function updateCategorias(){
+        //print_r($_GET);
+        // Asegurarse de que los parámetros están definidos y son válidos.
+        if (!isset($_GET['nombre'], $_GET['descripcion'], $_GET['edad'], $_GET['precio'], $_GET['distancia'], $_GET['recorrido'], $_GET['hora'], $_GET['id'])) {
+            return 0; // Parámetros faltantes o inválidos
+        }
+    
+        // Sanitizar los parámetros antes de usarlos
+        $nombre = $_GET['nombre'];
+        $descripcion = $_GET['descripcion'];
+        $edad = $_GET['edad'];
+        $precio = $_GET['precio'];
+        $distancia = $_GET['distancia'];
+        $recorrido = $_GET['recorrido'];
+        $hora = $_GET['hora'];
+        $id = $_GET['id'];
+    
+        // Conectar a la base de datos
+        $this->conectar();
+    
+        // Preparar la consulta
+        $consulta = $this->conexion->prepare("UPDATE categorias SET nombre = ?, descripcion = ?, edad = ?, precio = ?, distancia = ?, recorrido = ?, hora = ? WHERE id_categoria = ?");
+    
+        // Comprobar que la consulta se preparó correctamente
+        if ($consulta === false) {
+            return 0; // Error en la preparación de la consulta
+        }
+    
+        try {
+            // Vincular los parámetros
+            $consulta->bind_param("ssiiissi", $nombre, $descripcion, $edad, $precio, $distancia, $recorrido, $hora, $id);
+    
+            // Ejecutar la consulta
+            $resultado = $consulta->execute();
+    
+            if($resultado){
+                return 1; // Éxito en la actualización de la categoría
+            } else {
+                return 0; // Falló la actualización de la categoría
+            }
+    
+        } catch (Exception $e) {
+            return $e->getMessage(); // Captura de excepciones y retorna el mensaje de error
+        } finally {
+            // Cerrar la consulta y la conexión
+            if ($consulta) {
+                $consulta->close();
+            }
+            if ($this->conexion) {
+                $this->conexion->close();
+            }
+        }
+    }
+    
 
     public function validarNameCategoria(){
         $this->conectar();
