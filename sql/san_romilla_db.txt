@@ -1,0 +1,135 @@
+-- --------------------------------------------------------
+-- Host:                         2daw.esvirgua.com
+-- Versión del servidor:         5.7.42 - MySQL Community Server (GPL)
+-- SO del servidor:              Linux
+-- HeidiSQL Versión:             12.3.0.6589
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+-- Volcando estructura para tabla user2daw_BD1-22.categorias
+CREATE TABLE IF NOT EXISTS `categorias` (
+  `id_categoria` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  `edad` tinyint(3) unsigned NOT NULL,
+  `precio` tinyint(3) unsigned NOT NULL,
+  `distancia` smallint(5) unsigned DEFAULT NULL,
+  `recorrido` varchar(200) DEFAULT NULL,
+  `hora` time DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`),
+  UNIQUE KEY `nombre` (`nombre`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla user2daw_BD1-22.colaboradores
+CREATE TABLE IF NOT EXISTS `colaboradores` (
+  `id_colaborador` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(300) NOT NULL,
+  `correo` varchar(254) NOT NULL,
+  `telefono` char(9) DEFAULT NULL,
+  PRIMARY KEY (`id_colaborador`),
+  UNIQUE KEY `correo` (`correo`)
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla user2daw_BD1-22.imagenes
+CREATE TABLE IF NOT EXISTS `imagenes` (
+  `id_imagenes` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `url` varchar(200) NOT NULL,
+  `fecha_subida` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_categoria` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`id_imagenes`),
+  KEY `FK_imagenes_categorias` (`id_categoria`)
+) ENGINE=MyISAM AUTO_INCREMENT=245 DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla user2daw_BD1-22.informacion
+CREATE TABLE IF NOT EXISTS `informacion` (
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `cartel` varchar(200) DEFAULT NULL,
+  `reglamento` varchar(200) DEFAULT NULL,
+  `inicio_inscripcion` date DEFAULT NULL,
+  `fin_inscripcion` date DEFAULT NULL,
+  `precio_camiseta` tinyint(3) unsigned DEFAULT NULL,
+  `beneficio_camiseta` tinyint(3) unsigned DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla user2daw_BD1-22.inscripciones
+CREATE TABLE IF NOT EXISTS `inscripciones` (
+  `id_inscripcion` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(200) NOT NULL,
+  `apellidos` varchar(200) NOT NULL,
+  `genero` char(1) DEFAULT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `dni` varchar(9) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `telefono` char(15) NOT NULL,
+  `info_adicional` varchar(500) DEFAULT NULL,
+  `dorsal` smallint(5) unsigned DEFAULT NULL,
+  `codigo_inscripcion` char(5) NOT NULL,
+  `talla_camiseta` char(3) DEFAULT NULL,
+  `importe` tinyint(3) unsigned NOT NULL,
+  `estado_pago` tinyint(1) NOT NULL DEFAULT '0',
+  `id_categoria` tinyint(3) unsigned NOT NULL,
+  `fecha_inscripcion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_inscripcion`),
+  UNIQUE KEY `dorsal` (`dorsal`),
+  KEY `FK_inscripciones_categorias` (`id_categoria`)
+) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla user2daw_BD1-22.posiciones
+CREATE TABLE IF NOT EXISTS `posiciones` (
+  `id_posicion` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `marca_llegada` smallint(5) unsigned NOT NULL,
+  `general` char(3) DEFAULT NULL,
+  `masculino` char(3) DEFAULT NULL,
+  `femenino` char(3) DEFAULT NULL,
+  `ritmo` smallint(5) unsigned DEFAULT NULL,
+  `id_inscripcion` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY (`id_posicion`),
+  UNIQUE KEY `id_inscripcion` (`id_inscripcion`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla user2daw_BD1-22.roles
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id_rol` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  PRIMARY KEY (`id_rol`),
+  UNIQUE KEY `nombre` (`nombre`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla user2daw_BD1-22.roles_colaboradores
+CREATE TABLE IF NOT EXISTS `roles_colaboradores` (
+  `id_rol` tinyint(3) unsigned DEFAULT NULL,
+  `id_colaborador` tinyint(3) unsigned DEFAULT NULL,
+  KEY `FK_rc_roles` (`id_rol`) USING BTREE,
+  KEY `FK_rc_colaboradores` (`id_colaborador`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

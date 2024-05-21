@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+
+    <list default="true" id="11a31533-95a7-4586-97de-d5963935bf72" name="Changes" comment="UPDATE - Login Implementado">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanromilla_admin/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sanromilla_admin/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanromilla_admin/src/js/vistas/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/sanromilla_admin/src/js/vistas/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanromilla_admin/src/js/vistas/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/sanromilla_admin/src/js/vistas/home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanromilla_admin/src/js/vistas/inicio/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/sanromilla_admin/src/js/vistas/inicio/inicio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanromilla_admin/src/js/vistas/inicio/inicio.js" beforeDir="false" afterPath="$PROJECT_DIR$/sanromilla_admin/src/js/vistas/inicio/inicio.js" afterDir="false" />
+
+    <list default="true" id="11a31533-95a7-4586-97de-d5963935bf72" name="Changes" comment="UPDATED - modales intro-dorsal">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/vistas/inscripcion/vistainscripcion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/vistas/inscripcion/vistainscripcion.js" afterDir="false" />
+
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QTnQCBXBjvsbrXtMOrwFdVk6Jm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/PROGRAMAS/XAMPP/htdocs/sanromilla-copia borrar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11a31533-95a7-4586-97de-d5963935bf72" name="Changes" comment="" />
+      <created>1685386420695</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685386420695</updated>
+      <workItem from="1685386421855" duration="1848000" />
+      <workItem from="1685476257050" duration="25584000" />
+      <workItem from="1685734337748" duration="43759000" />
+      <workItem from="1685878391935" duration="1465000" />
+      <workItem from="1685886975516" duration="1303000" />
+
+    </task>
+    <task id="LOCAL-00001" summary="updated">
+      <created>1685386647802</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685386647802</updated>
+    </task>
+    <task id="LOCAL-00002" summary="UPDATED - modales intro-dorsal">
+      <created>1685712521186</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685712521186</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="updated" />
+    <MESSAGE value="UPDATE - Login Implementado" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Login Implementado" />
+
+    <MESSAGE value="UPDATED - modales intro-dorsal" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATED - modales intro-dorsal" />
+
+  </component>
+</project>

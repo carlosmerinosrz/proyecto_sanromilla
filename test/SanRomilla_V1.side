@@ -1,0 +1,3307 @@
+{
+  "id": "3ccaef88-0556-47dc-ac6e-4b2d496658e3",
+  "version": "2.0",
+  "name": "SanRomilla",
+  "url": "https://22.2daw.esvirgua.com/sanromilla/",
+  "tests": [{
+    "id": "e58dc5b8-f44c-46fb-9d1e-536a1c5e9fdb",
+    "name": "P1",
+    "commands": [{
+      "id": "bbf4bbc4-a456-4e76-8dd5-51894f34a097",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "871873ea-1601-4bcf-8533-e182400df2cb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb64c876-a6dd-474e-a6a0-3ddb09619458",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.mt-5 > h2",
+      "targets": [
+        ["css=.mt-5 > h2", "css:finder"],
+        ["xpath=//div[@id='app-container']/div[2]/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'VII SAN ROMILLA')]", "xpath:innerText"]
+      ],
+      "value": "VII SAN ROMILLA"
+    }, {
+      "id": "99dc3015-dc5c-4880-8d04-11ac9a8ef81c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae66f24e-1a71-4aea-ab58-bff58b6fcc7d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.d-flex",
+      "targets": [
+        ["css=.d-flex", "css:finder"],
+        ["xpath=//div[@id='divInscripcion-inscripcion-1']/div/div/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'INSCRIPCIÓN 1')]", "xpath:innerText"]
+      ],
+      "value": "INSCRIPCIÓN 1"
+    }, {
+      "id": "e1415f84-9235-40a7-ae0c-fbbcc05fcc17",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Clasificación",
+      "targets": [
+        ["linkText=Clasificación", "linkText"],
+        ["css=#clasificacion > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Clasificación')]", "xpath:link"],
+        ["xpath=//li[@id='clasificacion']/a", "xpath:idRelative"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Clasificación')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfafc382-9b48-416e-a3aa-a42027dcaa0e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.text-center:nth-child(1)",
+      "targets": [
+        ["css=.text-center:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app-container']/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'CLASIFICACIÓN')]", "xpath:innerText"]
+      ],
+      "value": "CLASIFICACIÓN"
+    }, {
+      "id": "01b42e11-c3ff-4dc4-b6f2-b115156201e5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Fotos",
+      "targets": [
+        ["linkText=Fotos", "linkText"],
+        ["css=#fotos > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Fotos')]", "xpath:link"],
+        ["xpath=//li[@id='fotos']/a", "xpath:idRelative"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Fotos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba937d18-77e0-4a1f-bd48-f099e37c63b6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.text-center:nth-child(1)",
+      "targets": [
+        ["css=.text-center:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app-container']/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'IMÁGENES')]", "xpath:innerText"]
+      ],
+      "value": "IMÁGENES"
+    }, {
+      "id": "87076c46-eb58-42ec-94f8-2c847fe9ceb6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inicio",
+      "targets": [
+        ["linkText=Inicio", "linkText"],
+        ["css=#inicio > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inicio')]", "xpath:link"],
+        ["xpath=//li[@id='inicio']/a", "xpath:idRelative"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inicio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b654637-bba2-4915-b827-80123bde5db5",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.mt-5 > h2",
+      "targets": [
+        ["css=.mt-5 > h2", "css:finder"],
+        ["xpath=//div[@id='app-container']/div[2]/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'VII SAN ROMILLA')]", "xpath:innerText"]
+      ],
+      "value": "VII SAN ROMILLA"
+    }, {
+      "id": "de77bd11-c427-447f-8d3b-9579c668ca47",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3f7d6906-7743-47a8-9c89-0d5e09de17dd",
+    "name": "P3",
+    "commands": [{
+      "id": "2be02181-b3d7-47cf-b55a-abc474443288",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17b273bc-ee2f-4837-9bd6-ff292b1a1e65",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "256ef8a8-97d1-4455-bc3d-5e399305716b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Fotos",
+      "targets": [
+        ["linkText=Fotos", "linkText"],
+        ["css=#fotos > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Fotos')]", "xpath:link"],
+        ["xpath=//li[@id='fotos']/a", "xpath:idRelative"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Fotos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbfb8e11-5fad-4b0d-902c-8c0cd357182f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.titulosFotos:nth-child(1)",
+      "targets": [
+        ["css=.titulosFotos:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app-container']/div/h4", "xpath:idRelative"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'BabyRunner')]", "xpath:innerText"]
+      ],
+      "value": "BabyRunner"
+    }, {
+      "id": "f2929b7d-a84d-4816-8d2e-c5120a89e969",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "925175cc-9d02-4ba2-a9ef-5b15c81f347f",
+    "name": "P4",
+    "commands": [{
+      "id": "c87e0590-39a1-406d-a921-b755595637a9",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1cd4b291-565a-486c-906d-a11c86b91214",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "02a7241f-f365-482a-a0b6-3a328fecee2f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "240ee319-8ee0-441c-ab65-d27edb11a734",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "03ab56f9-11c8-4cfb-8791-aaaca31d2f3e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Nombre vacío')]", "xpath:innerText"]
+      ],
+      "value": "Nombre vacío"
+    }, {
+      "id": "bee53799-dc64-48d3-ae3f-187216c416c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e565665-72d1-4a00-89a6-4c911101593a",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7712a11f-76a9-44d0-bbae-9658cf2811b1",
+    "name": "P5",
+    "commands": [{
+      "id": "2a8a51b2-594d-4c96-8128-c941081cfe2c",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8afea7f7-5303-4bda-9db9-9c7831e6a0aa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "87f29a88-5e6b-4686-a3dd-b517c0bab17c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8dc7a117-5e6d-4cf0-8957-da6679029419",
+      "comment": "",
+      "command": "click",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a2977f7-bd59-4f27-ad4d-51adeab03414",
+      "comment": "",
+      "command": "type",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Laura"
+    }, {
+      "id": "b9e6bff0-6ae9-4a0b-b95d-1fe34a79f0bd",
+      "comment": "",
+      "command": "click",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8668275c-1166-4268-87d6-6fafd90b3802",
+      "comment": "",
+      "command": "type",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2023-05-29"
+    }, {
+      "id": "a7f0c8a8-9ca4-4112-9f37-52e1e20bccbe",
+      "comment": "",
+      "command": "click",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "62d6e25b-d7ed-4049-b1e7-c02edda02c56",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643D"
+    }, {
+      "id": "989bd214-d3e9-45e1-83d6-eb087805b8ac",
+      "comment": "",
+      "command": "click",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a713755b-863d-431b-adfb-0973e5f84924",
+      "comment": "",
+      "command": "type",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "666666669"
+    }, {
+      "id": "939af8f3-6519-4dc7-b2c0-09e7178ff4c5",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aaa192c1-01be-4d7c-9612-1deab89f6040",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Apellidos vacío')]", "xpath:innerText"]
+      ],
+      "value": "Apellidos vacío"
+    }, {
+      "id": "f1bdc487-67ea-45cf-8b7c-5c7282226e66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc80589f-7893-4ffe-bcc0-0327355519b6",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "6e571e98-b201-4223-9b7c-e6d843401cac",
+    "name": "P6",
+    "commands": [{
+      "id": "cbe219f9-0514-4945-b6de-34efcd83c36e",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a93564cf-f612-4802-9d8b-c6843d428fce",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7a32594a-47b7-41de-a8e7-66046eab8137",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f800493a-64e6-4939-986c-b23247a4c19a",
+      "comment": "",
+      "command": "click",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ac64816-9277-42e6-b417-e905439fd57a",
+      "comment": "",
+      "command": "type",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Laura"
+    }, {
+      "id": "0964755a-3dd5-45da-82cd-63e128823067",
+      "comment": "",
+      "command": "click",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acad8fa2-23e1-4445-a397-9087b1b6eed9",
+      "comment": "",
+      "command": "type",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Merino"
+    }, {
+      "id": "83b159b3-b0a3-4e9e-8def-cbc91d5b31e7",
+      "comment": "",
+      "command": "click",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "02687cf5-917e-4da8-8067-2126a59bc8b8",
+      "comment": "",
+      "command": "type",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2024-07-18"
+    }, {
+      "id": "9d115371-ad25-4508-8e1a-5a0ff1589253",
+      "comment": "",
+      "command": "click",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af29b9c3-4f7a-4803-b926-4c8b3dd54473",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643D"
+    }, {
+      "id": "04813140-26e0-4593-874a-ebb38b9e7b50",
+      "comment": "",
+      "command": "click",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3395802-87e7-4713-adb7-67048321738e",
+      "comment": "",
+      "command": "type",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "666666669"
+    }, {
+      "id": "5d64a6d7-8cba-44aa-a05f-dd2a62121ecc",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9c19dde-7a14-490d-82f8-c00953d008f8",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "06bd3359-00e3-473a-ac71-4c1111e7b2e0",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "35a8120b-cdf2-49e8-a715-771a7fdda9cf",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Fecha de nacimiento no válida')]", "xpath:innerText"]
+      ],
+      "value": "Fecha de nacimiento no válida"
+    }, {
+      "id": "72e2fe1a-a543-4245-b764-0db236997fd0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d73becb-dcf8-455b-b00d-c39f31c6f761",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a593d1ed-836c-4cfb-9c7d-c36416f184a8",
+    "name": "P7",
+    "commands": [{
+      "id": "24e399d1-b4fa-4e00-8d22-d5916e4744a6",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "540edcc5-4cc6-4734-8ddd-82d57b02b3d8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de387559-5c2f-48a3-9777-000413e75872",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "533dd889-6ce4-4ee6-82c9-3181e383dd50",
+      "comment": "",
+      "command": "click",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "61ba246f-1196-478f-beaa-7baf87c99322",
+      "comment": "",
+      "command": "type",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Laura"
+    }, {
+      "id": "7f7a74ab-f9cc-4382-8be9-f3912c2098ee",
+      "comment": "",
+      "command": "click",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd50e2d9-fff0-4b1a-bbb8-5f5401d3ff3d",
+      "comment": "",
+      "command": "type",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Merino"
+    }, {
+      "id": "ef2a0c11-da51-4416-9628-139841d205d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c203c59-afed-4061-b48c-1429c060a057",
+      "comment": "",
+      "command": "type",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2023-05-30"
+    }, {
+      "id": "c2802e0c-b7d0-40b7-b3f7-c26e2634aa46",
+      "comment": "",
+      "command": "click",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89000105-7d59-4281-8aec-e5f3df6afddf",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643D"
+    }, {
+      "id": "4da459bf-6547-4b0e-a66e-cfd6e826007b",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643A"
+    }, {
+      "id": "0698eaeb-01ad-414d-9d75-61b5f348a1f2",
+      "comment": "",
+      "command": "click",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87dd913f-037a-490b-a76d-102bb3151708",
+      "comment": "",
+      "command": "type",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "666666669"
+    }, {
+      "id": "1705e8d3-f48c-44a6-bb48-d6f988d4c47c",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7120fdb-73ca-45e3-8090-b9bf0ef52b6d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Letra del DNI no válida')]", "xpath:innerText"]
+      ],
+      "value": "Letra del DNI no válida"
+    }, {
+      "id": "19260e90-3af1-4d8b-ae42-4177640a2bc9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d68c77b6-3cf2-47a5-8175-972f87cda4b9",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "34d027b3-45da-47d5-9202-2dfd938ed6d8",
+    "name": "P8",
+    "commands": [{
+      "id": "d1747303-447e-4a04-b2f6-26d7432f48ec",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2a037e95-900f-447f-bff7-651e494d4ddf",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c3fd32d-2abc-431a-849f-d8cddf7e1b8e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "86761292-1b9d-4cbb-9687-19c8947da99b",
+      "comment": "",
+      "command": "click",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1070a551-060a-49da-9d33-a199a0733315",
+      "comment": "",
+      "command": "type",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Laura"
+    }, {
+      "id": "b6ecdcbb-bf3f-4e48-83c0-ac877f15708e",
+      "comment": "",
+      "command": "click",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d94e1de2-72d5-4618-be30-50d4135ea5ec",
+      "comment": "",
+      "command": "type",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Merino"
+    }, {
+      "id": "0c3aa766-ba65-4ae8-b44c-bf1006e83ea4",
+      "comment": "",
+      "command": "click",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21b7f56c-0073-4e12-8f03-b30bc8478d5f",
+      "comment": "",
+      "command": "type",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2023-05-30"
+    }, {
+      "id": "f865f88f-7174-4927-af5f-b22c4a003e80",
+      "comment": "",
+      "command": "click",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "92593030-10ae-482d-ab5f-8692c6cdd2a9",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643D"
+    }, {
+      "id": "e37f788b-e39b-403f-9374-8e7c99aee212",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "0000000A"
+    }, {
+      "id": "4a018347-1e3a-462b-8ff8-36483f3ea14e",
+      "comment": "",
+      "command": "click",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1bd685d-7778-48a9-a7eb-f9b35df4f073",
+      "comment": "",
+      "command": "type",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "666666669"
+    }, {
+      "id": "b0291c23-a7f3-499d-97b5-67b1209456d5",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab9d1b6c-163c-49ac-a120-9df3a3b14cd1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1511dee-f8cb-4905-9a0b-5e0a5764cb09",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "dc11f249-f605-493b-81c7-dd6b0f0538b2",
+    "name": "P9",
+    "commands": [{
+      "id": "c162ae67-8711-48e6-a704-e2299c74d0e4",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ea6dc86a-0a5d-4507-bcc7-b3d05b4f9fe1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bea97580-c35f-48b8-aa06-44a0ce09ca20",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "671a3109-ce6f-4bec-8516-165da4fca6bb",
+      "comment": "",
+      "command": "click",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "085168ff-8490-4c55-8f83-137a0e07f88b",
+      "comment": "",
+      "command": "type",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Laura"
+    }, {
+      "id": "d946ce40-8858-46fa-a5b1-44d5a56c0ee9",
+      "comment": "",
+      "command": "click",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e3d9554-b1c2-46cd-931c-8dcfda6d5b6d",
+      "comment": "",
+      "command": "type",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Merino"
+    }, {
+      "id": "1ff099a3-1392-427c-bc8d-a695e818afe0",
+      "comment": "",
+      "command": "click",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14e4d021-99c6-46f9-af67-e56b32d9bba0",
+      "comment": "",
+      "command": "type",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2023-05-29"
+    }, {
+      "id": "f6f4e0c2-5131-4d3a-a485-ea8f5b917fa7",
+      "comment": "",
+      "command": "click",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3314fa25-ac48-4e9d-8092-d177ec06d6ef",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643D"
+    }, {
+      "id": "7164ede9-ae40-46e6-962f-922d6dae040f",
+      "comment": "",
+      "command": "click",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9abfee53-104a-4acc-a77b-794874dfa695",
+      "comment": "",
+      "command": "type",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "0000000"
+    }, {
+      "id": "ddad6a98-ca74-4390-bec4-fa0fc730dc5f",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8c6153d-0e90-4f69-88ce-9fd8b0b667db",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "06fa7db7-63e4-4aa1-a873-19ece12745eb",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dceda0ba-8965-4ba2-98c9-f0e06fa6a38f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Formato de teléfono no válido')]", "xpath:innerText"]
+      ],
+      "value": "Formato de teléfono no válido"
+    }, {
+      "id": "a47725ec-ee21-48df-b6cd-babd04abb90c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "37b62818-a245-4fb1-99e0-d05cd11f7d99",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "485d6444-2784-4e3a-a93b-11c4a8ea68e3",
+    "name": "P10",
+    "commands": [{
+      "id": "339b166f-696f-44ef-aa98-1640d917d1da",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24e8a37d-24e4-4e57-92d8-936ffaaf7131",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1bb700db-7b32-441c-bfed-0ed142d7d5ca",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "be7e0995-351b-4530-bbbe-d966906e0b57",
+      "comment": "",
+      "command": "click",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e88c60f5-2995-47f4-a3b5-2a5d77ba0add",
+      "comment": "",
+      "command": "type",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Laura"
+    }, {
+      "id": "4aa44bb3-9237-428b-8528-1c99a38e13b6",
+      "comment": "",
+      "command": "click",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7424f0dc-3e81-447c-baaf-793a198e1af9",
+      "comment": "",
+      "command": "type",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Merino"
+    }, {
+      "id": "01c645ae-8c4e-4e9c-9d42-f8c0fe5b4d0b",
+      "comment": "",
+      "command": "click",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b428811-f22b-4fec-9152-fb64b08fa625",
+      "comment": "",
+      "command": "type",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2023-05-29"
+    }, {
+      "id": "fae59910-b012-446a-abef-56bc1ac09ff0",
+      "comment": "",
+      "command": "click",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "974128ab-7e9f-4e36-aefe-eeddd20e31a5",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643D"
+    }, {
+      "id": "352e389b-8797-4b43-8a2f-a38b3901b392",
+      "comment": "",
+      "command": "click",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "84884fcc-03b8-46ac-9c9c-45984ab4ceb8",
+      "comment": "",
+      "command": "type",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "666666669"
+    }, {
+      "id": "c43209f1-0615-44cd-b36f-5e3c9a65d68f",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e51a4523-251f-4ce9-9da8-9a93e716e956",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d549aef0-563e-450e-9e24-ab269596e15c",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnPagar",
+      "targets": [
+        ["id=btnPagar", "id"],
+        ["css=#btnPagar", "css:finder"],
+        ["xpath=//button[@id='btnPagar']", "xpath:attributes"],
+        ["xpath=//div[@id='confirmacion']/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Finalizar Inscripción')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "951b3a09-16d1-4e26-9fe4-58b022c044c6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Avisos Legales')]", "xpath:innerText"]
+      ],
+      "value": "Avisos Legales"
+    }, {
+      "id": "a2c15e19-1ccc-496c-b12b-013a8ba3c5e0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77cf8de5-b87c-4b29-9b19-344649da2e5b",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e4b1bc76-0324-4f41-8cce-3266f8f160c5",
+    "name": "P11",
+    "commands": [{
+      "id": "a1bca08f-2c34-40dd-8937-0e3f6ce187b3",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "54194cad-a010-4e9d-b63c-4158a685268a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ec356d85-d6c6-440d-96d4-291b35a49d57",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "83637335-e159-4b8c-b315-c31ccd4722d2",
+      "comment": "",
+      "command": "click",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "285667ca-5660-49ee-bae8-550ad88b1725",
+      "comment": "",
+      "command": "type",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Laura"
+    }, {
+      "id": "01b5b179-cfe4-47b2-a971-4eb4c796ddd7",
+      "comment": "",
+      "command": "click",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b34b4956-34c4-4150-8322-fc5ccd5232e1",
+      "comment": "",
+      "command": "type",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Merino"
+    }, {
+      "id": "6f628f3a-92f0-463d-9442-d823ed888ff8",
+      "comment": "",
+      "command": "click",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c94b26c0-2d13-473d-9463-fc8df92a2926",
+      "comment": "",
+      "command": "type",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2023-05-30"
+    }, {
+      "id": "835911a9-c51b-4faf-af40-ff89b8986d9f",
+      "comment": "",
+      "command": "click",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "268a4d81-4228-4d80-a6ab-4a0597a9435d",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643D"
+    }, {
+      "id": "698d31a1-0acd-4ae2-bbe9-bdc7af9cb2f7",
+      "comment": "",
+      "command": "click",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d2c3ff8-5b5a-4809-95ea-8fb33c5fada0",
+      "comment": "",
+      "command": "type",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "666666669"
+    }, {
+      "id": "a747809b-0fef-44b0-be80-d8b1b99bd721",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a86b9a9-188e-4d84-99d5-f4ada446d23d",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5232e57b-1d45-4108-af43-4defc6a1839b",
+      "comment": "",
+      "command": "click",
+      "target": "id=checkLegal",
+      "targets": [
+        ["id=checkLegal", "id"],
+        ["name=legales", "name"],
+        ["css=#checkLegal", "css:finder"],
+        ["xpath=//input[@id='checkLegal']", "xpath:attributes"],
+        ["xpath=//div[@id='confirmacion']/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50525b22-0e84-45f5-b0b3-dbaa43ee9446",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnPagar",
+      "targets": [
+        ["id=btnPagar", "id"],
+        ["css=#btnPagar", "css:finder"],
+        ["xpath=//button[@id='btnPagar']", "xpath:attributes"],
+        ["xpath=//div[@id='confirmacion']/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Finalizar Inscripción')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c24319e3-04e3-4bd5-8e24-570d1fa09873",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Correo vacío')]", "xpath:innerText"]
+      ],
+      "value": "Correo vacío"
+    }, {
+      "id": "9710e797-1506-4a60-83a2-f1d665d007d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ecf0d1a8-30a8-417e-b96d-c3abb5f54896",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "ea93c98a-00e2-4f9c-8989-e4655970c49a",
+    "name": "P12",
+    "commands": [{
+      "id": "ec1a3ade-b2a0-47d8-abe7-3d8e26781c06",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7cb3a2d3-22a2-477d-80f2-bc51bcbd0276",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "741ff7ef-bb51-477c-90a3-ff89e0e92d72",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscripciones",
+      "targets": [
+        ["linkText=Inscripciones", "linkText"],
+        ["css=#inscripciones > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscripciones')]", "xpath:link"],
+        ["xpath=//li[@id='inscripciones']/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscripciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "52bf6010-5203-4dd3-aa39-ebafe9aa679b",
+      "comment": "",
+      "command": "click",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a4536b8-d0a9-4e8a-bad5-653d8c2ec468",
+      "comment": "",
+      "command": "type",
+      "target": "name=nombre",
+      "targets": [
+        ["name=nombre", "name"],
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Laura"
+    }, {
+      "id": "6894e90b-5f1e-4f31-9fc1-25f966567214",
+      "comment": "",
+      "command": "click",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6b5b421-222e-4f5a-80fd-ec092975c5eb",
+      "comment": "",
+      "command": "type",
+      "target": "name=apellidos",
+      "targets": [
+        ["name=apellidos", "name"],
+        ["css=.form-control:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Merino"
+    }, {
+      "id": "32fa232a-ae12-4fd7-935d-7e99a61eeee1",
+      "comment": "",
+      "command": "click",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "56d5c6aa-f940-42ef-9c7e-65ac1e981b8a",
+      "comment": "",
+      "command": "type",
+      "target": "id=fecha",
+      "targets": [
+        ["id=fecha", "id"],
+        ["name=fecha", "name"],
+        ["css=#fecha", "css:finder"],
+        ["xpath=//input[@id='fecha']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2023-05-29"
+    }, {
+      "id": "b1279bec-1fcf-4f0f-8261-19a1a2da0684",
+      "comment": "",
+      "command": "click",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "44680ff5-0d5d-42ea-aea8-3ff7e9854482",
+      "comment": "",
+      "command": "type",
+      "target": "name=dni",
+      "targets": [
+        ["name=dni", "name"],
+        ["css=.form-control:nth-child(20)", "css:finder"],
+        ["xpath=//input[@name='dni']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "80227643D"
+    }, {
+      "id": "612e9e38-9a21-433b-acbf-28d97c571c06",
+      "comment": "",
+      "command": "click",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a4f74f3-62b4-420c-9b09-7de691e8d604",
+      "comment": "",
+      "command": "type",
+      "target": "name=telefono",
+      "targets": [
+        ["name=telefono", "name"],
+        ["css=.form-control:nth-child(22)", "css:finder"],
+        ["xpath=//input[@name='telefono']", "xpath:attributes"],
+        ["xpath=//form[@id='formInscripcion-1']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "666666669"
+    }, {
+      "id": "13f5720b-519f-4f8e-aa1a-e6ca02b2b401",
+      "comment": "",
+      "command": "click",
+      "target": "id=aceptarInscripciones",
+      "targets": [
+        ["id=aceptarInscripciones", "id"],
+        ["css=#aceptarInscripciones", "css:finder"],
+        ["xpath=//button[@id='aceptarInscripciones']", "xpath:attributes"],
+        ["xpath=//div[@id='botones']/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continuar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea992d01-81f4-4c69-95ec-38b1e51071f9",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "93251b2f-f472-4489-abd5-4622aa58e743",
+      "comment": "",
+      "command": "click",
+      "target": "id=checkLegal",
+      "targets": [
+        ["id=checkLegal", "id"],
+        ["name=legales", "name"],
+        ["css=#checkLegal", "css:finder"],
+        ["xpath=//input[@id='checkLegal']", "xpath:attributes"],
+        ["xpath=//div[@id='confirmacion']/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c39cdf6a-b325-47af-b784-288d95697471",
+      "comment": "",
+      "command": "click",
+      "target": "id=correo",
+      "targets": [
+        ["id=correo", "id"],
+        ["css=#correo", "css:finder"],
+        ["xpath=//input[@id='correo']", "xpath:attributes"],
+        ["xpath=//div[@id='confirmacion']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "70bf507c-d467-4677-85a6-d44a2b455499",
+      "comment": "",
+      "command": "type",
+      "target": "id=correo",
+      "targets": [
+        ["id=correo", "id"],
+        ["css=#correo", "css:finder"],
+        ["xpath=//input[@id='correo']", "xpath:attributes"],
+        ["xpath=//div[@id='confirmacion']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "correonovalido"
+    }, {
+      "id": "570780d4-ed1a-488c-8a19-15b877d05b1d",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnPagar",
+      "targets": [
+        ["id=btnPagar", "id"],
+        ["css=#btnPagar", "css:finder"],
+        ["xpath=//button[@id='btnPagar']", "xpath:attributes"],
+        ["xpath=//div[@id='confirmacion']/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Finalizar Inscripción')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c974802-c758-43c2-a55f-a8a294c9687a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Correo no válido')]", "xpath:innerText"]
+      ],
+      "value": "Correo no válido"
+    }, {
+      "id": "042eb2be-f97f-4419-8d59-4db8de17312c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f4aa995-0d89-46d2-87e7-9d47c7c350d3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e74cd012-bb24-494f-becf-0d239ccef4f5",
+    "name": "P13",
+    "commands": [{
+      "id": "3eb9c612-a0ec-479a-85d2-b21ab0a3173b",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/admin/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "332e838f-680f-4acf-ad85-d90910adf9a1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6c01702e-f976-472c-9cb1-f180daa69524",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app-container']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Login por Google')]", "xpath:innerText"]
+      ],
+      "value": "Login por Google"
+    }, {
+      "id": "45739521-a329-4dc5-9a0a-c35a5c1e7138",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c82e76b-5b04-4347-8165-49cd9aade9ca",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.ssJRIf",
+      "targets": [
+        ["css=.ssJRIf", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb7daa48-7c38-48b5-9c18-14cf44c93e5d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ssJRIf",
+      "targets": [
+        ["css=.ssJRIf", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win7284",
+      "windowTimeout": 2000
+    }, {
+      "id": "a8a715ea-cbb1-428f-b04d-5628380c57cc",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4b9cb08b-b72a-4344-b6a1-02424d23c9aa",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win7284}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "334841d4-14b5-44fd-8873-ace80bdfccfc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fFW7wc-ibnC6b-sM5MNb:nth-child(1) .fFW7wc-ibnC6b-ssJRIf",
+      "targets": [
+        ["css=.fFW7wc-ibnC6b-sM5MNb:nth-child(1) .fFW7wc-ibnC6b-ssJRIf", "css:finder"],
+        ["xpath=//div[@id='credentials-picker']/div/div/div[3]/div", "xpath:idRelative"],
+        ["xpath=//main/div/div/div/div/div/div[3]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2639e1d-9e1e-4ca6-b6dc-1268410d30e7",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "49602d31-ec30-4e0e-8eef-afe8f9329a99",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Login realizado con éxito')]", "xpath:innerText"]
+      ],
+      "value": "Login realizado con éxito"
+    }, {
+      "id": "e38b73e1-74d5-44eb-907b-c43c0117b8e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "897c746c-427a-4cf1-8c35-a79b4ff0ae66",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=linkHome",
+      "targets": [
+        ["id=linkHome", "id"],
+        ["linkText=Home", "linkText"],
+        ["css=#linkHome", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//a[@id='linkHome']", "xpath:attributes"],
+        ["xpath=//li[@id='item-nav-home']/a", "xpath:idRelative"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": "Home"
+    }, {
+      "id": "464cea71-1fb4-4780-ad42-d5448b0e4499",
+      "comment": "",
+      "command": "click",
+      "target": "id=logout-nav",
+      "targets": [
+        ["id=logout-nav", "id"],
+        ["linkText=Cerrar sesión", "linkText"],
+        ["css=#logout-nav", "css:finder"],
+        ["xpath=//a[contains(text(),'Cerrar sesión')]", "xpath:link"],
+        ["xpath=//a[@id='logout-nav']", "xpath:attributes"],
+        ["xpath=//div[@id='collapsibleNavbar']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cerrar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "280e3149-e13e-4a7f-91d2-875402c6c7f3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "16ff55ea-a42b-4db9-b9fe-a7618fe7e4a0",
+    "name": "P16",
+    "commands": [{
+      "id": "c10b8d51-bffd-41f8-bbee-d502859c431c",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/admin/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2ef6219-72d3-4d3c-beaa-f0e58e49e1e5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4135ca20-d97b-490a-8cf5-ef06feb07e53",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app-container']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Login por Google')]", "xpath:innerText"]
+      ],
+      "value": "Login por Google"
+    }, {
+      "id": "55738bdf-d3ec-473d-9033-b56b3dcf08d7",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "21a51da3-8318-41d3-b8b3-e00abd00ec2a",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.fmcmS",
+      "targets": [
+        ["css=.fmcmS", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6357ec25-8d39-4741-9423-be82050a8bf9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fmcmS",
+      "targets": [
+        ["css=.fmcmS", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win7595",
+      "windowTimeout": 2000
+    }, {
+      "id": "b60dd0da-6ad0-434d-b0fd-314bf8a3b031",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "52dabb4a-6985-405e-835b-13e2037464e9",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win7595}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "36ba640e-5486-419b-8cc8-151d776cbf34",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fFW7wc-ibnC6b-r4m2rf:nth-child(2) > .fFW7wc-ibnC6b-ssJRIf",
+      "targets": [
+        ["css=.fFW7wc-ibnC6b-r4m2rf:nth-child(2) > .fFW7wc-ibnC6b-ssJRIf", "css:finder"],
+        ["xpath=//div[@id='use-other']/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f70412a3-0180-4d12-9e37-a84bf6b8944d",
+      "comment": "",
+      "command": "click",
+      "target": "id=identifierId",
+      "targets": [
+        ["id=identifierId", "id"],
+        ["name=identifier", "name"],
+        ["css=#identifierId", "css:finder"],
+        ["xpath=//input[@id='identifierId']", "xpath:attributes"],
+        ["xpath=//div[@id='yDmH0d']/c-wiz/div/div[2]/div/div/div/form/span/section/div/div/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d0f3684-f9ca-4c18-8178-88788555de79",
+      "comment": "",
+      "command": "type",
+      "target": "id=identifierId",
+      "targets": [
+        ["id=identifierId", "id"],
+        ["name=identifier", "name"],
+        ["css=#identifierId", "css:finder"],
+        ["xpath=//input[@id='identifierId']", "xpath:attributes"],
+        ["xpath=//div[@id='yDmH0d']/c-wiz/div/div[2]/div/div/div/form/span/section/div/div/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "correopruebasanromilla252@gmail.com"
+    }, {
+      "id": "a02da950-95b0-4421-af39-36d23f38ecae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-vQzf8d",
+      "targets": [
+        ["css=.VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-vQzf8d", "css:finder"],
+        ["xpath=//div[@id='identifierNext']/div/button/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Siguiente')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ef2a88f-5bc7-47d2-a083-4b56fbb52e76",
+      "comment": "",
+      "command": "click",
+      "target": "name=Passwd",
+      "targets": [
+        ["name=Passwd", "name"],
+        ["css=#password .whsOnd", "css:finder"],
+        ["xpath=//input[@name='Passwd']", "xpath:attributes"],
+        ["xpath=//div[@id='password']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea20ec7e-b37e-427f-8b0f-6b9490894946",
+      "comment": "",
+      "command": "type",
+      "target": "name=Passwd",
+      "targets": [
+        ["name=Passwd", "name"],
+        ["css=#password .whsOnd", "css:finder"],
+        ["xpath=//input[@name='Passwd']", "xpath:attributes"],
+        ["xpath=//div[@id='password']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "sanromilla951"
+    }, {
+      "id": "0fafd56e-dbf3-4346-8bf4-186e04c89123",
+      "comment": "",
+      "command": "click",
+      "target": "id=selectionc1",
+      "targets": [
+        ["id=selectionc1", "id"],
+        ["css=#selectionc1", "css:finder"],
+        ["xpath=//div[@id='selectionc1']", "xpath:attributes"],
+        ["xpath=//div[@id='yDmH0d']/c-wiz/div/div[2]/div/div/div/form/span/section[2]/div/div/div/div[3]/div/div/div/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3672a7a7-4204-4b8e-b0de-7aca324ed66e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-vQzf8d",
+      "targets": [
+        ["css=.VfPpkd-LgbsSe-OWXEXe-k8QpJ > .VfPpkd-vQzf8d", "css:finder"],
+        ["xpath=//div[@id='passwordNext']/div/button/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Siguiente')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b391c906-7341-4035-b3e9-2a226a071991",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "72c29c69-5a27-4b04-8fd2-87f77409851c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Login realizado con éxito')]", "xpath:innerText"]
+      ],
+      "value": "Login realizado con éxito"
+    }, {
+      "id": "076e416b-ab8f-46b7-b03c-5926c1086f02",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2e60161-561b-477c-99b5-caf13d254317",
+      "comment": "",
+      "command": "click",
+      "target": "id=logout-nav",
+      "targets": [
+        ["id=logout-nav", "id"],
+        ["linkText=Cerrar sesión", "linkText"],
+        ["css=#logout-nav", "css:finder"],
+        ["xpath=//a[contains(text(),'Cerrar sesión')]", "xpath:link"],
+        ["xpath=//a[@id='logout-nav']", "xpath:attributes"],
+        ["xpath=//div[@id='collapsibleNavbar']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cerrar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a308fbe-9f0e-49b2-b524-0838f3dd6937",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "b2e09e83-10a4-4135-91c9-542608a8b544",
+    "name": "P17",
+    "commands": [{
+      "id": "1faec821-32ba-4335-ac04-c616ae95df08",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/admin/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4a78e32f-ab13-4faa-955c-07a8799276fd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3c3b27c8-0e7c-420d-82ab-721669e5635e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app-container']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Login por Google')]", "xpath:innerText"]
+      ],
+      "value": "Login por Google"
+    }, {
+      "id": "9738eee8-fd86-41fd-88e0-0aef1348cecd",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "f03910b4-80ef-450a-bd20-6f664630875b",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.ssJRIf",
+      "targets": [
+        ["css=.ssJRIf", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12522b53-58ef-4baa-9fa1-e83f0177b36a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ssJRIf",
+      "targets": [
+        ["css=.ssJRIf", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win9433",
+      "windowTimeout": 2000
+    }, {
+      "id": "46684935-0e39-45d4-a9af-383d5e1e5c67",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e1039833-a92c-487a-8f5b-76eb1434420c",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win9433}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1fcee6b3-f3d4-45a0-a3df-08976e5fbb3a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fFW7wc-ibnC6b-sM5MNb:nth-child(2) .fFW7wc-ibnC6b-ssJRIf",
+      "targets": [
+        ["css=.fFW7wc-ibnC6b-sM5MNb:nth-child(2) .fFW7wc-ibnC6b-ssJRIf", "css:finder"],
+        ["xpath=//div[@id='credentials-picker']/div[2]/div/div[3]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[3]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e451ed7b-fd07-46a5-b0e2-cdd4afe88a2d",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ec389f63-b6b8-4e88-a06e-1c12e128d546",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Login realizado con éxito')]", "xpath:innerText"]
+      ],
+      "value": "Login realizado con éxito"
+    }, {
+      "id": "bf2386ba-c0e3-4763-b5d1-cb6eb1886fb1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9fd64244-a5d1-4940-b3ec-164fe5c68f97",
+      "comment": "",
+      "command": "click",
+      "target": "id=linkPagos",
+      "targets": [
+        ["id=linkPagos", "id"],
+        ["linkText=Pagos", "linkText"],
+        ["css=#linkPagos", "css:finder"],
+        ["xpath=//a[contains(text(),'Pagos')]", "xpath:link"],
+        ["xpath=//a[@id='linkPagos']", "xpath:attributes"],
+        ["xpath=//div[@id='navTop']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Pagos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "05b1e13b-0912-4129-bdf2-ce513a19c7c5",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.ms-1",
+      "targets": [
+        ["css=.ms-1", "css:finder"],
+        ["xpath=//div[@id='pago']/div/div/div/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,'Búsqueda por:')]", "xpath:innerText"]
+      ],
+      "value": "Búsqueda por:"
+    }, {
+      "id": "d886dcb2-d331-47a6-9018-7a76dfe47223",
+      "comment": "",
+      "command": "click",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0490eb7b-152f-4006-b9f7-758d77a7bf99",
+      "comment": "",
+      "command": "type",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "00006"
+    }, {
+      "id": "0ef1c759-8397-483c-9c99-83e51f9cc881",
+      "comment": "",
+      "command": "click",
+      "target": "id=buscar",
+      "targets": [
+        ["id=buscar", "id"],
+        ["css=#buscar", "css:finder"],
+        ["xpath=//button[@id='buscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da838053-96ba-4694-ad33-c56b081e959a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//table[@id='tabla-datos']/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'00006')]", "xpath:innerText"]
+      ],
+      "value": "00006"
+    }, {
+      "id": "c019807d-f978-45a6-95c1-d4e62d6eb8f8",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=total",
+      "targets": [
+        ["id=total", "id"],
+        ["css=#total", "css:finder"],
+        ["xpath=//span[@id='total']", "xpath:attributes"],
+        ["xpath=//div[@id='app-container']/div[2]/div/div/div[2]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'0€')]", "xpath:innerText"]
+      ],
+      "value": "0€"
+    }, {
+      "id": "1a9cede1-ca23-489d-a125-47ccea465368",
+      "comment": "",
+      "command": "click",
+      "target": "id=logout-nav",
+      "targets": [
+        ["id=logout-nav", "id"],
+        ["linkText=Cerrar sesión", "linkText"],
+        ["css=#logout-nav", "css:finder"],
+        ["xpath=//a[contains(text(),'Cerrar sesión')]", "xpath:link"],
+        ["xpath=//a[@id='logout-nav']", "xpath:attributes"],
+        ["xpath=//div[@id='collapsibleNavbar']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cerrar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a83dea4a-4a53-4950-a6a7-03210039f460",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3af1ca19-2191-4c1a-aaf0-e261c7cd0f5b",
+    "name": "P18",
+    "commands": [{
+      "id": "ae2d13c8-6602-4979-be59-d5759171c2ee",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/admin/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1cb3ac7-2d68-41c7-bcda-646f91d3b91b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c7e88de7-88bc-4b0e-a31e-fae29a3a163e",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3fa8aac-0a5e-4b37-8b3d-408c85ae9c1c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ssJRIf",
+      "targets": [
+        ["css=.ssJRIf", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win6440",
+      "windowTimeout": 2000
+    }, {
+      "id": "662a94e7-c322-4c1e-aa55-9fc07d112978",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff4f8038-b357-4677-85e8-96849209d1fa",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win6440}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "418e40ba-e8be-4080-ad74-79dea2e927f8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fFW7wc-ibnC6b-sM5MNb:nth-child(2) .fFW7wc-ibnC6b-ssJRIf",
+      "targets": [
+        ["css=.fFW7wc-ibnC6b-sM5MNb:nth-child(2) .fFW7wc-ibnC6b-ssJRIf", "css:finder"],
+        ["xpath=//div[@id='credentials-picker']/div[2]/div/div[3]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[3]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eae3d74f-1b77-4575-8bac-1f32b4989129",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5fdc323d-4bc5-4f3e-93e6-0d35e02abf24",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Login realizado con éxito')]", "xpath:innerText"]
+      ],
+      "value": "Login realizado con éxito"
+    }, {
+      "id": "57c769b1-1ba8-4b45-91c1-9911d0c28e93",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc2da0f7-d965-432a-a8f8-180dd454e2b7",
+      "comment": "",
+      "command": "click",
+      "target": "id=linkPagos",
+      "targets": [
+        ["id=linkPagos", "id"],
+        ["linkText=Pagos", "linkText"],
+        ["css=#linkPagos", "css:finder"],
+        ["xpath=//a[contains(text(),'Pagos')]", "xpath:link"],
+        ["xpath=//a[@id='linkPagos']", "xpath:attributes"],
+        ["xpath=//div[@id='navTop']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Pagos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f13ed44c-2efc-4fa9-b91c-c4f78ba3b563",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.ms-1",
+      "targets": [
+        ["css=.ms-1", "css:finder"],
+        ["xpath=//div[@id='pago']/div/div/div/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,'Búsqueda por:')]", "xpath:innerText"]
+      ],
+      "value": "Búsqueda por:"
+    }, {
+      "id": "85cf9b67-5a3b-40ab-9c72-378bebaae2ce",
+      "comment": "",
+      "command": "click",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0e16987-cf22-4900-a5d5-c6102d4f1f63",
+      "comment": "",
+      "command": "type",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "00000"
+    }, {
+      "id": "a679cc3a-1b2c-4e46-b644-3977eedf4b20",
+      "comment": "",
+      "command": "click",
+      "target": "id=buscar",
+      "targets": [
+        ["id=buscar", "id"],
+        ["css=#buscar", "css:finder"],
+        ["xpath=//button[@id='buscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a2ae622-6c19-44db-adf7-e30b6d817f98",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td",
+      "targets": [
+        ["css=td", "css:finder"],
+        ["xpath=//table[@id='tabla-datos']/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'No hay ninguna inscripción con ese código o dni.')]", "xpath:innerText"]
+      ],
+      "value": "No hay ninguna inscripción con ese código o dni."
+    }, {
+      "id": "71a49f7f-bc90-4ae9-a5c9-a20b052a6068",
+      "comment": "",
+      "command": "click",
+      "target": "id=logout-nav",
+      "targets": [
+        ["id=logout-nav", "id"],
+        ["linkText=Cerrar sesión", "linkText"],
+        ["css=#logout-nav", "css:finder"],
+        ["xpath=//a[contains(text(),'Cerrar sesión')]", "xpath:link"],
+        ["xpath=//a[@id='logout-nav']", "xpath:attributes"],
+        ["xpath=//div[@id='collapsibleNavbar']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cerrar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5bb48872-a1a3-4b81-b3af-05bfd41f87ac",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "52a2ab07-7a4d-4e60-bbb8-09198802aa14",
+    "name": "P21",
+    "commands": [{
+      "id": "dffd459c-c16b-43fe-b601-9e6b76fc50d8",
+      "comment": "",
+      "command": "open",
+      "target": "https://22.2daw.esvirgua.com/sanromilla/admin/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ad32fa3-6d59-4f4c-b475-969194244570",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1071x974",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68c2d3db-e9bf-4ab6-ba18-69fed403cb49",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app-container']/div/div[2]/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Login por Google')]", "xpath:innerText"]
+      ],
+      "value": "Login por Google"
+    }, {
+      "id": "335f46c9-52eb-428b-a46f-c94f25de33e6",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "32033494-34af-46ae-af44-b7105acf83ff",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.ssJRIf",
+      "targets": [
+        ["css=.ssJRIf", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "774db17d-041c-4e27-bfee-acfe8fdfb452",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ssJRIf",
+      "targets": [
+        ["css=.ssJRIf", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win2924",
+      "windowTimeout": 2000
+    }, {
+      "id": "d9642c5f-12cc-4e05-b6b8-1cd6a04e580b",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "223266e5-f997-48ac-a86d-b5ff8b0237ab",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win2924}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2dc5d76c-926a-48e7-b3e8-94ab2bb8b67b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fFW7wc-ibnC6b-sM5MNb:nth-child(2) .fFW7wc-ibnC6b-K4efff",
+      "targets": [
+        ["css=.fFW7wc-ibnC6b-sM5MNb:nth-child(2) .fFW7wc-ibnC6b-K4efff", "css:finder"],
+        ["xpath=//div[@id='credentials-picker']/div[2]/div/div[3]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[3]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1db2ac0b-e15b-4ab0-8b9e-4b40c0b90f29",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5cade36d-0536-4019-a709-050174ff42ce",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Login realizado con éxito')]", "xpath:innerText"]
+      ],
+      "value": "Login realizado con éxito"
+    }, {
+      "id": "f62da62b-38d8-4e24-aed4-e5b8a664b89b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f6cbe5e-752c-4b77-858a-5fc9a14e4a74",
+      "comment": "",
+      "command": "click",
+      "target": "id=linkPagos",
+      "targets": [
+        ["id=linkPagos", "id"],
+        ["linkText=Pagos", "linkText"],
+        ["css=#linkPagos", "css:finder"],
+        ["xpath=//a[contains(text(),'Pagos')]", "xpath:link"],
+        ["xpath=//a[@id='linkPagos']", "xpath:attributes"],
+        ["xpath=//div[@id='navTop']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Pagos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3e81e62-aacd-46f9-b2f2-2060b4e51616",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.ms-1",
+      "targets": [
+        ["css=.ms-1", "css:finder"],
+        ["xpath=//div[@id='pago']/div/div/div/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,'Búsqueda por:')]", "xpath:innerText"]
+      ],
+      "value": "Búsqueda por:"
+    }, {
+      "id": "d0cc4e06-da05-4222-b4bf-476e5919b363",
+      "comment": "",
+      "command": "click",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b097153-e777-4772-aef3-948c535e841d",
+      "comment": "",
+      "command": "click",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2abc5300-f40e-402a-b436-1b72d407c14f",
+      "comment": "",
+      "command": "type",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "96056"
+    }, {
+      "id": "037ba843-cfc6-4ec7-88f9-1d9d2c69f333",
+      "comment": "",
+      "command": "click",
+      "target": "id=buscar",
+      "targets": [
+        ["id=buscar", "id"],
+        ["css=#buscar", "css:finder"],
+        ["xpath=//button[@id='buscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "469d7d10-2c05-4416-b8d7-7e1c183820b4",
+      "comment": "",
+      "command": "click",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7cc1adeb-bf4d-4b00-a571-3ce2c9ac4d53",
+      "comment": "",
+      "command": "click",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3b0648a-9ea4-4ce6-a506-082bfe19674f",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "67816f24-d9fc-4173-9bb1-6d167ab3d2f9",
+      "comment": "",
+      "command": "type",
+      "target": "id=codigoBuscar",
+      "targets": [
+        ["id=codigoBuscar", "id"],
+        ["css=#codigoBuscar", "css:finder"],
+        ["xpath=//input[@id='codigoBuscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2483"
+    }, {
+      "id": "1db9408b-f86d-4348-a866-f6c5c02a3bbd",
+      "comment": "",
+      "command": "click",
+      "target": "id=buscar",
+      "targets": [
+        ["id=buscar", "id"],
+        ["css=#buscar", "css:finder"],
+        ["xpath=//button[@id='buscar']", "xpath:attributes"],
+        ["xpath=//div[@id='pago']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6e13e2b-9f3d-4114-9442-7a13ca7fa353",
+      "comment": "",
+      "command": "verifyValue",
+      "target": "id=29",
+      "targets": [
+        ["id=29", "id"],
+        ["css=#\\32 9", "css:finder"],
+        ["xpath=//input[@id='29']", "xpath:attributes"],
+        ["xpath=//table[@id='tabla-datos']/tbody/tr/td[3]/input", "xpath:idRelative"],
+        ["xpath=//td[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2711ca77-220d-44e2-8e58-69e671f3da26",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirmar",
+      "targets": [
+        ["id=confirmar", "id"],
+        ["linkText=CONFIRMAR", "linkText"],
+        ["css=#confirmar", "css:finder"],
+        ["xpath=//a[contains(text(),'CONFIRMAR')]", "xpath:link"],
+        ["xpath=//a[@id='confirmar']", "xpath:attributes"],
+        ["xpath=//div[@id='app-container']/div[2]/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'CONFIRMAR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf62ab1a-ad9d-4845-a569-4ab3482d2937",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Dorsales vacíos')]", "xpath:innerText"]
+      ],
+      "value": "Dorsales vacíos"
+    }, {
+      "id": "5092d8d4-39ee-410f-8c4f-953d8a457fa7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Vale!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2356939e-5bde-4392-91ca-74cdd6dc6e0b",
+      "comment": "",
+      "command": "click",
+      "target": "id=logout-nav",
+      "targets": [
+        ["id=logout-nav", "id"],
+        ["linkText=Cerrar sesión", "linkText"],
+        ["css=#logout-nav", "css:finder"],
+        ["xpath=//a[contains(text(),'Cerrar sesión')]", "xpath:link"],
+        ["xpath=//a[@id='logout-nav']", "xpath:attributes"],
+        ["xpath=//div[@id='collapsibleNavbar']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cerrar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "46cd0682-de2d-4f29-891f-fe597aef0d47",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5a7b55dd-aa38-42c6-8904-845b43f43ce1",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e58dc5b8-f44c-46fb-9d1e-536a1c5e9fdb"]
+  }],
+  "urls": ["https://22.2daw.esvirgua.com/sanromilla/"],
+  "plugins": []
+}
