@@ -68,10 +68,12 @@ export class VistaFotos{
                 let divFoto=document.createElement('div')
                 divFoto.classList.add('rounded','col-sm-3','m-1','p-3', 'fotosCarrera')
                 
-                
+                // console.log(element.id_categoria);
                 switch(element.id_categoria) {
                     case '1':
+                        console.log('in!');
                         divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/babyrunner/' + element.url + ')';
+                        console.log('despues');
                         div1.appendChild(divFoto);
                         break;
                     case '2':
