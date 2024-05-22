@@ -59,41 +59,55 @@ class ModeloInformacion{
     }
 
 
-    /**
-    * Método para modificar los archivos
-    */
-    public function modificarArchivos($arch){
+/**
+ * Método para modificar los archivos
+ */
+public function modificarArchivos($arch){
+    $this->conectar();
 
-        $this->conectar();
-
-        $cartel = $arch['cartel'];
-        $reglamento = $arch['reglamento'];
-
-        var_dump($cartel);
-        var_dump($reglamento);
-
-        if (!$this->esPngOJpg($cartel)) {
-                return false;
-            }
-        if (!$this->esPdf($reglamento)) {
-                return false;
-            }
-
-        $consulta = $this->conexion->prepare("UPDATE informacion SET cartel = ?, reglamento = ?;");
-
-        $nombre_cartel = $cartel['name'];
-        $nombre_reglamento = $reglamento['name'];
-        $ruta_destino = 'C:\xampp\htdocs\san_romilla\sanromilla\sanromilla_admin\src\assets\carrera_archivos\\'. $nombre_cartel;
-        $ruta_destino2 = 'C:\xampp\htdocs\san_romilla\sanromilla\sanromilla_admin\src\assets\carrera_archivos\\'. $nombre_reglamento;
-        move_uploaded_file($cartel['tmp_name'], $ruta_destino);
-        move_uploaded_file($reglamento['tmp_name'], $ruta_destino2);
-
-        $consulta->bind_param("ss", $nombre_cartel, $nombre_reglamento);
-        $consulta->execute();
-
-        $consulta->close();
-        return true;
+    // Ensure 'cartel' and 'reglamento' keys exist in the $arch array
+    if (!isset($arch['cartel']) || !isset($arch['reglamento'])) {
+        echo "Missing required files.";
+        return false;
     }
+
+    $cartel = $arch['cartel'];
+    $reglamento = $arch['reglamento'];
+
+    var_dump($cartel);
+    var_dump($reglamento);
+
+    if (!$this->esPngOJpg($cartel)) {
+        return false;
+    }
+    if (!$this->esPdf($reglamento)) {
+        return false;
+    }
+
+    $consulta = $this->conexion->prepare("UPDATE informacion SET cartel = ?, reglamento = ?;");
+
+    $nombre_cartel = $cartel['name'];
+    $nombre_reglamento = $reglamento['name'];
+    $directorio = dirname(__DIR__) . "/../assets/carrera_archivos/";
+
+    // Create the directory if it doesn't exist
+    if (!is_dir($directorio)) {
+        mkdir($directorio, 0777, true);
+    }
+
+    $ruta_destino_cartel = $directorio . $nombre_cartel;
+    $ruta_destino_reglamento = $directorio . $nombre_reglamento;
+
+    move_uploaded_file($cartel['tmp_name'], $ruta_destino_cartel);
+    move_uploaded_file($reglamento['tmp_name'], $ruta_destino_reglamento);
+
+    $consulta->bind_param("ss", $nombre_cartel, $nombre_reglamento);
+    $consulta->execute();
+
+    $consulta->close();
+    return true;
+}
+
 
     /**
     * Método para obtener la información general de la carrera
