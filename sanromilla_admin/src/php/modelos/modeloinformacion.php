@@ -62,7 +62,7 @@ class ModeloInformacion{
 /**
  * Método para modificar los archivos
  */
-public function modificarArchivos($arch){
+public function modificarArchivos($arch) {
     $this->conectar();
 
     // Ensure 'cartel' and 'reglamento' keys exist in the $arch array
@@ -74,9 +74,6 @@ public function modificarArchivos($arch){
     $cartel = $arch['cartel'];
     $reglamento = $arch['reglamento'];
 
-    var_dump($cartel);
-    var_dump($reglamento);
-
     if (!$this->esPngOJpg($cartel)) {
         return false;
     }
@@ -84,10 +81,7 @@ public function modificarArchivos($arch){
         return false;
     }
 
-    $consulta = $this->conexion->prepare("UPDATE informacion SET cartel = ?, reglamento = ?;");
-
-    $nombre_cartel = $cartel['name'];
-    $nombre_reglamento = $reglamento['name'];
+    // Define the directory
     $directorio = dirname(__DIR__) . "/../assets/carrera_archivos/";
 
     // Create the directory if it doesn't exist
@@ -95,18 +89,38 @@ public function modificarArchivos($arch){
         mkdir($directorio, 0777, true);
     }
 
+    // Clear the directory
+    $this->clearDirectory($directorio);
+
+    $nombre_cartel = $cartel['name'];
+    $nombre_reglamento = $reglamento['name'];
+
     $ruta_destino_cartel = $directorio . $nombre_cartel;
     $ruta_destino_reglamento = $directorio . $nombre_reglamento;
 
     move_uploaded_file($cartel['tmp_name'], $ruta_destino_cartel);
     move_uploaded_file($reglamento['tmp_name'], $ruta_destino_reglamento);
 
+    $consulta = $this->conexion->prepare("UPDATE informacion SET cartel = ?, reglamento = ?;");
     $consulta->bind_param("ss", $nombre_cartel, $nombre_reglamento);
     $consulta->execute();
 
     $consulta->close();
     return true;
 }
+
+/**
+ * Método para borrar todos los archivos de un directorio
+ */
+private function clearDirectory($dir) {
+    $files = glob($dir . '*'); // Get all file names
+    foreach($files as $file) { // Iterate files
+        if(is_file($file)) {
+            unlink($file); // Delete file
+        }
+    }
+}
+
 
 
     /**

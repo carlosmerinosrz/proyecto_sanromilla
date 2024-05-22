@@ -7,7 +7,13 @@ export class VistaInicio {
 
     constructor(controlador) {
         this.controlador = controlador;
-        document.addEventListener('DOMContentLoaded', this.iniciar.bind(this));
+
+        // Check if DOM is already loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', this.iniciar.bind(this));
+        } else {
+            this.iniciar();
+        }
     }
 
     /**
@@ -17,13 +23,21 @@ export class VistaInicio {
         this.datos = await this.controlador.obtenerInformacion();
         console.log(this.datos);
         
-        // Assuming this.datos is an array and we want the first item
+        // Assuming this.datos is an array with the first item containing price and image info
         if (this.datos.length > 0) {
-            const precioCamiseta = this.datos[0].precio_camiseta;
+            const { precio_camiseta, cartel } = this.datos[0];
+
+            // Update price
             const spanElements = document.querySelectorAll('.preciocamiseta');
             spanElements.forEach(span => {
-                span.innerText = `${precioCamiseta}€`;
+                span.innerText = `${precio_camiseta}€`;
             });
+
+            // Update image source
+            const imgElement = document.getElementById('cartel');
+            if (imgElement) {
+                imgElement.src = `../sanromilla_admin/src/assets/carrera_archivos/${cartel}`;
+            }
         }
     }
 }

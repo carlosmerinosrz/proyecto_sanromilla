@@ -58,23 +58,32 @@ export class Carrera {
                 icon: 'warning',
                 confirmButtonText: 'Vale!'
             })
-        }else{
+        } else {
             var inputCartel = document.getElementById('cartel');
             var cartel = inputCartel.files[0];
             var inputReglamento = document.getElementById('reglamento');
             var reglamento = inputReglamento.files[0];
 
+            if (!cartel || !reglamento) {
+                Swal.fire({
+                    title: 'Error en la petición',
+                    text: 'Algo no ha ido bien. (Tanto Cartel como Reglamento han de ser subidos)',
+                    icon: 'error',
+                    confirmButtonText: 'Vale!'
+                });
+                return;
+            }
+
             var formData = new FormData();
             formData.append('cartel', cartel);
             formData.append('reglamento', reglamento);
 
-            if (cartel || reglamento) {
-                var modificacionArchivos = await this.controlador.modArchivos(formData);
-                console.log('modif: ', modificacionArchivos )
-            }
+            var modificacionArchivos = await this.controlador.modArchivos(formData);
+            console.log('modif: ', modificacionArchivos);
 
             var modificarDatos = await this.controlador.modificarInfo(datos);
-            console.log('modif: ', modificarDatos)
+            console.log('modif: ', modificarDatos);
+
             if (modificarDatos.data >= 1){
                 Swal.fire({
                     title: '¡Cambios realizados!',
@@ -82,7 +91,7 @@ export class Carrera {
                     icon: 'success',
                     confirmButtonText: 'Vale!'
                 })
-            }else{
+            } else {
                 Swal.fire({
                     title: 'Error en la petición',
                     text: 'Algo no ha ido bien.',
@@ -109,7 +118,6 @@ export class Carrera {
         var fecha = partes[0];
         var hora = partes[1];
 
-        var fechaInput = document.getElementById('fecha');
         var horaInput = document.getElementById('hora');
 
         fechaInput.value = fecha;
@@ -163,8 +171,7 @@ export class Carrera {
         var fechaInicio = new Date(datos.inicio_inscripcion);
         var fechaFin = new Date(datos.fin_inscripcion);
 
-
-        if (fechaInicio < fechaFin /*&& fechaInicio > fechaCarrera*/) {
+        if (fechaInicio < fechaFin) {
             return '';
         } else {
             return 'Fecha inicio de inscripción tiene que ser anterior a la fecha de fin de inscripción. ';
@@ -208,7 +215,6 @@ export class Carrera {
         return "";
     }
 
-
     /**
      * Para mostrar el item del navbar activo
      */
@@ -221,7 +227,5 @@ export class Carrera {
         document.getElementById('linkCategorias').classList.remove('active');
         document.getElementById('linkInscripciones').classList.remove('active');
     }
-
-
 
 }
