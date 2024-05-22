@@ -43,15 +43,16 @@ class ModeloInscripciones{
                     $dorsal = $dato->dorsal;
                     $id_inscripcion = $dato->idInscripcion;
                     $id_talla = $dato->id_talla;
-                    // $importe = $dato->importe;
-    
+                    $importe = $dato->importe;
+
                     // Preparar la consulta SQL según si id_talla es null o no
                     if ($id_talla === 'null') {
-                        $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago = 1, id_talla = null WHERE id_inscripcion = ?");
-                        $upd->bind_param('ii', $dorsal, $id_inscripcion);
+                        $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago = 1, id_talla = null, importe = ? WHERE id_inscripcion = ?");
+                        $upd->bind_param('iii', $dorsal, $importe, $id_inscripcion);
                     } else {
-                        $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago = 1, id_talla = ? WHERE id_inscripcion = ?");
-                        $upd->bind_param('iii', $dorsal, $id_talla, $id_inscripcion);
+                        //print_r('entra en no es null');
+                        $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago = 1, id_talla = ?, importe = ? WHERE id_inscripcion = ?");
+                        $upd->bind_param('iiii', $dorsal, $id_talla, $importe, $id_inscripcion);
                     }
     
                     // Ejecutar la consulta

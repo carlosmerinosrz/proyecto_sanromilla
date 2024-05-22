@@ -11,6 +11,7 @@ export class Pago{
       
     constructor(controlador){
         this.controlador=controlador
+        this.totalImporteActualizado = 0;
         window.setTimeout(this.iniciar.bind(this), 500)
     }
 
@@ -99,7 +100,7 @@ export class Pago{
         for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
             var dorsal = input.value;
-            var select = input.parentNode.nextElementSibling.querySelector('select'); 
+            var select = input.parentNode.nextElementSibling.querySelector('select');
             var id_talla = select.value;
 
             if(!this.validarDato(dorsal)){
@@ -115,9 +116,13 @@ export class Pago{
             var id = input.getAttribute("id");
 
             if (dorsal != ''){
-                // console.log(id_talla);
-                datos.push({id_talla: id_talla, dorsal: dorsal, idInscripcion: id});
-            }else{
+                datos.push({
+                    id_talla: id_talla,
+                    dorsal: dorsal,
+                    idInscripcion: id,
+                    importe: this.totalImporteActualizado // Usar el total almacenado
+                });
+            } else {
                 Swal.fire({
                     title: 'Dorsales vacíos',
                     text: 'Recuerde rellenar TODOS los dorsales.',
@@ -127,11 +132,11 @@ export class Pago{
                 return 0;
             }
         }
-
+        // console.log(datos);
         var seteado = await this.controlador.setDorsal(datos);
         // console.log(seteado);
         if (seteado.data >= 1){
-            $('#total').text(0+'€');
+            $('#total').text(0 + '€');
             Swal.fire({
                 title: '¡Dorsales asignados!',
                 text: 'Se han registrado correctamente los dorsales.',
@@ -139,7 +144,7 @@ export class Pago{
                 confirmButtonText: 'Vale!'
             });
             this.buscarInscripciones();
-        }else{
+        } else {
             Swal.fire({
                 title: 'Dorsal Duplicado',
                 text: 'Escoge otro dorsal que no este duplicado.',
@@ -263,40 +268,34 @@ export class Pago{
     
     actualizarPrecio() {
         var selects = document.querySelectorAll('select');
-        var totalImporte = 0; // Inicializar el total del importe
-    
+        var totalImporte = 0;
+
         this.controlador.getPrecioCamiseta()
         .then(valor => {
             var precioCamiseta = parseFloat(valor);
-    
+
             selects.forEach(select => {
                 var selectedOption = select.options[select.selectedIndex];
                 if (selectedOption) {
                     var fila = select.closest('tr');
                     var euros = fila.querySelector('.importe-inscripcion');
-                    var importeBase = parseFloat(euros.dataset.importeBase); // El importe base de la inscripción
-    
-                    // Inicializar el precio actual con el importe base
+                    var importeBase = parseFloat(euros.dataset.importeBase);
+
                     var precioActual = importeBase;
-    
-                    // Verificar si la opción seleccionada no es 'Sin camiseta'
+
                     if (selectedOption.value !== 'null') {
                         precioActual += precioCamiseta;
-                        select.dataset.precioAgregado = true; // Marcar la selección actual como procesada
+                        select.dataset.precioAgregado = true;
                     } else {
-                        // Si se selecciona 'Sin camiseta', asegurarse de no agregar el precio de la camiseta
                         delete select.dataset.precioAgregado;
                     }
-    
-                    // Actualizar el precio actual en la interfaz
+
                     euros.textContent = precioActual.toFixed(2) + '€';
-    
-                    // Sumar el precio actual al total del importe
                     totalImporte += precioActual;
                 }
             });
-    
-            // Actualizar el precio total en la interfaz
+
+            this.totalImporteActualizado = totalImporte; // Guardar el total en la propiedad
             $('#total').text(totalImporte.toFixed(2) + '€');
         })
         .catch(error => {
