@@ -66,16 +66,10 @@ export class Modelo{
      * @returns array
      */
     async getFotos(){
-        return new Promise(resolve => {
-            $.get(this.base_url + 'imagenes/'+'getFotos', {
-                
+        return new Promise(resolve => {$.get(this.base_url + 'imagenes/'+'getFotos', {
             }, (data) => {
                 resolve({
-                    data
-                });
-            });
-        });
-    }
+                    data});});});}
 
     /**
      * Método que pide las fechas de inscripción de la bbdd

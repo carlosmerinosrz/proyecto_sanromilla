@@ -19,7 +19,7 @@ export class EliminarFotos {
         this.imagenesSeleccionadas = [];
 
         //Trae las categorías
-        this.categorias = await this.controlador.getCategorias();
+        this.categorias = await this.controlador.getCategoriasFotos();
 
         //Función volver a subida de imágenes
         this.btnVolverAtras = document.getElementById('btnVolverAtras');

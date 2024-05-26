@@ -63,21 +63,23 @@ export class Inscripciones {
 
         // Crear celda para "Inscripción"
         var celdaInscripcion = document.createElement('th');
-        celdaInscripcion.style.width = '15%';
         celdaInscripcion.textContent = 'Inscripción';
         fila.appendChild(celdaInscripcion);
 
         // Crear celda para "Nombre"
         var celdaNombre = document.createElement('th');
-        celdaNombre.style.width = '50%';
         celdaNombre.textContent = 'Nombre';
         fila.appendChild(celdaNombre);
 
         // Crear celda para "Dorsal"
         var celdaDorsal = document.createElement('th');
-        celdaDorsal.style.width = '15%';
         celdaDorsal.textContent = 'Dorsal';
         fila.appendChild(celdaDorsal);
+
+        // Crear celda para "telefono"
+        var telefono = document.createElement('th')
+        telefono.textContent = 'Telefono';
+        fila.appendChild(telefono);
 
         // Crear celda para "Camiseta"
         // var celdaCamiseta = document.createElement('th');
@@ -95,7 +97,7 @@ export class Inscripciones {
         thead.appendChild(fila);
 
         datos.forEach(function(dato) {
-
+            //console.log(dato);
             // Crea una nueva fila <tr>
             var fila = document.createElement("tr")
 
@@ -116,6 +118,11 @@ export class Inscripciones {
             dorsal.textContent = (dato.dorsal === null) ? '---' : dato.dorsal;
             fila.appendChild(dorsal)
 
+            // td telefono
+            var telefono = document.createElement("td")
+            telefono.textContent = dato.telefono;
+            fila.appendChild(telefono)
+
             // td camiseta
             // var camiseta = document.createElement("td")
             // // camiseta.textContent = (dato.talla_camiseta == null) ? '-' : dato.talla_camiseta
@@ -123,7 +130,7 @@ export class Inscripciones {
             // var inputCamiseta = document.createElement("input")
             // inputCamiseta.setAttribute("type", "checkbox")
             // inputCamiseta.setAttribute("id", dato.id_inscripcion)
-            // inputCamiseta.classList.add("text-center")
+            // inputCamiseta.classList.add("text-center") 
             // camiseta.appendChild(inputCamiseta)
             // fila.appendChild(camiseta)
 
@@ -149,6 +156,9 @@ export class Inscripciones {
         document.getElementById('linkCarrera').classList.remove('active');
         document.getElementById('linkCategorias').classList.remove('active');
         document.getElementById('linkInscripciones').classList.add('active');
+        document.getElementById('linkUsuarios').classList.remove('active');
+        document.getElementById('linkCorreos').classList.remove('active');
+        document.getElementById('linkMarcas').classList.remove('active');
     }
 
     /**

@@ -37,6 +37,7 @@ export class Home{
         document.getElementById('linkInscripciones').classList.remove('active');
         document.getElementById('linkUsuarios').classList.remove('active');
         document.getElementById('linkCorreos').classList.remove('active');
+        document.getElementById('linkMarcas').classList.remove('active');
 
         //Guardar página para recargar
         this.saveViewState();

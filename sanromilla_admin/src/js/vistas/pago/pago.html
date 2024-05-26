@@ -1,19 +1,8 @@
 <div class="container" id="pago">
   <div class="row">
       <div class="d-flex flex-row px-3 py-2 my-3 formStyle rounded">
-        <div class="col-5">
-          <label class="input-group ms-1 fs-6">Búsqueda por:</label>
-          <select class="form-select" id="tipoBusqueda">
-            <option value="codigo">Código</option>
-            <option value="dni">Teléfono</option>
-          </select>
-        </div>
-        <div class="col-5">
-          <label class="input-group">&nbsp;</label>
-          <input type="text" class="form-control" id="codigoBuscar" placeholder="Introduzca el número">
-        </div>
-        <div class="col-2">
-          <label class="input-group">&nbsp;</label>
+        <div class="col-5" style="width: 100%;display: flex;justify-content: center;align-items: center;">
+          <input type="text" class="form-control" id="codigoBuscar" placeholder="Introduzca el codigo de Inscripción o el número de teléfono">
           <button class="btn btn-primary mb-3" id="buscar">Buscar</button>
         </div>
       </div>
@@ -32,7 +21,6 @@
         <tr>
           <th></th>
           <th></th>
-          <th><input class="" type="button" id="actualizarPrecio" value="Actualizar total"></th>
           <th>Total</th>
           <th style="font-size: 1.75rem;" id="total"></th>
         </tr>

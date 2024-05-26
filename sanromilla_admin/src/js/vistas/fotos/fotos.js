@@ -22,7 +22,8 @@ export class Fotos {
         this.saveViewState();
 
         //Trae las categorías
-        this.categorias = await this.controlador.getCategorias();
+        this.categorias = await this.controlador.getCategoriasFotos();
+        console.log(this.categorias);
 
         //Montar select
         this.categorias.data.forEach((categoria) => {
@@ -214,6 +215,8 @@ export class Fotos {
         document.getElementById('linkCategorias').classList.remove('active');
         document.getElementById('linkInscripciones').classList.remove('active');
         document.getElementById('linkUsuarios').classList.remove('active');
+        document.getElementById('linkCorreos').classList.remove('active');
+        document.getElementById('linkMarcas').classList.remove('active');
     }
 
     /**

@@ -64,44 +64,43 @@ export class VistaFotos{
             div8.classList.add('row','text-center','justify-content-around','mt-5')
 
             this.fotos.forEach(element => {
-                console.log(element.id_categoria)
+                let img = document.createElement('img');
                 let divFoto=document.createElement('div')
                 divFoto.classList.add('rounded','col-sm-3','m-1','p-3', 'fotosCarrera')
                 
-                // console.log(element.id_categoria);
+                
                 switch(element.id_categoria) {
                     case '1':
-                        console.log('in!');
-                        divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/babyrunner/' + element.url + ')';
-                        console.log('despues');
+                        console.log("wololo")
+                        divFoto.style.backgroundImage = 'url(../sanromilla_admin/src/assets/images/categorias/babyrunner/' + element.url + ')';
                         div1.appendChild(divFoto);
                         break;
                     case '2':
-                        divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/prebenjamin/' + element.url + ')';
+                        divFoto.style.backgroundImage = 'url(../sanromilla_admin/src/assets/images/categorias/prebenjamin/' + element.url + ')';
                         div2.appendChild(divFoto);
                         break;
                     case '3':
-                        divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/benjamin/' + element.url + ')';
+                        divFoto.style.backgroundImage = 'url(../sanromilla_admin/src/assets/images/categorias/benjamin/' + element.url + ')';
                         div3.appendChild(divFoto);
                         break;
                     case '4':
-                        divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/alevin/' + element.url + ')';
+                        divFoto.style.backgroundImage = 'url(../sanromilla_admin/src/assets/images/categorias/alevin/' + element.url + ')';
                         div4.appendChild(divFoto);
                         break;
                     case '5':
-                        divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/infantil/' + element.url + ')';
+                        divFoto.style.backgroundImage = 'url(../sanromilla_admin/src/assets/images/categorias/infantil/' + element.url + ')';
                         div5.appendChild(divFoto);
                         break;
                     case '6':
-                        divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/cadete/' + element.url + ')';
+                        divFoto.style.backgroundImage = 'url(../sanromilla_admin/src/assets/images/categorias/cadete/' + element.url + ')';
                         div6.appendChild(divFoto);
                         break;
                     case '7':
-                        divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/juvenil/' + element.url + ')';
+                        divFoto.style.backgroundImage = 'url(../sanromilla_admin/src/assets/images/categorias/juvenil/' + element.url + ')';
                         div7.appendChild(divFoto);
                         break;
                     case '8':
-                        divFoto.style.backgroundImage = 'url(../../sanromilla/sanromilla_admin/src/assets/images/categorias/absoluta/' + element.url + ')';
+                        divFoto.style.backgroundImage = 'url(../sanromilla_admin/src/assets/images/categorias/absoluta/' + element.url + ')';
                         div8.appendChild(divFoto);
                         break;
                 }
@@ -111,7 +110,7 @@ export class VistaFotos{
             divContenedor.appendChild(div1)
             if(div1.childNodes.length == 0){
                 let h6=document.createElement('h6')
-                h6.textContent='No hay fotos de esta categoría'
+                h6.textContent='No hseseay fotos de esta categoría'
                 div1.appendChild(h6)
             }
 

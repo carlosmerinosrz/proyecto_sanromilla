@@ -20,17 +20,17 @@ class inscripcionesController{
     public function asignarDorsal(){
 
         $datos = json_decode($_POST['datos']);
-
         $datos= $this->modelo->asignarDorsal($datos);
+        print_r($datos);
         if($datos >= 1){
-            echo $datos;
+            // echo $datos;
             return $datos;
         }
         else if($datos == -1){  //error
-            echo $datos;
+            // echo $datos;
         }
         else{       //falta algún dato
-            echo 0;
+            // echo 0;
             return 0;
         }
     }
@@ -41,13 +41,13 @@ class inscripcionesController{
     public function filtroInscripciones(){
         $datos= $this->modelo->filtroInscripciones();
         if($datos>=1){
-            echo $datos;
+            // echo $datos;
         }
         else if($datos== -1){  //error
             echo $datos;
         }
         else{       //falta algún dato
-            echo 0;
+            // echo 0;
         }
     }
 
@@ -60,7 +60,7 @@ class inscripcionesController{
         header('Content-type: application/json; charset=uft-8');
         // // print_r ($datos);
          $cosas= json_encode($datos);
-         echo $cosas;
+          echo $cosas;
     }
 
 

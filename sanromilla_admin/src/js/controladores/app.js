@@ -10,6 +10,8 @@ import { Fotos } from "../vistas/fotos/fotos.js"
 import { EliminarFotos } from "../vistas/eliminarfotos/eliminarfotos.js"
 import { Usuarios } from "../vistas/usuarios/usuarios.js"
 import { Correos } from "../vistas/correos/correos.js"
+import { Categorias } from "../vistas/categorias/categorias.js"
+import { Marcas } from "../vistas/marcas/marcas.js"
 
 /**
  * Clase Controlador que maneja todas las vistas de Administración
@@ -48,9 +50,12 @@ export class Controlador{
         fotos.onclick = this.mostrarFotos.bind(this)
         let usuarios = document.getElementById('linkUsuarios')
         usuarios.onclick = this.mostrarUsuarios.bind(this)
-        //--------------------------------------
         let correos = document.getElementById('linkCorreos')
         correos.onclick = this.mostrarCorreos.bind(this)
+        let categorias = document.getElementById('linkCategorias')
+        categorias.onclick = this.mostrarCategorias.bind(this)
+        let marcas = document.getElementById('linkMarcas')
+        marcas.onclick = this.mostrarMarcas.bind(this)
     }
 
     /**
@@ -218,7 +223,14 @@ export class Controlador{
      * @returns array de categorias
      */
     async getCategorias(){
+        // console.log('***')
         let datos = await this.modelo.getCategorias()
+        return datos;
+    }
+
+    async getCategoriasFotos(){
+        // console.log('***')
+        let datos = await this.modelo.getCategoriasFotos()
         return datos;
     }
 
@@ -329,6 +341,50 @@ export class Controlador{
      */
     async updateUsuario(id,nombre,correo,rol){
         let datos = await this.modelo.updateUsuario(id,nombre, correo, rol)
+        return datos;
+    }
+
+    // Nuevo @carlosmerinosrz
+
+    async mostrarCategorias(){
+        this.ocultarMenu()
+        this.router.cargar("categorias")
+        this.vistaCategorias = new Categorias(this)
+    }
+
+    async mostrarMarcas(){
+        this.ocultarMenu()
+        this.router.cargar("marcas")
+        this.vistaMarcas = new Marcas(this)
+    }
+
+    async getCategorias(){
+        this.data = await this.modelo.getCategorias();
+        return this.data;
+    }
+
+    async newCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido){
+        let datos = await this.modelo.newCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido)
+        return datos;
+    }
+
+    async updateCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido, id){
+        let datos = await this.modelo.updateCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido, id)
+        return datos;
+    }
+
+    async validarNameCategoria(nombre){
+        this.data = await this.modelo.validarNameCategoria(nombre);
+        return this.data;
+    }
+
+    async eliminarCategoria(id){
+        this.data = await this.modelo.eliminarCategoria(id);
+        return this.data;
+    }
+
+    async getTallasCamisetas(){
+        let datos = await this.modelo.getTallasCamisetas()
         return datos;
     }
 

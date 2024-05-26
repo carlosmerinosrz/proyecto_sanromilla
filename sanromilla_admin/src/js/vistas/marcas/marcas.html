@@ -1,0 +1,24 @@
+<div id="marcas">
+    <h1>Gestión de Marcas</h1>
+    <label for="categorySelect">Selecciona la categoría:</label>
+    <select id="categorySelect">
+    </select>
+    <button id="startButton" disabled>Comienzo de la carrera</button>
+    <button id="arrivalButton" disabled>Llegada del participante</button>
+    <button id="finalizeButton" disabled>Finalizar carrera</button>
+    <form id="finalizeForm" method="POST" style="display: none;">
+        <input type="hidden" name="participants" id="participantsInput">
+        <input type="hidden" name="category" id="categoryInput">
+        <input type="hidden" name="finalize" value="true">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Participante</th>
+                <th>Tiempo de Llegada</th>
+            </tr>
+        </thead>
+        <tbody id="timesTableBody">
+        </tbody>
+    </table>
+</div>

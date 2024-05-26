@@ -141,11 +141,11 @@ export class Usuarios {
     async editarUsuario(usuario){
         console.log(usuario)
         $('#app-container').empty()
-
+    
         let contenedor=document.createElement('div')
         contenedor.classList.add('container')
         $('#app-container').append(contenedor)
-
+    
         let formulario=document.createElement('div')
         formulario.classList.add('text-center')
         let h1=document.createElement('h1')
@@ -153,136 +153,149 @@ export class Usuarios {
         contenedor.append(formulario)
         h1.textContent='Modificar Usuario'
         h1.classList.add('text-center', 'mt-5')
-
+    
         let label1=document.createElement('label')
         label1.classList.add('form-label','mt-4')
         label1.textContent='Nombre'
         formulario.append(label1)
-
+    
         let input1=document.createElement('input')
         input1.classList.add('form-control','mt-4')
         input1.style.type='text'
         input1.id='nombreUsuario'
         formulario.append(input1)
-
+    
         let label2=document.createElement('label')
         label2.classList.add('form-label','mt-4')
         label2.textContent='Correo'
         formulario.append(label2)
-
+    
         let input2=document.createElement('input')
         input2.classList.add('form-control','mt-4')
         input2.style.type='text'
         input2.id='correoUsuario'
         formulario.append(input2)
-
+    
         let label3=document.createElement('label')
         label3.classList.add('form-label','mt-4')
         label3.textContent='Roles'
         formulario.append(label3)
-
-        let roles=document.createElement('select')
-        roles.classList.add('form-select')
-        roles.id='roles'
-        formulario.append(roles)
-
-        let html=''
-        let respuesta= await this.controlador.getRoles()
-        if(respuesta.data.length!=0){
-            console.log(respuesta.data)
+    
+        let rolesContainer = document.createElement('div');
+        rolesContainer.classList.add('mt-2');
+        formulario.append(rolesContainer);
+    
+        let html = '';
+        let respuesta = await this.controlador.getRoles();
+        if(respuesta.data.length != 0){
+            console.log(respuesta.data);
             for(let item of respuesta.data){
-                if(item.nombre==usuario.roles){
-                    html+=`<option id='`+item.id_rol+`' selected>`+item.nombre+`</option>`
+                // console.log('*******');
+                // console.log(item);
+                let checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = 'rol_' + item.id_rol;
+                checkbox.value = item.nombre;
+                checkbox.name = 'roles';
+                if(usuario.roles.includes(item.nombre)){
+                    checkbox.checked = true;
                 }
-                else{
-                    html+=`<option id='`+item.id_rol+`'>`+item.nombre+`</option>`
-                }
+                let label = document.createElement('label');
+                label.htmlFor = 'rol_' + item.id_rol;
+                label.textContent = item.nombre;
+                rolesContainer.append(checkbox);
+                rolesContainer.append(label);
+                rolesContainer.append(document.createElement('br'));
             }
-            roles.innerHTML=html
+        } else {
+            html += `<option>No hay roles</option>`;
         }
-        else{
-            html+=`<option>No hay roles</option>`
-        }
-
-        input1.value=usuario.nombre
-        input2.value=usuario.correo
-        let enviar=document.createElement('button')
-        enviar.classList.add('btn', 'btn-success', 'mt-5')
-        enviar.textContent='Enviar'
-        enviar.onclick= this.enviarModificado.bind(this, usuario)
-        formulario.append(enviar)
+    
+        input1.value = usuario.nombre;
+        input2.value = usuario.correo;
+    
+        let enviar=document.createElement('button');
+        enviar.classList.add('btn', 'btn-success', 'mt-5');
+        enviar.textContent='Enviar';
+        enviar.onclick = this.enviarModificado.bind(this, usuario);
+        formulario.append(enviar);
     }
+    
 
     /**
      * Método de crear un Usuario
      */
-    async crearUsuario(){
-        $('#app-container').empty()
-
-        let contenedor=document.createElement('div')
-        contenedor.classList.add('container')
-        $('#app-container').append(contenedor)
-
-        let formulario=document.createElement('div')
-        formulario.classList.add('text-center')
-        let h1=document.createElement('h1')
-        contenedor.append(h1)
-        contenedor.append(formulario)
-        h1.textContent='Nuevo Usuario'
-        h1.classList.add('text-center', 'mt-5')
-
-        let label1=document.createElement('label')
-        label1.classList.add('form-label','mt-4')
-        label1.textContent='Nombre'
-        formulario.append(label1)
-
-        let input1=document.createElement('input')
-        input1.classList.add('form-control','mt-4')
-        input1.style.type='text'
-        input1.id='nombreUsuario'
-        formulario.append(input1)
-
-        let label2=document.createElement('label')
-        label2.classList.add('form-label','mt-4')
-        label2.textContent='Correo'
-        formulario.append(label2)
-
-        let input2=document.createElement('input')
-        input2.classList.add('form-control','mt-4')
-        input2.style.type='text'
-        input2.id='correoUsuario'
-        formulario.append(input2)
-
-        let label3=document.createElement('label')
-        label3.classList.add('form-label','mt-4')
-        label3.textContent='Roles'
-        formulario.append(label3)
-
-        let roles=document.createElement('select')
-        roles.classList.add('form-select')
-        roles.id='roles'
-        formulario.append(roles)
-
-        let html=''
-        let respuesta= await this.controlador.getRoles()
-        if(respuesta.data.length!=0){
-            console.log(respuesta.data)
-            for(let item of respuesta.data){
-                html+=`<option id='`+item.id_rol+`'>`+item.nombre+`</option>`
+    async crearUsuario() {
+        $('#app-container').empty();
+    
+        let contenedor = document.createElement('div');
+        contenedor.classList.add('container');
+        $('#app-container').append(contenedor);
+    
+        let formulario = document.createElement('div');
+        formulario.classList.add('text-center');
+        let h1 = document.createElement('h1');
+        contenedor.append(h1);
+        contenedor.append(formulario);
+        h1.textContent = 'Nuevo Usuario';
+        h1.classList.add('text-center', 'mt-5');
+    
+        let label1 = document.createElement('label');
+        label1.classList.add('form-label', 'mt-4');
+        label1.textContent = 'Nombre';
+        formulario.append(label1);
+    
+        let input1 = document.createElement('input');
+        input1.classList.add('form-control', 'mt-4');
+        input1.style.type = 'text';
+        input1.id = 'nombreUsuario';
+        formulario.append(input1);
+    
+        let label2 = document.createElement('label');
+        label2.classList.add('form-label', 'mt-4');
+        label2.textContent = 'Correo';
+        formulario.append(label2);
+    
+        let input2 = document.createElement('input');
+        input2.classList.add('form-control', 'mt-4');
+        input2.style.type = 'text';
+        input2.id = 'correoUsuario';
+        formulario.append(input2);
+    
+        let label3 = document.createElement('label');
+        label3.classList.add('form-label', 'mt-4');
+        label3.textContent = 'Roles';
+        formulario.append(label3);
+    
+        let respuesta = await this.controlador.getRoles();
+        if (respuesta.data.length != 0) {
+            console.log(respuesta.data);
+            for (let item of respuesta.data) {
+                let checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = item.id_rol;
+                checkbox.id = 'rol_' + item.id_rol; // Usamos un ID único para cada checkbox
+                checkbox.name = 'user_new_roles';
+                let label = document.createElement('label');
+                label.textContent = item.nombre;
+                label.htmlFor = checkbox.id;
+                formulario.append(checkbox);
+                formulario.append(label);
+                formulario.append(document.createElement('br')); // Salto de línea para separar los checkboxes
             }
-            roles.innerHTML=html
+        } else {
+            let noRolesLabel = document.createElement('label');
+            noRolesLabel.textContent = 'No hay roles disponibles';
+            formulario.append(noRolesLabel);
         }
-        else{
-            html+=`<option>No hay roles</option>`
-        }
-
-        let enviar=document.createElement('button')
-        enviar.classList.add('btn', 'btn-success', 'mt-5')
-        enviar.textContent='Enviar'
-        enviar.onclick= this.enviarNuevo.bind(this)
-        formulario.append(enviar)
-       
+    
+        let enviar = document.createElement('button');
+        enviar.classList.add('btn', 'btn-success', 'mt-5');
+        enviar.textContent = 'Enviar';
+        enviar.onclick = this.enviarNuevo.bind(this);
+        formulario.append(enviar);
     }
+    
 
     /**
      * Método que monta el nav
@@ -296,119 +309,121 @@ export class Usuarios {
         document.getElementById('linkCategorias').classList.remove('active');
         document.getElementById('linkInscripciones').classList.remove('active');
         document.getElementById('linkUsuarios').classList.add('active');
+        document.getElementById('linkMarcas').classList.remove('active');
     }
 
     /**
      * Método que guarda un nuevo usuario
      */
-    async enviarNuevo(){
-        let nombre=$('#nombreUsuario').val()
-        let correo=$('#correoUsuario').val()
-        let rol=$('#roles').children(":selected").attr("id");
-
-        if(nombre==''){
+    async enviarNuevo() {
+        let nombre = $('#nombreUsuario').val();
+        let correo = $('#correoUsuario').val();
+        let rolesSeleccionados = [];
+        $("input[name='user_new_roles']:checked").each(function () {
+            rolesSeleccionados.push($(this).attr('id').split('_')[1]);
+        });
+    
+        if (nombre == '') {
             Swal.fire({
                 title: 'Nombre vacío',
                 text: 'Recuerde rellenar el nombre.',
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
-        }
-        else if(correo==''){
+        } else if (correo == '') {
             Swal.fire({
                 title: 'Correo vacío',
                 text: 'Recuerde rellenar el correo.',
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
-        }
-        else{
-            if(this.validarCorreoElectronico(correo)){
-                let respuesta= await this.controlador.newUsuario(nombre, correo, rol)
-                if(respuesta.data>0){
+        } else {
+            if (this.validarCorreoElectronico(correo)) {
+                let respuesta = await this.controlador.newUsuario(nombre, correo, rolesSeleccionados);
+                if (respuesta.data > 0) {
                     Swal.fire({
                         title: 'Usuario guardado',
                         text: 'Se ha guardado el usuario con éxito.',
                         icon: 'success',
                         confirmButtonText: 'Ok'
-                      })
-                    this.controlador.mostrarUsuarios()
-                }
-                else{
+                    });
+                    this.controlador.mostrarUsuarios();
+                } else {
                     Swal.fire({
                         title: 'Ups.. ha habido algún error',
                         text: 'Contacta con algún administrador.',
                         icon: 'error',
                         confirmButtonText: 'Ok'
-                      })
+                    });
                 }
-            }
-            else{
+            } else {
                 Swal.fire({
                     title: 'Correo no válido',
                     text: 'Compruebe y vuelva a enviar.',
                     icon: 'error',
                     confirmButtonText: 'Ok'
-                  })
+                });
             }
         }
     }
+    
 
     /**
      * Método que coge los datos para modificar un usuario y lo manda al controlador
      */
     async enviarModificado(usuario){
-        let nombre=$('#nombreUsuario').val()
-        let correo=$('#correoUsuario').val()
-        let rol=$('#roles').children(":selected").attr("id");
-
-        if(nombre==''){
+        let nombre = $('#nombreUsuario').val();
+        let correo = $('#correoUsuario').val();
+        let rolesSeleccionados = [];
+        $("input[name='roles']:checked").each(function () {
+            rolesSeleccionados.push($(this).attr('id').split('_')[1]);
+        });
+    
+        if(nombre === ''){
             Swal.fire({
                 title: 'Nombre vacío',
                 text: 'Recuerde rellenar el nombre.',
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
-        }
-        else if(correo==''){
+        } else if(correo === ''){
             Swal.fire({
                 title: 'Correo vacío',
                 text: 'Recuerde rellenar el correo.',
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
-        }
-        else{
+        } else {
             if(this.validarCorreoElectronico(correo)){
-                let respuesta= await this.controlador.updateUsuario(usuario.id_colaborador, nombre, correo, rol)
-                if(respuesta.data>0){
+                let respuesta = await this.controlador.updateUsuario(usuario.id_colaborador, nombre, correo, rolesSeleccionados);
+                if(respuesta.data > 0){
                     Swal.fire({
                         title: 'Usuario modificado',
                         text: 'Se ha guardado el usuario con éxito.',
                         icon: 'success',
                         confirmButtonText: 'Ok'
-                      })
-                    this.controlador.mostrarUsuarios()
-                }
-                else{
+                    });
+                    this.controlador.mostrarUsuarios();
+                } else {
                     Swal.fire({
                         title: 'Ups.. ha habido algún error',
                         text: 'Contacta con algún administrador.',
                         icon: 'error',
                         confirmButtonText: 'Ok'
-                      })
+                    });
                 }
-            }
-            else{
+            } else {
                 Swal.fire({
                     title: 'Correo no válido',
                     text: 'Compruebe y vuelva a enviar.',
                     icon: 'error',
                     confirmButtonText: 'Ok'
-                  })
+                });
             }
         }
     }
+    
+    
 
     /**
      * Valida si el correo introducido es válido

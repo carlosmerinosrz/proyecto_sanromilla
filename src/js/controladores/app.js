@@ -65,23 +65,23 @@ export class Controlador{
     /**
      * Método que muestra la vista Inscripciones
      */
-    async mostrarInscripciones(datos){
-        window.scrollTo(0, 0);
-        this.ocultarMenu()
-        this.router.cargar("inscripcion")
-        const fechas = await this.obtenerFechasInscripcion(); // Get inscription dates
-        const fechaActual = new Date(); // Current date
+    // async mostrarInscripciones(datos){
+    //     window.scrollTo(0, 0);
+    //     this.ocultarMenu()
+    //     this.router.cargar("inscripcion")
+    //     const fechas = await this.obtenerFechasInscripcion(); // Get inscription dates
+    //     const fechaActual = new Date(); // Current date
     
-        // Check if the current date is between the start and end dates
-        const inicioInscripcion = new Date(fechas[0].inicio_inscripcion);
-        const finInscripcion = new Date(fechas[0].fin_inscripcion);
-        if (fechaActual >= inicioInscripcion && fechaActual <= finInscripcion) {
-            this.vistaInscripcion = new VistaInscripcion(this, datos); // If current date is within inscription dates, show inscription view
-        } else {
-            console.log("wawawawa")
-            this.mostrarCerradas(); // If current date is outside inscription dates, show closed view
-        }
-    }
+    //     // Check if the current date is between the start and end dates
+    //     const inicioInscripcion = new Date(fechas[0].inicio_inscripcion);
+    //     const finInscripcion = new Date(fechas[0].fin_inscripcion);
+    //     if (fechaActual >= inicioInscripcion && fechaActual <= finInscripcion) {
+    //         this.vistaInscripcion = new VistaInscripcion(this, datos); // If current date is within inscription dates, show inscription view
+    //     } else {
+    //         console.log("wawawawa")
+    //         this.mostrarCerradas(); // If current date is outside inscription dates, show closed view
+    //     }
+    // }
     
 
 
@@ -209,6 +209,31 @@ export class Controlador{
             return null;
         }
     }
+
+    /**
+     * Método que muestra la vista Inscripciones
+     */
+    async mostrarInscripciones(datos) {
+        window.scrollTo(0, 0);
+        this.ocultarMenu();
+        this.router.cargar("inscripcion");
+        const fechas = await this.obtenerFechasInscripcion(); // Get inscription dates
+
+        const fechaActual = new Date(fechas[0].fecha_actual); // Use fecha_actual from obtenerFechasInscripcion
+        const inicioInscripcion = new Date(fechas[0].inicio_inscripcion);
+        const finInscripcion = new Date(fechas[0].fin_inscripcion);
+        
+        console.log("wananainonaino");
+        console.log(fechas);
+
+        // Check if the current date is between the start and end dates
+        if (fechaActual >= inicioInscripcion && fechaActual <= finInscripcion) {
+            this.vistaInscripcion = new VistaInscripcion(this, datos); // If current date is within inscription dates, show inscription view
+        } else {
+            console.log("wawawawa");
+            this.mostrarCerradas(); // If current date is outside inscription dates, show closed view
+        }
+    }
 
 
 }

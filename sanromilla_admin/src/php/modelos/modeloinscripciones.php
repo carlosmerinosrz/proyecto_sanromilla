@@ -33,29 +33,41 @@ class ModeloInscripciones{
      * Si la modificación va mal devuelve -1
      * Si no se envían todos los datos devuelve 0
      */
-    public function asignarDorsal($datos){
-
-        if($datos){
+    public function asignarDorsal($datos) {
+        if ($datos) {
             $this->conectar();
-
-            try{
+    
+            try {
                 foreach ($datos as $dato) {
+                    // Extraer los datos del objeto actual
                     $dorsal = $dato->dorsal;
                     $id_inscripcion = $dato->idInscripcion;
-                    $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago=1 WHERE id_inscripcion = ?");
-                    $upd->bind_param('ii', $dorsal, $id_inscripcion);
+                    $id_talla = $dato->id_talla;
+                    $importe = $dato->importe;
+
+                    // Preparar la consulta SQL según si id_talla es null o no
+                    if ($id_talla === 'null') {
+                        $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago = 1, id_talla = null, importe = ? WHERE id_inscripcion = ?");
+                        $upd->bind_param('iii', $dorsal, $importe, $id_inscripcion);
+                    } else {
+                        //print_r('entra en no es null');
+                        $upd = $this->conexion->prepare("UPDATE inscripciones SET dorsal = ?, estado_pago = 1, id_talla = ?, importe = ? WHERE id_inscripcion = ?");
+                        $upd->bind_param('iiii', $dorsal, $id_talla, $importe, $id_inscripcion);
+                    }
+    
+                    // Ejecutar la consulta
                     $upd->execute();
+                    $upd->close();
                 }
-                $upd->close();
-                return 1;
+                return 1; // Operación exitosa
+            } catch (Exception $e) {
+                return $e->getMessage(); // Devuelve el mensaje de error
             }
-            catch(Exception $e){
-                return -1;
-            }  
-        }else{
-                return 0;
+        } else {
+            return 0; // No se proporcionaron datos
         }
     }
+    
 
     /**
      * Método que busca según el filtro de inscripciones
@@ -87,7 +99,8 @@ class ModeloInscripciones{
                 return $array;
             }
 
-            if($tipoBusqueda == 'dni'){
+            // Nuevo Carlos, permitir la búsqueda mediante teléfono
+            if($tipoBusqueda == 'telefono'){
                 $resultado= $this->conexion->prepare("SELECT MIN(id_inscripcion) as id_inscripcion, codigo_inscripcion, MIN(fecha_inscripcion) as fecha_inscripcion FROM inscripciones WHERE telefono = ? AND estado_pago = 0 GROUP BY codigo_inscripcion;");
                 $resultado->bind_param('s', $argumento);
                 $resultado->execute();
@@ -102,10 +115,10 @@ class ModeloInscripciones{
                 $resultado->execute();
                 $datos = $resultado->get_result();
                 $array=$datos->fetch_all(MYSQLI_ASSOC);
+                $resultado->close();
                 return $array;
             }
 
-            $resultado->close();
         }else{
             return -1;
         }
@@ -114,4 +127,3 @@ class ModeloInscripciones{
 
 }
 
-?>

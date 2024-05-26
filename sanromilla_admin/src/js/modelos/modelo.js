@@ -9,22 +9,6 @@ export class Modelo{
     }
 
     /**
-     * Método que pide las categorías de la bbdd
-     * @returns array
-     */
-    async getCategorias(){
-        return new Promise(resolve => {
-            $.get(this.base_url + 'categorias/'+'getCategorias', {
-                
-            }, (data) => {
-                resolve({
-                    data
-                });
-            });
-        });
-    }
-
-    /**
      * Método par aretornar las inscripciones según el código.
      * @param tipoBusqueda
      * @param codigo
@@ -35,6 +19,18 @@ export class Modelo{
             $.get(this.base_url + 'inscripciones/'+'getInscripciones', {
                 tipoBusqueda: tipoBusqueda,
                 codigo:codigo,
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
+    async getCategoriasFotos(){
+        return new Promise(resolve => {
+            $.get(this.base_url + 'categorias/'+'getCategorias', {
+
             }, (data) => {
                 resolve({
                     data
@@ -73,12 +69,23 @@ export class Modelo{
         });
     }
 
+    async getTallasCamisetas(){
+        return new Promise(resolve => {
+            $.get(this.base_url + 'tallas/'+'getTallasCamisetas', (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
     /**
      * Método para setear el dorsal
      * @param datos
      * @returns {Promise<unknown>}
      */
     async setDorsal(datos) {
+      
         return new Promise(resolve => {
             $.ajax({
                 url: this.base_url + 'inscripciones/asignarDorsal',
@@ -334,6 +341,89 @@ export class Modelo{
                 });
             });
         });
+    }
+
+    async getCategorias() {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: `${this.base_url}categorias/getCategorias`,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    resolve(data);
+                },
+                error: function(xhr, status, error) {
+                    reject(error);
+                }
+            });
+        });
+    }
+
+    async newCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido){
+        // console.log(precio);
+        // console.log(nombre);
+        return new Promise(resolve => {
+            $.get(this.base_url + 'categorias/'+'newCategorias', {
+                nombre:nombre,
+                descripcion:descripcion,
+                edad:edad,
+                precio:precio,
+                distancia:distancia,
+                recorrido:recorrido,
+                hora:hora,
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
+    async updateCategorias(nombre, descripcion, edad, hora, precio, distancia, recorrido, id){
+        return new Promise(resolve => {
+            $.get(this.base_url + 'categorias/'+'updateCategorias', {
+                nombre:nombre,
+                descripcion:descripcion,
+                edad:edad,
+                precio:precio,
+                distancia:distancia,
+                recorrido:recorrido,
+                hora:hora,
+                id: id,
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
+    async validarNameCategoria(nombre){
+        return new Promise(resolve => {
+            $.get(this.base_url + 'categorias/'+'validarNameCategoria', {
+                nombre:nombre,
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+
+    async eliminarCategoria(id) {
+        try {
+            const response = await $.ajax({
+                url: `${this.base_url}categorias/eliminarCategoria`,
+                type: 'POST',
+                data: JSON.stringify({ id }),
+                contentType: 'application/json',
+            });
+            console.log(response);
+            return response;
+        } catch (error) {
+            console.log('Error en la solicitud:', error.responseText);
+            return error;
+        }
     }
 
 }
