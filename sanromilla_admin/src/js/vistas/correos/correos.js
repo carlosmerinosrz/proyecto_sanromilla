@@ -45,7 +45,7 @@ export class Correos {
         document.getElementById('linkInscripciones').classList.remove('active');
         document.getElementById('linkUsuarios').classList.remove('active');
         document.getElementById('linkCorreos').classList.add('active');
-        document.getElementById('linkMarcas').classList.remove('active');
+        //document.getElementById('linkMarcas').classList.remove('active');
 
     }
 

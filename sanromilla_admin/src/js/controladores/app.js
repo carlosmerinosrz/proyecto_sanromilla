@@ -54,8 +54,8 @@ export class Controlador{
         correos.onclick = this.mostrarCorreos.bind(this)
         let categorias = document.getElementById('linkCategorias')
         categorias.onclick = this.mostrarCategorias.bind(this)
-        let marcas = document.getElementById('linkMarcas')
-        marcas.onclick = this.mostrarMarcas.bind(this)
+        //let marcas = document.getElementById('linkMarcas')
+        //marcas.onclick = this.mostrarMarcas.bind(this)
     }
 
     /**
