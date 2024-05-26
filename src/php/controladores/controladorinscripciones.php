@@ -46,6 +46,31 @@ class inscripcionesController{
         // Check if the current date is within the range
         if ($this->isFechaWithinRange($fecha_actual, $inicio_inscripcion, $fin_inscripcion)) {
             $datos = $this->modelo->insertarInscripciones($inscripciones, $codigo, $correo);
+            $to      = $correo;
+            $subject = 'Código de inscripción San Romilla';
+            $message = $message = '
+
+            <html>
+                <head>
+                    <title>San Romilla</title>
+                </head>
+                <body>
+                    <h1>GRACIAS POR APUNTARTE A LA SAN ROMILLA</h1>
+                    <h3>Aquí tienes tu código de inscripción. Presentalo en portería para pagar tu dorsal y camiseta.</h3>
+                    <h1><b>'.$codigo.'</b></h1>
+                    <h3>Recuerda que el dorsal y la camiseta debes recogerla en portería antes de la carrera.</h3>
+                </body>
+            </html>
+            ';
+
+            $headers = "MIME-Version: 1.0" . "\r\n";
+
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $headers .= 'From: San Romilla <escueladeportivaguadalupe@evg.es>';    
+            $headers .= 'Reply-To: escueladeportivaguadalupe@evg.es' . "\r\n";  
+            $headers .= 'X-Mailer: PHP/' . phpversion();
+            mail($to, $subject, $message, $headers);
+
             if ($datos == 1) {
                 echo $datos;
             } else {
