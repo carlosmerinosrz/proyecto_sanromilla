@@ -373,6 +373,7 @@ export class Controlador{
         return datos;
     }
 
+
     async validarNameCategoria(nombre){
         this.data = await this.modelo.validarNameCategoria(nombre);
         return this.data;
@@ -387,6 +388,18 @@ export class Controlador{
         let datos = await this.modelo.getTallasCamisetas()
         return datos;
     }
+
+        /**
+     * Método para enviar los datos del correo al modelo
+     * @param {string} subject - El asunto del correo
+     * @param {string} message - El mensaje del correo
+     * @returns {Promise<Object>} - Los datos recibidos del modelo
+     */
+        async enviarCorreo(subject, message) {
+            console.log("11"+subject,message)
+            let datos = await this.modelo.enviarCorreo(subject, message);
+            return datos;
+        }
 
 }
 const app= new Controlador()

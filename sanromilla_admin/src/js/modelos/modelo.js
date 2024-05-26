@@ -425,5 +425,25 @@ export class Modelo{
             return error;
         }
     }
+/**
+ * Método para enviar el correo electrónico
+ * @param {string} subject - El asunto del correo
+ * @param {string} message - El mensaje del correo
+ * @returns {Promise<*>}
+ */
+async enviarCorreo(subject, message) {
+    return new Promise(resolve => {
+        $.post(this.base_url + 'correos/enviarCorreo', {
+            subject: subject,
+            message: message
+        }, (data) => {
+            resolve({
+                data
+            });
+        });
+    });
+}
 
+
+    
 }

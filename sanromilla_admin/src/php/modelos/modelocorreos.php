@@ -4,7 +4,7 @@ require_once('config/configdb.php');
 /**
  * Clase Modelo de Usuarios
  */
-class ModeloCorreo
+class ModeloCorreos
 {
     private $servidor;
     private $usuario;
@@ -30,23 +30,18 @@ class ModeloCorreo
     }
 
 
+
     /**
      * Método para sacar todos los correos únicos
      */
     public function getCorreos(){
         $this->conectar();
-        $correos = array();
 
+        // Execute query to fetch all unique email addresses
         $consulta = $this->conexion->query("SELECT DISTINCT email FROM inscripciones");
 
-        while ($fila = $consulta->fetch_assoc()) {
-            $correos[] = $fila['email'];
-        }
-
-        $consulta->close();
-        $this->conexion->close();
-
-        return $correos;
+        return $consulta; // Return MySQLi result set directly
     }
+
 
 }
