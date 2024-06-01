@@ -54,8 +54,10 @@ export class Controlador{
         correos.onclick = this.mostrarCorreos.bind(this)
         let categorias = document.getElementById('linkCategorias')
         categorias.onclick = this.mostrarCategorias.bind(this)
-        //let marcas = document.getElementById('linkMarcas')
-        //marcas.onclick = this.mostrarMarcas.bind(this)
+        let marcas = document.getElementById('linkMarcas')
+        marcas.onclick = this.mostrarMarcas.bind(this)
+        let correo5 = document.getElementById('linkCorreo5')
+        correo5.onclick = this.mostrarCorreos.bind(this)
     }
 
     /**
@@ -213,12 +215,15 @@ export class Controlador{
      * @returns array
      */
     async modArchivos(datos){
-        console.log('datosen app: ', datos)
+        console.log('datosen app:');
+        for (const pair of datos.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
         let modif = await this.modelo.modArchivos(datos)
         return modif;
     }
   
-    /*
+    /** 
      * Método que llama al modelo y recibe las categorias de la bbdd
      * @returns array de categorias
      */
@@ -395,11 +400,11 @@ export class Controlador{
      * @param {string} message - El mensaje del correo
      * @returns {Promise<Object>} - Los datos recibidos del modelo
      */
-        async enviarCorreo(subject, message) {
-            console.log("11"+subject,message)
-            let datos = await this.modelo.enviarCorreo(subject, message);
-            return datos;
-        }
+    async enviarCorreo(subject, message) {
+        console.log("11"+subject,message)
+        let datos = await this.modelo.enviarCorreo(subject, message);
+        return datos;
+    }
 
 }
 const app= new Controlador()

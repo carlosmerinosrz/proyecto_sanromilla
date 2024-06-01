@@ -222,10 +222,10 @@ export class Controlador{
         }
     }
 
-        /**
- * Método que obtiene el precio de las camisetas y la foto de la San Romilla
- * @returns {Promise<Object>} Objeto con la foto y el precio.
- */
+    /**
+     * Método que obtiene el precio de las camisetas y la foto de la San Romilla
+     * @returns {Promise<Object>} Objeto con la foto y el precio.
+     */
     async obtenerInformacion() {
         try {
             const informacion = await this.modelo.getInformacion();
@@ -235,6 +235,20 @@ export class Controlador{
             return null;
         }
     }
+
+    /**
+     * Método que muestra el reglamento
+     */
+        async obtenerReglamento() {
+            try {
+                const reglamento = await this.modelo.getReglamento();
+                return reglamento.data;
+            } catch (error) {
+                console.error("Error al obtener el reglamento:", error);
+                return null;
+            }
+        }
+
 
 
 }

@@ -20,7 +20,7 @@ export class Correos {
         this.montarNav()
 
         //Guardar página para recargar
-        // this.saveViewState();
+        this.saveViewState();
 
         this.enviarmail = document.getElementById('enviarmail')
         this.enviarmail.onclick = this.enviarCorreo.bind(this)
@@ -45,7 +45,7 @@ export class Correos {
         document.getElementById('linkInscripciones').classList.remove('active');
         document.getElementById('linkUsuarios').classList.remove('active');
         document.getElementById('linkCorreos').classList.add('active');
-        //document.getElementById('linkMarcas').classList.remove('active');
+        document.getElementById('linkMarcas').classList.remove('active');
 
     }
 
@@ -105,9 +105,9 @@ export class Correos {
     /**
      * Guarda la vista antes de recargar
      */
-    // saveViewState() {
-    //     var bodyHTML = document.body.innerHTML;
-    //     localStorage.setItem('lastView', bodyHTML);
-    // }
+    saveViewState() {
+        var bodyHTML = document.body.innerHTML;
+        localStorage.setItem('lastView', bodyHTML);
+    }
 
 }

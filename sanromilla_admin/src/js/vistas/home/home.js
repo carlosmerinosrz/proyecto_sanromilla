@@ -66,6 +66,7 @@ export class Home{
                 document.getElementById('linkCategorias').classList.remove('d-none');
                 document.getElementById('linkInscripciones').classList.remove('d-none');
                 document.getElementById('linkUsuarios').classList.remove('d-none');
+                document.getElementById('linkMarcas').classList.remove('d-none');
                 document.getElementById('linkCorreos').classList.remove('d-none');
 
                 break;

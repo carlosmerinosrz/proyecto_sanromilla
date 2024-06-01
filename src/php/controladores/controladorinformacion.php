@@ -12,7 +12,7 @@ class InformacionController {
     }
 
     /**
-     * Método que obtiene las fechas de inscripción de la base de datos
+     * Método que obtiene el precio de la camiseta y el cartel del modelo.
      */
     public function getInformacion() {
         $datos = $this->modelo->getInformacion();
@@ -21,6 +21,18 @@ class InformacionController {
         $cosas = json_encode($datos);
         echo $cosas;
     }
+
+    /**
+     * Método que obtiene el reglamento modelo.
+     */
+    public function getReglamento() {
+        $datos = $this->modelo->getReglamento();
+        header('Content-type: application/json; charset=utf-8');
+        $cosas = json_encode($datos);
+        echo $cosas;
+    }
+
+
 }
 
 ?>
