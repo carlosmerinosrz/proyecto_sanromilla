@@ -397,7 +397,6 @@ export class Controlador{
         let result = await this.modelo.eliminarSanRomilla();
         return result;
     }
-    
 
 }
 const app= new Controlador()

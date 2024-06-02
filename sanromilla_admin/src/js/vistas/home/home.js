@@ -58,6 +58,8 @@ export class Home{
                 document.getElementById('linkInscripciones').classList.remove('d-none');
                 document.getElementById('linkUsuarios').classList.remove('d-none');
                 document.getElementById('linkCorreos').classList.remove('d-none');
+                document.getElementById('linkMarcas').classList.remove('d-none');
+
 
                 break;
             }
@@ -80,19 +82,6 @@ export class Home{
     saveViewState() {
         var bodyHTML = document.body.innerHTML;
         localStorage.setItem('lastView', bodyHTML);
-    }
-
-    montarNav(){
-        document.getElementById('navTop').classList.remove('d-none');
-        document.getElementById('linkHome').classList.add('active');
-        document.getElementById('linkFotos').classList.remove('active');
-        document.getElementById('linkPagos').classList.remove('active');
-        document.getElementById('linkCarrera').classList.remove('active');
-        document.getElementById('linkCategorias').classList.remove('active');
-        document.getElementById('linkInscripciones').classList.remove('active');
-        document.getElementById('linkUsuarios').classList.remove('active');
-        document.getElementById('linkCorreos').classList.remove('active');
-        document.getElementById('linkMarcas').classList.remove('active');
     }
 
 }
