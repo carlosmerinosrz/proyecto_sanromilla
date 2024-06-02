@@ -87,6 +87,10 @@ export class Modelo{
         });
     }
 
+    /**
+     * Método que pide el cartel y el precio de la camiseta de la bbdd
+     * @returns {Promise<Array>} Dates array
+     */
     async getInformacion() {
         return new Promise(resolve => {
             $.get(this.base_url + 'informacion/' + 'getInformacion', {
@@ -98,5 +102,22 @@ export class Modelo{
             });
         });
     }
+
+        /**
+     * Método que pide el reglamento de la bbdd
+     * @returns {Promise<Array>} Reglamento array
+     */
+        async getReglamento() {
+            return new Promise(resolve => {
+                console.log("pitopitogorgorito")
+                $.get(this.base_url + 'informacion/' + 'getReglamento', {
+
+                }, (data) => {
+                    resolve({
+                        data
+                    });
+                });
+            });
+        }
 
 }

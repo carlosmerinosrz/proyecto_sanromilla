@@ -235,17 +235,6 @@ th#total {
     border: 1px solid #1fa2bf !important;
 }
 
-/** Vista inicio-login **/
-
-#divGoogleLogin{
-
-}
-
-
-#marcas h1{
-    text-align: center;
-}
-
 /** Vista fotos admin **/
 #dropzone{
     padding: 18px 40px;

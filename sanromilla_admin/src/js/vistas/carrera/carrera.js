@@ -77,6 +77,7 @@ export class Carrera {
             var formData = new FormData();
             formData.append('cartel', cartel);
             formData.append('reglamento', reglamento);
+            console.log("REGLAMENTO:",reglamento)
 
             var modificacionArchivos = await this.controlador.modArchivos(formData);
             console.log('modif: ', modificacionArchivos);

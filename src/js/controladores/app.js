@@ -62,26 +62,52 @@ export class Controlador{
     }
 
 
-    /**
-     * Método que muestra la vista Inscripciones
-     */
-    // async mostrarInscripciones(datos){
-    //     window.scrollTo(0, 0);
-    //     this.ocultarMenu()
-    //     this.router.cargar("inscripcion")
-    //     const fechas = await this.obtenerFechasInscripcion(); // Get inscription dates
-    //     const fechaActual = new Date(); // Current date
+    async mostrarInscripciones(datos) {
+        window.scrollTo(0, 0);
+        this.ocultarMenu();
+        this.router.cargar("inscripcion");
     
-    //     // Check if the current date is between the start and end dates
-    //     const inicioInscripcion = new Date(fechas[0].inicio_inscripcion);
-    //     const finInscripcion = new Date(fechas[0].fin_inscripcion);
-    //     if (fechaActual >= inicioInscripcion && fechaActual <= finInscripcion) {
-    //         this.vistaInscripcion = new VistaInscripcion(this, datos); // If current date is within inscription dates, show inscription view
-    //     } else {
-    //         console.log("wawawawa")
-    //         this.mostrarCerradas(); // If current date is outside inscription dates, show closed view
-    //     }
-    // }
+        try {
+            const fechasString = await this.obtenerFechasInscripcion();
+            const fechas = JSON.parse(fechasString);
+    
+            if (!fechas || fechas.length === 0) {
+                console.error("Error: No date data found.");
+                return;
+            }
+    
+            console.log("fechas:", fechas);
+    
+            // Access the first object in the array and log its properties
+            const firstFechas = fechas[0];
+            console.log("firstFechas:", firstFechas);
+    
+            // Log individual date properties
+            console.log("fecha_actual:", firstFechas.fecha_actual);
+            console.log("inicio_inscripcion:", firstFechas.inicio_inscripcion);
+            console.log("fin_inscripcion:", firstFechas.fin_inscripcion);
+    
+            // Create Date objects
+            const fechaActual = new Date(firstFechas.fecha_actual);
+            const inicioInscripcion = new Date(firstFechas.inicio_inscripcion);
+            const finInscripcion = new Date(firstFechas.fin_inscripcion);
+    
+            console.log("fechaActual:", fechaActual);
+            console.log("inicioInscripcion:", inicioInscripcion);
+            console.log("finInscripcion:", finInscripcion);
+    
+            // Check if the current date is between the start and end dates
+            if (fechaActual >= inicioInscripcion && fechaActual <= finInscripcion) {
+                this.vistaInscripcion = new VistaInscripcion(this, datos);
+            } else {
+                console.log("wawawawa");
+                this.mostrarCerradas();
+            }
+    
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
     
 
 
@@ -196,10 +222,10 @@ export class Controlador{
         }
     }
 
-        /**
- * Método que obtiene el precio de las camisetas y la foto de la San Romilla
- * @returns {Promise<Object>} Objeto con la foto y el precio.
- */
+    /**
+     * Método que obtiene el precio de las camisetas y la foto de la San Romilla
+     * @returns {Promise<Object>} Objeto con la foto y el precio.
+     */
     async obtenerInformacion() {
         try {
             const informacion = await this.modelo.getInformacion();
@@ -211,29 +237,18 @@ export class Controlador{
     }
 
     /**
-     * Método que muestra la vista Inscripciones
+     * Método que obtiene el reglamento
      */
-    async mostrarInscripciones(datos) {
-        window.scrollTo(0, 0);
-        this.ocultarMenu();
-        this.router.cargar("inscripcion");
-        const fechas = await this.obtenerFechasInscripcion(); // Get inscription dates
+        async obtenerReglamento() {
+            try {
+                const reglamento = await this.modelo.getReglamento();
+                return reglamento.data;
+            } catch (error) {
+                console.error("Error al obtener el reglamento:", error);
+                return null;
+            }
+        }
 
-        const fechaActual = new Date(fechas[0].fecha_actual); // Use fecha_actual from obtenerFechasInscripcion
-        const inicioInscripcion = new Date(fechas[0].inicio_inscripcion);
-        const finInscripcion = new Date(fechas[0].fin_inscripcion);
-        
-        console.log("wananainonaino");
-        console.log(fechas);
-
-        // Check if the current date is between the start and end dates
-        if (fechaActual >= inicioInscripcion && fechaActual <= finInscripcion) {
-            this.vistaInscripcion = new VistaInscripcion(this, datos); // If current date is within inscription dates, show inscription view
-        } else {
-            console.log("wawawawa");
-            this.mostrarCerradas(); // If current date is outside inscription dates, show closed view
-        }
-    }
 
 
 }

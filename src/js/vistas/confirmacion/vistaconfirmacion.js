@@ -19,6 +19,18 @@ export class VistaConfirmacion{
      * @param {*} controlador 
      */
     async iniciar(controlador){
+        this.datos = await this.controlador.obtenerReglamento();
+        console.log("DATOS",this.datos);
+
+        // Assuming this.datos is an array with the first item containing price and image info
+        if (this.datos) {
+            // Update href of the reglamento link
+            const reglamentoLink = document.getElementById('reglamento');
+            if (reglamentoLink) {
+                reglamentoLink.href = `../sanromilla_admin/src/assets/carrera_archivos/${this.datos}`;
+            }
+        }
+        
         this.div=document.getElementById('confirmacion')
         this.btnpagar=document.getElementById('btnPagar')
         this.btnpagar.onclick=this.irPago.bind(this)

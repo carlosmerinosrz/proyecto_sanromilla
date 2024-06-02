@@ -30,7 +30,7 @@ class ModeloInformacion{
     }
 
     /**
-     * Método que llama a la base de datos y saca todas los códigos
+     * Método que llama a la base de datos y saca tanto el cartel como el precio para la pagina principal
      */
     function getInformacion(){
         $this->conectar();
@@ -45,6 +45,38 @@ class ModeloInformacion{
         $this->conexion->close();
         return $data;
     }
+
+    /**
+     * Método que llama a la base de datos y saca el reglamento
+     * @return string|null El reglamento, o null si no se encuentra.
+     */
+    function getReglamento(){
+        $this->conectar();
+        $consulta = 'SELECT reglamento FROM informacion';
+        
+        try {
+            $respuesta = $this->conexion->query($consulta);
+            
+            if ($respuesta === false) {
+                throw new Exception("Error al ejecutar la consulta: " . $this->conexion->error);
+            }
+            
+            if ($respuesta->num_rows > 0) {
+                $row = $respuesta->fetch_assoc();
+                $this->conexion->close();
+                return $row['reglamento'];
+            } else {
+                $this->conexion->close();
+                return null;
+            }
+        } catch (Exception $e) {
+            error_log("Error en la consulta: " . $e->getMessage());
+            $this->conexion->close(); 
+            return null;
+        }
+    }
+
+    
 
 }
 

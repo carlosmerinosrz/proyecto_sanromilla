@@ -65,31 +65,33 @@ class ModeloInformacion{
 public function modificarArchivos($arch) {
     $this->conectar();
 
-    // Ensure 'cartel' and 'reglamento' keys exist in the $arch array
+    print_r($_FILES);
+
     if (!isset($arch['cartel']) || !isset($arch['reglamento'])) {
         echo "Missing required files.";
         return false;
     }
 
-    $cartel = $arch['cartel'];
-    $reglamento = $arch['reglamento'];
+    $cartel = $arch['cartel']['name'];
+    $reglamento = $arch['reglamento']['name'];
+    print_r($cartel);
+    var_dump($reglamento);
 
     if (!$this->esPngOJpg($cartel)) {
+        echo "Cartel file must be PNG or JPG.";
         return false;
     }
     if (!$this->esPdf($reglamento)) {
+        echo "Reglamento file must be a PDF.";
         return false;
     }
 
-    // Define the directory
     $directorio = dirname(__DIR__) . "/../assets/carrera_archivos/";
 
-    // Create the directory if it doesn't exist
     if (!is_dir($directorio)) {
         mkdir($directorio, 0777, true);
     }
 
-    // Clear the directory
     $this->clearDirectory($directorio);
 
     $nombre_cartel = $cartel['name'];
@@ -98,16 +100,27 @@ public function modificarArchivos($arch) {
     $ruta_destino_cartel = $directorio . $nombre_cartel;
     $ruta_destino_reglamento = $directorio . $nombre_reglamento;
 
-    move_uploaded_file($cartel['tmp_name'], $ruta_destino_cartel);
-    move_uploaded_file($reglamento['tmp_name'], $ruta_destino_reglamento);
+    if (!move_uploaded_file($cartel['tmp_name'], $ruta_destino_cartel)) {
+        echo "Failed to move cartel file.";
+        return false;
+    }
+    if (!move_uploaded_file($reglamento['tmp_name'], $ruta_destino_reglamento)) {
+        echo "Failed to move reglamento file.";
+        return false;
+    }
 
     $consulta = $this->conexion->prepare("UPDATE informacion SET cartel = ?, reglamento = ?;");
     $consulta->bind_param("ss", $nombre_cartel, $nombre_reglamento);
-    $consulta->execute();
+
+    if (!$consulta->execute()) {
+        echo "Failed to update database.";
+        return false;
+    }
 
     $consulta->close();
     return true;
 }
+
 
 /**
  * Método para borrar todos los archivos de un directorio
