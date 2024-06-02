@@ -27,16 +27,25 @@ class categoriasController{
         echo $respuesta;
     }
 
+    /**
+    *Método que actualiza las categorias
+    */
     public function updateCategorias(){
         $respuesta = $this->modelo->updateCategorias();
         echo $respuesta;
     }
 
+        /**
+    *Método que valida el nombre de las categorias desde el modelo
+    */
     public function validarNameCategoria(){
         $respuesta = $this->modelo->validarNameCategoria();
         echo $respuesta;
     }
 
+        /**
+    *Método que elimina una categoria
+    */
     public function eliminarCategoria(){
         $datos = json_decode(file_get_contents('php://input'), true);
         print_r($datos);

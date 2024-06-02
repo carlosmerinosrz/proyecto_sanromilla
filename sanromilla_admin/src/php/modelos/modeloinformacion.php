@@ -67,8 +67,6 @@ public function modificarArchivos($arch) {
 
     print_r($_FILES);
 
-
-    // Ensure 'cartel' and 'reglamento' keys exist in the $arch array
     if (!isset($arch['cartel']) || !isset($arch['reglamento'])) {
         echo "Missing required files.";
         return false;
@@ -88,15 +86,12 @@ public function modificarArchivos($arch) {
         return false;
     }
 
-    // Define the directory
     $directorio = dirname(__DIR__) . "/../assets/carrera_archivos/";
 
-    // Create the directory if it doesn't exist
     if (!is_dir($directorio)) {
         mkdir($directorio, 0777, true);
     }
 
-    // Clear the directory
     $this->clearDirectory($directorio);
 
     $nombre_cartel = $cartel['name'];
@@ -105,7 +100,6 @@ public function modificarArchivos($arch) {
     $ruta_destino_cartel = $directorio . $nombre_cartel;
     $ruta_destino_reglamento = $directorio . $nombre_reglamento;
 
-    // Move the files to the destination directory
     if (!move_uploaded_file($cartel['tmp_name'], $ruta_destino_cartel)) {
         echo "Failed to move cartel file.";
         return false;
@@ -115,7 +109,6 @@ public function modificarArchivos($arch) {
         return false;
     }
 
-    // Update the database with file names
     $consulta = $this->conexion->prepare("UPDATE informacion SET cartel = ?, reglamento = ?;");
     $consulta->bind_param("ss", $nombre_cartel, $nombre_reglamento);
 

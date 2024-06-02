@@ -237,7 +237,7 @@ export class Controlador{
     }
 
     /**
-     * Método que muestra el reglamento
+     * Método que obtiene el reglamento
      */
         async obtenerReglamento() {
             try {
