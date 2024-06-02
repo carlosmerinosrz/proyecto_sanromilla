@@ -28,16 +28,7 @@ export class Home{
         this.comprobarRoles(datosToken);
 
         //CONTROL DE ACTIVE NAV
-        document.getElementById('navTop').classList.remove('d-none');
-        document.getElementById('linkHome').classList.add('active');
-        document.getElementById('linkFotos').classList.remove('active');
-        document.getElementById('linkPagos').classList.remove('active');
-        document.getElementById('linkCarrera').classList.remove('active');
-        document.getElementById('linkCategorias').classList.remove('active');
-        document.getElementById('linkInscripciones').classList.remove('active');
-        document.getElementById('linkUsuarios').classList.remove('active');
-        document.getElementById('linkCorreos').classList.remove('active');
-        document.getElementById('linkMarcas').classList.remove('active');
+        this.montarNav();
 
         //Guardar página para recargar
         this.saveViewState();
@@ -89,6 +80,19 @@ export class Home{
     saveViewState() {
         var bodyHTML = document.body.innerHTML;
         localStorage.setItem('lastView', bodyHTML);
+    }
+
+    montarNav(){
+        document.getElementById('navTop').classList.remove('d-none');
+        document.getElementById('linkHome').classList.add('active');
+        document.getElementById('linkFotos').classList.remove('active');
+        document.getElementById('linkPagos').classList.remove('active');
+        document.getElementById('linkCarrera').classList.remove('active');
+        document.getElementById('linkCategorias').classList.remove('active');
+        document.getElementById('linkInscripciones').classList.remove('active');
+        document.getElementById('linkUsuarios').classList.remove('active');
+        document.getElementById('linkCorreos').classList.remove('active');
+        document.getElementById('linkMarcas').classList.remove('active');
     }
 
 }

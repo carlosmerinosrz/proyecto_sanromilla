@@ -18,7 +18,7 @@ export class Categorias {
         this.categorias = [];
         this.getCategorias();
 
-        this.montarNav()
+        this.activeNavbar()
 
         //Guardar página para recargar
         this.saveViewState();
@@ -36,7 +36,7 @@ export class Categorias {
         document.getElementById('tbody-categorias').innerHTML = '';
 
         this.categorias = await this.controlador.getCategorias();
-        console.log(this.categorias)
+        // console.log(this.categorias)
         this.categorias.forEach((categoria) => {
             // Crea una nueva fila en la tabla
             const fila = document.createElement('tr');

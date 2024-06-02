@@ -1,4 +1,4 @@
-"use strict" //activo modo estricto
+"use strict"; //activo modo estricto
 
 /**
  * Clase Pago de Admin
@@ -10,9 +10,9 @@ export class Pago{
     precioTotal = 0;
       
     constructor(controlador){
-        this.controlador=controlador
+        this.controlador = controlador;
         this.totalImporteActualizado = 0;
-        window.setTimeout(this.iniciar.bind(this), 500)
+        window.setTimeout(this.iniciar.bind(this), 500);
     }
 
     /**
@@ -20,11 +20,10 @@ export class Pago{
      * @param {*} controlador 
      */
     async iniciar(controlador){
-        this.div=document.getElementById('pago')
+        this.div = document.getElementById('pago');
 
         this.btnBuscar = document.getElementById('buscar');
         this.btnBuscar.onclick = this.buscarInscripciones.bind(this);
-        // console.log(this.btnBuscar)
 
         this.btnCancelar = document.getElementById('confirmar');
         this.btnCancelar.onclick = function() {
@@ -32,27 +31,18 @@ export class Pago{
         };
 
         this.btnConfirmar = document.getElementById('confirmar');
-        this.btnConfirmar.onclick = this.setDorsal.bind(this);
-
-
-        // this.btnActualizar = document.getElementById('actualizarPrecio');
-        // this.btnActualizar.onclick = this.actualizarPrecio.bind(this);
+        this.btnConfirmar.onclick = this.confirmarDorsales.bind(this);
 
         var codigoBuscar = document.getElementById('codigoBuscar');
         codigoBuscar.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter'){this.buscarInscripciones();}
+            if (event.key === 'Enter') {
+                this.buscarInscripciones();
+            }
         }.bind(this));
 
-        document.getElementById('navTop').classList.remove('d-none');
-        document.getElementById('linkHome').classList.remove('active');
-        document.getElementById('linkFotos').classList.remove('active');
-        document.getElementById('linkPagos').classList.add('active');
-        document.getElementById('linkCarrera').classList.remove('active');
-        document.getElementById('linkCategorias').classList.remove('active');
-        document.getElementById('linkInscripciones').classList.remove('active');
-        document.getElementById('linkUsuarios').classList.remove('active');
+        this.montarNav();
 
-        //Guardar página para recargar
+        // Guardar página para recargar
         this.saveViewState();
     }
 
@@ -63,7 +53,7 @@ export class Pago{
     async buscarInscripciones(){
         let inputBuscar = $('#codigoBuscar').val();
 
-        //Nuevo Carlos, verificamos si el texto introduccido es un codigo de inscripción o un número de teléfono
+        // Nuevo: verificamos si el texto introducido es un código de inscripción o un número de teléfono
         let tipoBusqueda;
         if (inputBuscar.length >= 1 && inputBuscar.length <= 8) {
             tipoBusqueda = 'codigo'; 
@@ -84,7 +74,13 @@ export class Pago{
             var fila = document.createElement("tr");
             var inscripcion = document.createElement("td");
             inscripcion.colSpan = 5;
-            inscripcion.textContent = 'No hay ninguna inscripción con ese código o dni.';
+            let result = await this.controlador.searchInscripciones(inputBuscar, tipoBusqueda);
+            if(result !== 0){
+                inscripcion.textContent = 'Ya ha sido pagada la inscripción con ese código o dni.';
+            }else{
+                inscripcion.textContent = 'No existe ninguna inscripción con ese código o dni.';
+            }
+            
             fila.appendChild(inscripcion);
             var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
             tbody.appendChild(fila);
@@ -92,7 +88,7 @@ export class Pago{
         }
     }
 
-    async setDorsal(){
+    async confirmarDorsales(){
         var tabla = document.getElementById("tabla-datos");
         var inputs = tabla.querySelectorAll('input[type="text"]');
         var datos = [];
@@ -103,7 +99,7 @@ export class Pago{
             var select = input.parentNode.nextElementSibling.querySelector('select');
             var id_talla = select.value;
 
-            if(!this.validarDato(dorsal)){
+            if(!this.validarDato(dorsal) && dorsal !== ''){
                 Swal.fire({
                     title: 'Dorsales incorrectos',
                     text: 'Dorsales máximo 4 números.',
@@ -122,19 +118,41 @@ export class Pago{
                     idInscripcion: id,
                     importe: this.totalImporteActualizado // Usar el total almacenado
                 });
-            } else {
-                Swal.fire({
-                    title: 'Dorsales vacíos',
-                    text: 'Recuerde rellenar TODOS los dorsales.',
-                    icon: 'warning',
-                    confirmButtonText: 'Vale!'
-                });
-                return 0;
             }
         }
-        // console.log(datos);
+
+        // Si no se han rellenado todas las inscripciones, mostrar un mensaje de confirmación
+        if (datos.length < inputs.length) {
+            Swal.fire({
+                title: 'No has rellenado todas las inscripciones',
+                text: '¿Estás seguro de continuar?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.setDorsal(datos);
+                }
+            });
+        } else {
+            this.setDorsal(datos);
+        }
+    }
+
+    async setDorsal(datos){
+        if (datos.length === 0) {
+            Swal.fire({
+                title: 'Dorsales vacíos',
+                text: 'Recuerde rellenar al menos un dorsal.',
+                icon: 'warning',
+                confirmButtonText: 'Vale!'
+            });
+            return 0;
+        }
+
         var seteado = await this.controlador.setDorsal(datos);
-        // console.log(seteado);
+
         if (seteado.data >= 1){
             $('#total').text(0 + '€');
             Swal.fire({
@@ -147,7 +165,7 @@ export class Pago{
         } else {
             Swal.fire({
                 title: 'Dorsal Duplicado',
-                text: 'Escoge otro dorsal que no este duplicado.',
+                text: 'Escoge otro dorsal que no esté duplicado.',
                 icon: 'error',
                 confirmButtonText: 'Vale!'
             });
@@ -155,21 +173,19 @@ export class Pago{
     }
 
     async buscarInscripciones2(codigo){
-
-        this.datos=await this.controlador.getInscripciones('codigo', codigo)
-        // console.log(codigo)
+        this.datos = await this.controlador.getInscripciones('codigo', codigo);
         
-        if(this.datos.data.length!=0){
-            this.introDatos(this.datos.data)
-        }else{
+        if (this.datos.data.length != 0) {
+            this.introDatos(this.datos.data);
+        } else {
             $('#tabla-datos > tbody').empty();
-            var fila = document.createElement("tr")
-            var inscripcion = document.createElement("td")
-            inscripcion.colSpan =5
-            inscripcion.textContent = 'No hay ninguna inscripción con ese código o dni.'
-            fila.appendChild(inscripcion)
-            var tbody= document.getElementById("tabla-datos").getElementsByTagName("tbody")[0]
-            tbody.appendChild(fila)
+            var fila = document.createElement("tr");
+            var inscripcion = document.createElement("td");
+            inscripcion.colSpan = 5;
+            inscripcion.textContent = 'No hay ninguna inscripción con ese código o dni.';
+            fila.appendChild(inscripcion);
+            var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
+            tbody.appendChild(fila);
             document.getElementsByClassName('card')[0].setAttribute('style', 'display:none !important');
         }
     }
@@ -236,20 +252,26 @@ export class Pago{
                         const option = document.createElement('option');
                         option.value = talla.id_talla;
                         option.textContent = talla.talla;
+                        if (dato.id_talla === talla.id_talla) {
+                            option.selected = true;
+                        }
                         selectCamiseta.appendChild(option);
                     });
-    
                     camiseta.appendChild(selectCamiseta);
                     fila.appendChild(camiseta);
     
                     var euros = document.createElement("td");
-                    euros.textContent = dato.importe + '€';
-                    euros.classList.add("importe-inscripcion");
-                    euros.dataset.importeBase = dato.importe; // Guardar el importe base como un atributo de datos
+                    euros.classList.add('importe-inscripcion');
+                    euros.dataset.importeBase = dato.importe;
+                    var precioBase = parseFloat(dato.importe);
+                    var precioCamiseta = dato.id_talla !== null ? parseFloat(this.precioCamiseta) : 0;
+                    var precioActual = precioBase + precioCamiseta;
+                    euros.textContent = precioActual.toFixed(2) + '€';
                     fila.appendChild(euros);
-                    if (dato.estado_pago === 0) {
-                        importe += dato.importe;
-                    } else {
+    
+                    importe += precioActual;
+    
+                    if (dato.fecha_inscripcion === null) {
                         fila.style.backgroundColor = 'lightgreen';
                     }
                     tbody.appendChild(fila);
@@ -264,8 +286,7 @@ export class Pago{
             console.error('Error al obtener tallas de camisetas:', error);
         });
     }
-    
-    
+
     actualizarPrecio() {
         var selects = document.querySelectorAll('select');
         var totalImporte = 0;
@@ -302,10 +323,9 @@ export class Pago{
             console.error('Error al obtener el precio de la camiseta:', error);
         });
     }
-    
+
     activeBtnConfirmar(importe) {
-        //console.log('IMPORTE: ' + importe);
-        (importe <= 0) ? this.btnConfirmar.classList.add('disabled') : this.btnConfirmar.classList.remove('disabled')
+        (importe <= 0) ? this.btnConfirmar.classList.add('disabled') : this.btnConfirmar.classList.remove('disabled');
     }
 
     saveViewState() {
@@ -323,4 +343,16 @@ export class Pago{
         return true;
     }
 
+    montarNav(){
+        document.getElementById('navTop').classList.remove('d-none');
+        document.getElementById('linkHome').classList.remove('active');
+        document.getElementById('linkFotos').classList.remove('active');
+        document.getElementById('linkPagos').classList.add('active');
+        document.getElementById('linkCarrera').classList.remove('active');
+        document.getElementById('linkCategorias').classList.remove('active');
+        document.getElementById('linkInscripciones').classList.remove('active');
+        document.getElementById('linkUsuarios').classList.remove('active');
+        document.getElementById('linkCorreos').classList.remove('active');
+        document.getElementById('linkMarcas').classList.remove('active');
+    }
 }

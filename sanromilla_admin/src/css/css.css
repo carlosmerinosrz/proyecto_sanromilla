@@ -242,6 +242,10 @@ th#total {
 }
 
 
+#marcas h1{
+    text-align: center;
+}
+
 /** Vista fotos admin **/
 #dropzone{
     padding: 18px 40px;

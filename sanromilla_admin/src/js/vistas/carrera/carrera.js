@@ -218,7 +218,8 @@ export class Carrera {
     /**
      * Para mostrar el item del navbar activo
      */
-    activeNavbar() {
+
+    activeNavbar(){
         document.getElementById('navTop').classList.remove('d-none');
         document.getElementById('linkHome').classList.remove('active');
         document.getElementById('linkFotos').classList.remove('active');
@@ -226,6 +227,9 @@ export class Carrera {
         document.getElementById('linkCarrera').classList.add('active');
         document.getElementById('linkCategorias').classList.remove('active');
         document.getElementById('linkInscripciones').classList.remove('active');
+        document.getElementById('linkUsuarios').classList.remove('active');
+        document.getElementById('linkCorreos').classList.remove('active');
+        document.getElementById('linkMarcas').classList.remove('active');
     }
 
 }

@@ -36,7 +36,7 @@ export class Usuarios {
         document.getElementById('tbody-usuarios').innerHTML = '';
 
         this.usuarios = await this.controlador.getUsuarios();
-        console.log(this.usuarios)
+        // console.log(this.usuarios)
         this.usuarios.forEach((usuario) => {
             // Crea una nueva fila en la tabla
             const fila = document.createElement('tr');
@@ -309,6 +309,7 @@ export class Usuarios {
         document.getElementById('linkCategorias').classList.remove('active');
         document.getElementById('linkInscripciones').classList.remove('active');
         document.getElementById('linkUsuarios').classList.add('active');
+        document.getElementById('linkCorreos').classList.remove('active');
         document.getElementById('linkMarcas').classList.remove('active');
     }
 

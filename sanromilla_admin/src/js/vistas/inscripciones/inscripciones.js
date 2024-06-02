@@ -14,13 +14,50 @@ export class Inscripciones {
      * @param {*} controlador 
      */
     async iniciar(controlador){
-        this.div=document.getElementById('inscripciones')
+        this.div = document.getElementById('inscripciones');
         this.activeNavbar();
         this.inscripciones = await this.buscarInscripciones();
-
-
-        //Guardar página para recargar
+    
+        // Guardar página para recargar
         this.saveViewState();
+    
+        this.newSanRomilla = document.getElementById('newSanRomilla');
+        this.newSanRomilla.addEventListener('click', () => {
+            this.eliminarSanRomilla();
+        });
+    }
+    
+    async eliminarSanRomilla(){
+        Swal.fire({
+            title: '¿Está seguro?',
+            text: "Todos los datos de la San Romilla serán eliminados y no podrán ser recuperados",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, lo estoy'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await this.controlador.eliminarSanRomilla();
+                    Swal.fire(
+                        '¡Eliminado!',
+                        'Las inscripciones se han eliminado correctamente',
+                        'success'
+                    );
+                    this.buscarInscripciones();
+                } catch (error) {
+                    console.log(error);
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'No se pudo eliminar todas las inscripciones. Inténtelo de nuevo más tarde.',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            }
+        });
     }
 
     /**
@@ -34,17 +71,16 @@ export class Inscripciones {
         
         if(this.datos.data.length!=0){
             this.introDatos(this.datos.data)
-        }else{
+        } else {
             $('#tabla-datos > tbody').empty();
-            var fila = document.createElement("tr")
-            var inscripcion = document.createElement("td")
-            inscripcion.colSpan =5
-            inscripcion.textContent = 'Ha habido algún error'
-            fila.appendChild(inscripcion)
-            var tbody= document.getElementById("tabla-datos").getElementsByTagName("tbody")[0]
-            tbody.appendChild(fila)
-            document.getElementsByClassName('card')[0].setAttribute('style', 'display:none !important');
-        }
+            var fila = document.createElement("tr");
+            var inscripcion = document.createElement("td");
+            inscripcion.colSpan = 5;
+            inscripcion.textContent = 'No existen datos disponibles';
+            fila.appendChild(inscripcion);
+            var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
+            tbody.appendChild(fila);
+        }        
     }
 
     /**
@@ -148,7 +184,7 @@ export class Inscripciones {
     /**
      * Método para mostrar el item del navbar activo
      */
-    activeNavbar() {
+    activeNavbar(){
         document.getElementById('navTop').classList.remove('d-none');
         document.getElementById('linkHome').classList.remove('active');
         document.getElementById('linkFotos').classList.remove('active');

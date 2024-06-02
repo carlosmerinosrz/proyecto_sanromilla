@@ -425,5 +425,34 @@ export class Modelo{
             return error;
         }
     }
-
+    
+    async searchInscripciones(input, tipoBusqueda) {
+        try {
+            const response = await $.ajax({
+                url: `${this.base_url}inscripciones/searchInscripciones`,
+                type: 'POST',
+                data: JSON.stringify({ input: input, tipoBusqueda: tipoBusqueda }),
+                contentType: 'application/json',
+            });
+            console.log(response);
+            return response;
+        } catch (error) {
+            console.error('Error en la solicitud:', error.responseText);
+            return error;
+        }
+    }
+    
+    async eliminarSanRomilla() {
+        try {
+            const response = await $.ajax({
+                url: `${this.base_url}inscripciones/eliminarSanRomilla`,
+                type: 'POST',
+                contentType: 'application/json',
+            });
+            return response;
+        } catch (error) {
+            console.log('Error en la solicitud:', error.responseText);
+            return error;
+        }
+    }
 }

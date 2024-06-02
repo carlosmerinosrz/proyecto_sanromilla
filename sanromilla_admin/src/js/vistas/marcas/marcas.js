@@ -35,7 +35,7 @@ export class Marcas {
         this.initRaceControls();
     }
 
-    activeNavbar() {
+    activeNavbar(){
         document.getElementById('navTop').classList.remove('d-none');
         document.getElementById('linkHome').classList.remove('active');
         document.getElementById('linkFotos').classList.remove('active');
@@ -104,6 +104,8 @@ export class Marcas {
             participants: this.participants,
             category: selectedCategory
         };
+
+        console.log(raceData);
 
         //let respuesta = await this.controlador.enviarDatosCarrera(raceData);
 

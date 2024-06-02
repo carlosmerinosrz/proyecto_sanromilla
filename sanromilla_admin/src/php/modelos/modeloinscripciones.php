@@ -15,6 +15,15 @@ class ModeloInscripciones{
         $this->usuario = constant('USUARIO');
         $this->contrasenia = constant('CONTRASENIA');
         $this->bd = constant('BD');
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['token'])) {
+            header('Location: ../../../');
+            exit;
+        }
     }
 
     /**
@@ -124,6 +133,71 @@ class ModeloInscripciones{
         }
 
     }
+
+    function searchInscripciones($input, $tipoBusqueda) {
+        $this->conectar();
+    
+        $datos = 0;
+        if ($tipoBusqueda === 'telefono') {
+            $query = "SELECT telefono FROM inscripciones WHERE telefono = ? AND estado_pago = 1";
+        } else {
+            $query = "SELECT codigo_inscripcion FROM inscripciones WHERE codigo_inscripcion = ?";
+        }
+        $consulta = $this->conexion->prepare($query);
+        $consulta->bind_param("s", $input);
+        $consulta->execute();
+    
+        $resultado = $consulta->get_result();
+    
+        if ($resultado->num_rows > 0) {
+            $datos = 1;
+        }
+    
+        $consulta->close();
+        $this->conexion->close();
+    
+        return $datos;
+    }
+    
+    function eliminarSanRomilla() {
+        $this->conectar();
+    
+        $datos = 0;
+    
+        // Eliminar todas las filas de la tabla inscripciones
+        $queryDelete = "DELETE FROM inscripciones";
+    
+        // Reiniciar el contador de AUTO_INCREMENT
+        $queryResetAutoIncrement = "ALTER TABLE inscripciones AUTO_INCREMENT = 1";
+    
+        try {
+            // Iniciar la transacción
+            $this->conexion->begin_transaction();
+    
+            // Ejecutar la eliminación de datos
+            $consultaDelete = $this->conexion->prepare($queryDelete);
+            $consultaDelete->execute();
+            $consultaDelete->close();
+    
+            // Ejecutar el reinicio del AUTO_INCREMENT
+            $consultaResetAutoIncrement = $this->conexion->prepare($queryResetAutoIncrement);
+            $consultaResetAutoIncrement->execute();
+            $consultaResetAutoIncrement->close();
+    
+            // Confirmar la transacción
+            $this->conexion->commit();
+            $datos = 1;
+        } catch (Exception $e) {
+            // Revertir la transacción en caso de error
+            $this->conexion->rollback();
+            error_log("Error al eliminar San Romilla: " . $e->getMessage());
+        }
+    
+        $this->conexion->close();
+    
+        return $datos;
+    }
+    
 
 }
 

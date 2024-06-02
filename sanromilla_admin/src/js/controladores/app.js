@@ -388,5 +388,16 @@ export class Controlador{
         return datos;
     }
 
+    async searchInscripciones(input, tipoBusqueda) {
+        let result = await this.modelo.searchInscripciones(input, tipoBusqueda);
+        return result;
+    }
+
+    async eliminarSanRomilla(){
+        let result = await this.modelo.eliminarSanRomilla();
+        return result;
+    }
+    
+
 }
 const app= new Controlador()

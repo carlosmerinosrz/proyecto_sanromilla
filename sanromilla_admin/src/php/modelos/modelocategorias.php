@@ -15,6 +15,15 @@ class ModeloCategorias{
         $this->usuario = constant('USUARIO');
         $this->contrasenia = constant('CONTRASENIA');
         $this->bd = constant('BD');
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['token'])) {
+            header('Location: ../../../');
+            exit;
+        }
     }
 
     /**
