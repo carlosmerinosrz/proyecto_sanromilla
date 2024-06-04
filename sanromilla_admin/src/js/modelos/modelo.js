@@ -123,7 +123,6 @@ export class Modelo{
      * @returns {Promise<unknown>}
      */
     async modArchivos(datos) {
-        console.log('cartel modelojsasdf: ', datos)
         try {
             const response = await $.ajax({
                 url: `${this.base_url}informacion/modificarArchivos`,
@@ -132,7 +131,6 @@ export class Modelo{
                 processData: false,
                 contentType: false,
             });
-            console.log(response);
             return response;
         } catch (error) {
             console.log('Error en la solicitud:', error.responseText);
@@ -152,7 +150,6 @@ export class Modelo{
                 data: {token: token},
                 success: (data) => {
                     resolve(data);
-                    console.log(data)
                 },
                 error: (error) => {
                     console.log('Error en la solicitud:', error.responseText);
@@ -178,7 +175,6 @@ export class Modelo{
                 processData: false,
                 contentType: false,
             });
-            console.log(response);
             return response;
         } catch (error) {
             console.log('Error en la solicitud:', error.responseText);
@@ -209,7 +205,6 @@ export class Modelo{
      * @returns {Promise<void>}
      */
     async eliminarFotos(seleccionadas, categoria) {
-        console.log(seleccionadas)
         try {
             const response = await $.ajax({
                 url: `${this.base_url}fotos/eliminarFotosSeleccionadas`,
@@ -217,7 +212,6 @@ export class Modelo{
                 data: JSON.stringify({ seleccionadas, categoria }),
                 contentType: 'application/json',
             });
-            console.log(response);
             return response;
         } catch (error) {
             console.log('Error en la solicitud:', error.responseText);
@@ -238,7 +232,6 @@ export class Modelo{
                 data: JSON.stringify({ categoria }),
                 contentType: 'application/json',
             });
-            console.log(response);
             return response;
         } catch (error) {
             console.log('Error en la solicitud:', error.responseText);
@@ -279,7 +272,6 @@ export class Modelo{
                 data: JSON.stringify({ id }),
                 contentType: 'application/json',
             });
-            console.log(response);
             return response;
         } catch (error) {
             console.log('Error en la solicitud:', error.responseText);
@@ -418,7 +410,6 @@ export class Modelo{
                 data: JSON.stringify({ id }),
                 contentType: 'application/json',
             });
-            console.log(response);
             return response;
         } catch (error) {
             console.log('Error en la solicitud:', error.responseText);
@@ -434,7 +425,6 @@ export class Modelo{
                 data: JSON.stringify({ input: input, tipoBusqueda: tipoBusqueda }),
                 contentType: 'application/json',
             });
-            console.log(response);
             return response;
         } catch (error) {
             console.error('Error en la solicitud:', error.responseText);
@@ -475,6 +465,39 @@ export class Modelo{
         });
     }
 
+    async enviarDatosCarrera(raceData) {
+        return new Promise(resolve => {
+            $.post(this.base_url + 'marcas/enviarDatosCarrera', {
+                raceData: raceData
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
 
-    
+    async comprobarCategoria(id_categoria) {
+        return new Promise(resolve => {
+            $.post(this.base_url + 'marcas/comprobarCategoria', {
+                id_categoria: id_categoria
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
+ 
+    async exportarExcel(id_categoria) {
+        return new Promise(resolve => {
+            $.post(this.base_url + 'marcas/exportarExcel', {
+                id_categoria: id_categoria
+            }, (data) => {
+                resolve({
+                    data
+                });
+            });
+        });
+    }
 }

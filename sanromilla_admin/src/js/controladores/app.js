@@ -56,8 +56,6 @@ export class Controlador{
         categorias.onclick = this.mostrarCategorias.bind(this)
         let marcas = document.getElementById('linkMarcas')
         marcas.onclick = this.mostrarMarcas.bind(this)
-        let correo5 = document.getElementById('linkCorreo5')
-        correo5.onclick = this.mostrarCorreos.bind(this)
     }
 
     /**
@@ -415,6 +413,21 @@ export class Controlador{
     async enviarCorreo(subject, message) {
         console.log("11"+subject,message)
         let datos = await this.modelo.enviarCorreo(subject, message);
+        return datos;
+    }
+
+    async enviarDatosCarrera(raceData){
+        let datos = await this.modelo.enviarDatosCarrera(raceData);
+        return datos;
+    }
+
+    async comprobarCategoria(id_categoria){
+        let datos = await this.modelo.comprobarCategoria(id_categoria);
+        return datos;
+    }
+    
+    async exportarExcel(id_categoria){
+        let datos = await this.modelo.exportarExcel(id_categoria);
         return datos;
     }
 

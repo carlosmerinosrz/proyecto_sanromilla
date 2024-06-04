@@ -37,7 +37,6 @@ export class Inicio{
             .then(tokenSesion => {
                 sessionStorage.setItem('token', tokenSesion)
                 let datosToken= JSON.parse (atob (tokenSesion.split('.')[1]));
-                console.log(datosToken);
     
                 // Enviar el token al servidor
                 fetch('php/guardar_token.php', {
