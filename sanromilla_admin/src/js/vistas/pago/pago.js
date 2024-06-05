@@ -1,15 +1,15 @@
-"use strict"; //activo modo estricto
+"use strict"; // Activo modo estricto
 
 /**
  * Clase Pago de Admin
  */
-export class Pago{
+export class Pago {
 
     precioCamiseta;
     tallasCamisetas = [];
     precioTotal = 0;
-      
-    constructor(controlador){
+
+    constructor(controlador) {
         this.controlador = controlador;
         this.totalImporteActualizado = 0;
         window.setTimeout(this.iniciar.bind(this), 500);
@@ -19,14 +19,14 @@ export class Pago{
      * Método que inicia la vista
      * @param {*} controlador 
      */
-    async iniciar(controlador){
+    async iniciar(controlador) {
         this.div = document.getElementById('pago');
 
         this.btnBuscar = document.getElementById('buscar');
         this.btnBuscar.onclick = this.buscarInscripciones.bind(this);
 
         this.btnCancelar = document.getElementById('confirmar');
-        this.btnCancelar.onclick = function() {
+        this.btnCancelar.onclick = function () {
             location.reload();
         };
 
@@ -34,7 +34,7 @@ export class Pago{
         this.btnConfirmar.onclick = this.confirmarDorsales.bind(this);
 
         var codigoBuscar = document.getElementById('codigoBuscar');
-        codigoBuscar.addEventListener('keypress', function(event) {
+        codigoBuscar.addEventListener('keypress', function (event) {
             if (event.key === 'Enter') {
                 this.buscarInscripciones();
             }
@@ -50,15 +50,15 @@ export class Pago{
      * Método que busca las inscripciones
      * @returns {Promise<void>}
      */
-    async buscarInscripciones(){
+    async buscarInscripciones() {
         let inputBuscar = $('#codigoBuscar').val();
 
-        // Nuevo: verificamos si el texto introducido es un código de inscripción o un número de teléfono
+        // Verificamos si el texto introducido es un código de inscripción o un número de teléfono
         let tipoBusqueda;
         if (inputBuscar.length >= 1 && inputBuscar.length <= 8) {
-            tipoBusqueda = 'codigo'; 
+            tipoBusqueda = 'codigo';
         } else if (inputBuscar.length === 9 && /^\d+$/.test(inputBuscar)) {
-            tipoBusqueda = 'telefono'; 
+            tipoBusqueda = 'telefono';
         } else {
             console.error('No se puede determinar el tipo de búsqueda.');
             return;
@@ -75,12 +75,12 @@ export class Pago{
             var inscripcion = document.createElement("td");
             inscripcion.colSpan = 5;
             let result = await this.controlador.searchInscripciones(inputBuscar, tipoBusqueda);
-            if(result !== 0){
-                inscripcion.textContent = 'Ya ha sido pagada la inscripción con ese código o dni.';
-            }else{
-                inscripcion.textContent = 'No existe ninguna inscripción con ese código o dni.';
+            if (result !== 0) {
+                inscripcion.textContent = 'Ya ha sido pagada la inscripción con ese código o número de teléfono.';
+            } else {
+                inscripcion.textContent = 'No existe ninguna inscripción con ese código o número de teléfono.';
             }
-            
+
             fila.appendChild(inscripcion);
             var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
             tbody.appendChild(fila);
@@ -88,7 +88,7 @@ export class Pago{
         }
     }
 
-    async confirmarDorsales(){
+    async confirmarDorsales() {
         var tabla = document.getElementById("tabla-datos");
         var inputs = tabla.querySelectorAll('input[type="text"]');
         var datos = [];
@@ -99,7 +99,7 @@ export class Pago{
             var select = input.parentNode.nextElementSibling.querySelector('select');
             var id_talla = select.value;
 
-            if(!this.validarDato(dorsal) && dorsal !== ''){
+            if (!this.validarDato(dorsal) && dorsal !== '') {
                 Swal.fire({
                     title: 'Dorsales incorrectos',
                     text: 'Dorsales máximo 4 números.',
@@ -111,12 +111,12 @@ export class Pago{
 
             var id = input.getAttribute("id");
 
-            if (dorsal != ''){
+            if (dorsal != '') {
                 datos.push({
                     id_talla: id_talla,
                     dorsal: dorsal,
                     idInscripcion: id,
-                    importe: this.totalImporteActualizado // Usar el total almacenado
+                    importe: this.obtenerImporteInscripcion(id) // Obtener el importe de cada inscripción
                 });
             }
         }
@@ -140,7 +140,7 @@ export class Pago{
         }
     }
 
-    async setDorsal(datos){
+    async setDorsal(datos) {
         if (datos.length === 0) {
             Swal.fire({
                 title: 'Dorsales vacíos',
@@ -153,7 +153,7 @@ export class Pago{
 
         var seteado = await this.controlador.setDorsal(datos);
 
-        if (seteado.data >= 1){
+        if (seteado.data >= 1) {
             $('#total').text(0 + '€');
             Swal.fire({
                 title: '¡Dorsales asignados!',
@@ -172,9 +172,9 @@ export class Pago{
         }
     }
 
-    async buscarInscripciones2(codigo){
+    async buscarInscripciones2(codigo) {
         this.datos = await this.controlador.getInscripciones('codigo', codigo);
-        
+
         if (this.datos.data.length != 0) {
             this.introDatos(this.datos.data);
         } else {
@@ -194,13 +194,13 @@ export class Pago{
         let importe = 0;
         var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
         $('#tabla-datos > tbody').empty();
-    
+
         const promise = this.controlador.getTallasCamisetas();
-    
+
         promise.then(response => {
             const tallasCamisetas = response.data;
             const tallasUnicas = [...new Set(tallasCamisetas.map(talla => ({ id_talla: talla.id_talla, talla: talla.talla })))];
-    
+
             for (let dato of datos) {
                 if (dato.nombre == null) {
                     var fila = document.createElement('tr');
@@ -236,18 +236,18 @@ export class Pago{
                         dorsal.textContent = dato.dorsal;
                         fila.appendChild(dorsal);
                     }
-    
+
                     var camiseta = document.createElement("td");
                     var selectCamiseta = document.createElement("select");
                     selectCamiseta.setAttribute("id", dato.id_inscripcion);
                     selectCamiseta.classList.add("text-center");
                     selectCamiseta.addEventListener("change", this.actualizarPrecio.bind(this));
-    
+
                     const sinCamisetaOption = document.createElement('option');
                     sinCamisetaOption.value = null;
                     sinCamisetaOption.textContent = 'Sin camiseta';
                     selectCamiseta.appendChild(sinCamisetaOption);
-    
+
                     tallasUnicas.forEach(talla => {
                         const option = document.createElement('option');
                         option.value = talla.id_talla;
@@ -259,7 +259,7 @@ export class Pago{
                     });
                     camiseta.appendChild(selectCamiseta);
                     fila.appendChild(camiseta);
-    
+
                     var euros = document.createElement("td");
                     euros.classList.add('importe-inscripcion');
                     euros.dataset.importeBase = dato.importe;
@@ -268,9 +268,9 @@ export class Pago{
                     var precioActual = precioBase + precioCamiseta;
                     euros.textContent = precioActual.toFixed(2) + '€';
                     fila.appendChild(euros);
-    
+
                     importe += precioActual;
-    
+
                     if (dato.fecha_inscripcion === null) {
                         fila.style.backgroundColor = 'lightgreen';
                     }
@@ -282,9 +282,9 @@ export class Pago{
             this.activeBtnConfirmar(importe);
             $('#total').text(this.precioTotal + '€');
         })
-        .catch(error => {
-            console.error('Error al obtener tallas de camisetas:', error);
-        });
+            .catch(error => {
+                console.error('Error al obtener tallas de camisetas:', error);
+            });
     }
 
     actualizarPrecio() {
@@ -292,36 +292,36 @@ export class Pago{
         var totalImporte = 0;
 
         this.controlador.getPrecioCamiseta()
-        .then(valor => {
-            var precioCamiseta = parseFloat(valor);
+            .then(valor => {
+                var precioCamiseta = parseFloat(valor);
 
-            selects.forEach(select => {
-                var selectedOption = select.options[select.selectedIndex];
-                if (selectedOption) {
-                    var fila = select.closest('tr');
-                    var euros = fila.querySelector('.importe-inscripcion');
-                    var importeBase = parseFloat(euros.dataset.importeBase);
+                selects.forEach(select => {
+                    var selectedOption = select.options[select.selectedIndex];
+                    if (selectedOption) {
+                        var fila = select.closest('tr');
+                        var euros = fila.querySelector('.importe-inscripcion');
+                        var importeBase = parseFloat(euros.dataset.importeBase);
 
-                    var precioActual = importeBase;
+                        var precioActual = importeBase;
 
-                    if (selectedOption.value !== 'null') {
-                        precioActual += precioCamiseta;
-                        select.dataset.precioAgregado = true;
-                    } else {
-                        delete select.dataset.precioAgregado;
+                        if (selectedOption.value !== 'null') {
+                            precioActual += precioCamiseta;
+                            select.dataset.precioAgregado = true;
+                        } else {
+                            delete select.dataset.precioAgregado;
+                        }
+
+                        euros.textContent = precioActual.toFixed(2) + '€';
+                        totalImporte += precioActual;
                     }
+                });
 
-                    euros.textContent = precioActual.toFixed(2) + '€';
-                    totalImporte += precioActual;
-                }
+                this.totalImporteActualizado = totalImporte;
+                $('#total').text(totalImporte.toFixed(2) + '€');
+            })
+            .catch(error => {
+                console.error('Error al obtener el precio de la camiseta:', error);
             });
-
-            this.totalImporteActualizado = totalImporte; // Guardar el total en la propiedad
-            $('#total').text(totalImporte.toFixed(2) + '€');
-        })
-        .catch(error => {
-            console.error('Error al obtener el precio de la camiseta:', error);
-        });
     }
 
     activeBtnConfirmar(importe) {
@@ -343,7 +343,7 @@ export class Pago{
         return true;
     }
 
-    montarNav(){
+    montarNav() {
         document.getElementById('navTop').classList.remove('d-none');
         document.getElementById('linkHome').classList.remove('active');
         document.getElementById('linkFotos').classList.remove('active');
@@ -354,5 +354,11 @@ export class Pago{
         document.getElementById('linkUsuarios').classList.remove('active');
         document.getElementById('linkCorreos').classList.remove('active');
         document.getElementById('linkMarcas').classList.remove('active');
+    }
+
+    obtenerImporteInscripcion(idInscripcion) {
+        const fila = document.getElementById(idInscripcion).closest('tr');
+        const importeText = fila.querySelector('.importe-inscripcion').textContent;
+        return parseFloat(importeText.replace('€', ''));
     }
 }

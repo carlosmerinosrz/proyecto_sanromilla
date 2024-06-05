@@ -192,31 +192,40 @@ export class Marcas {
     
                     // Enviar los datos de la carrera al servidor
                     let respuesta = await this.controlador.enviarDatosCarrera(raceData);
-                    if (respuesta === 1) {
+
+                    if (parseInt(respuesta.data) === 96) {
+                        document.body.removeChild(preloader);
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Aun no se ha añadido ningun participante. Inténtelo de nuevo más tarde.',
+                            icon: 'warning',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    }
+                   
+    
+                    
+
+                    if (parseInt(respuesta.data) === 1) {
                         Swal.fire(
-                            '¡Eliminado!',
-                            'La categoría ha sido finalizada',
+                            'Finalizada!',
+                            'La carrera ha sido finalizada',
                             'success'
                         );
+                            // Resetear botones y tabla
+                        document.getElementById('startButton').disabled = false;
+                        document.getElementById('categorySelect').disabled = false;
+                        document.getElementById('arrivalButton').disabled = true;
+                        document.getElementById('finalizeButton').disabled = true;
+                        document.getElementById('timesTableBody').innerHTML = '';
+
+                        // Restablecer los valores para una nueva carrera
+                        this.participants = [];
+                        this.participantCount = 0;
+
+                        document.body.removeChild(preloader);
                     }
-    
-                    // Resetear botones y tabla
-                    document.getElementById('startButton').disabled = false;
-                    document.getElementById('categorySelect').disabled = false;
-                    document.getElementById('arrivalButton').disabled = true;
-                    document.getElementById('finalizeButton').disabled = true;
-                    document.getElementById('timesTableBody').innerHTML = '';
-
-                    document.body.removeChild(preloader);
-
-                    Swal.fire(
-                        '¡La carrera ha finalizado!',
-                        '',
-                        'success'
-                    );
-                    // Restablecer los valores para una nueva carrera
-                    this.participants = [];
-                    this.participantCount = 0;
+                    
                 } catch (error) {
                     Swal.fire({
                         title: 'Error',

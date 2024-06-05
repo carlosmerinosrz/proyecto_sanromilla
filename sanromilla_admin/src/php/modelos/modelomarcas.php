@@ -50,10 +50,16 @@ class ModeloMarcas{
      */
     
      public function enviarDatosCarrera($raceData){
-
         $this->conectar();
+
+        if(!isset($raceData['participants']) || !isset($raceData['category'])){
+            return 96;
+        }
+
         $participants = $raceData['participants'];
         $category = $raceData['category'];
+
+        
         
         try {
             foreach ($participants as $participant) {
@@ -116,6 +122,9 @@ class ModeloMarcas{
     
         $participantes = array();
         $clasificacion = 1;
+        if ($resultado->num_rows < 0){
+            return 7;
+        }
     
         if ($resultado->num_rows > 0) {
             while ($row = $resultado->fetch_assoc()) {
