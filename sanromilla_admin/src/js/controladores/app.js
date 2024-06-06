@@ -153,10 +153,19 @@ export class Controlador{
     /**
      * Método para cerrar la sesión
      */
-    doLogout(){
+    doLogout() {
         sessionStorage.clear();
         localStorage.clear();
+        
+        // Borrar cookies
+        let cookies = document.cookie.split("; ");
+        for (let c of cookies) {
+            let cookieName = c.split("=")[0];
+            document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+    
         window.location.reload();
+    
         this.mostrarInicio();
     }
 

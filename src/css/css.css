@@ -109,9 +109,10 @@ nav li a{
     min-height: 80%;
 }
 
-
-
-
+#cartel {
+    max-width: 80%;
+    height: auto;
+}
 
 /* ---------INICIO----------- */
 
@@ -212,17 +213,25 @@ nav li a{
     margin-top: 50px;
 }
 
-.fotosCarrera{
+.fotosCarrera {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 250px;
+    height: 250px; /* Initial height */
+    transition: transform 0.5s; /* Smooth transition effect */
 }
 
-.titulosFotos{
-    text-align: center;
-    margin-top: 100px;
+.fotosCarrera:hover {
+    transform: scale(1.5); /* Expand the image on hover */
 }
+
+/* General styles for the image gallery titles */
+.titulosFotos {
+    text-align: center;
+    margin-top: 50px; /* Adjust margin as needed */
+    font-size: 24px; /* Adjust font size as needed */
+}
+
 
 
 /* ----------FOOTER------------ */

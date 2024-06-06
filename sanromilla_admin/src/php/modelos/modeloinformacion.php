@@ -67,16 +67,17 @@ public function modificarArchivos($arch) {
 
     print_r($_FILES);
 
+    // Ensure both "cartel" and "reglamento" files are set
     if (!isset($arch['cartel']) || !isset($arch['reglamento'])) {
         echo "Missing required files.";
         return false;
     }
 
-    $cartel = $arch['cartel']['name'];
-    $reglamento = $arch['reglamento']['name'];
-    print_r($cartel);
-    var_dump($reglamento);
+    // Retrieve entire file arrays for "cartel" and "reglamento"
+    $cartel = $arch['cartel'];
+    $reglamento = $arch['reglamento'];
 
+    // Perform validations and processing on entire file arrays
     if (!$this->esPngOJpg($cartel)) {
         echo "Cartel file must be PNG or JPG.";
         return false;

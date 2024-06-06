@@ -1,0 +1,23 @@
+[02-Jun-2024 19:54:01 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._whit...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 19:57:12 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._port...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:06:53 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._port...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:08:46 UTC] PHP Warning:  mkdir(): File exists in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 68
+[02-Jun-2024 20:08:46 UTC] PHP Warning:  mkdir(): File exists in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 68

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor>
+    <title>Project Documentation</title>
+    <ignore>
+        <directory>logingoogle</directory>
+        <directory>vendor</directory>
+    </ignore>
+    <parser>
+        <target>docs</target>
+        <extensions>
+            <extension>php</extension>
+        </extensions>
+    </parser>
+</phpdocumentor>

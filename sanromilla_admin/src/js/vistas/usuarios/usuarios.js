@@ -207,6 +207,7 @@ export class Usuarios {
                 rolesContainer.append(label);
                 rolesContainer.append(document.createElement('br'));
             }
+            this.addCheckboxListeners();
         } else {
             html += `<option>No hay roles</option>`;
         }
@@ -283,6 +284,7 @@ export class Usuarios {
                 formulario.append(label);
                 formulario.append(document.createElement('br')); // Salto de línea para separar los checkboxes
             }
+            this.addCheckboxListeners();
         } else {
             let noRolesLabel = document.createElement('label');
             noRolesLabel.textContent = 'No hay roles disponibles';
@@ -440,5 +442,30 @@ export class Usuarios {
         }
 
         return true;
+    }
+
+      /**
+     * Event listener al Superadministrador para disabilitar las otras checkboxes
+     */
+      addCheckboxListeners() {
+        const superadminCheckbox = document.getElementById('rol_1');
+        const otherCheckboxes = document.querySelectorAll("input[type='checkbox']:not(#rol_1)");
+    
+        superadminCheckbox.addEventListener('change', () => {
+            otherCheckboxes.forEach(checkbox => {
+                checkbox.disabled = superadminCheckbox.checked;
+                // If Superadministrador is checked, uncheck other checkboxes
+                if (superadminCheckbox.checked) {
+                    checkbox.checked = false;
+                }
+            });
+        });
+    
+        // Initial check to disable checkboxes if Superadministrador is already checked
+        if (superadminCheckbox.checked) {
+            otherCheckboxes.forEach(checkbox => {
+                checkbox.disabled = true;
+            });
+        }
     }
 }
