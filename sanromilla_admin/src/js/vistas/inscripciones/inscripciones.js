@@ -20,44 +20,6 @@ export class Inscripciones {
     
         // Guardar página para recargar
         this.saveViewState();
-    
-        this.newSanRomilla = document.getElementById('newSanRomilla');
-        this.newSanRomilla.addEventListener('click', () => {
-            this.eliminarSanRomilla();
-        });
-    }
-    
-    async eliminarSanRomilla(){
-        Swal.fire({
-            title: '¿Está seguro?',
-            text: "Todos los datos de la San Romilla serán eliminados y no podrán ser recuperados",
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText: 'Cancelar',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, lo estoy'
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                try {
-                    await this.controlador.eliminarSanRomilla();
-                    Swal.fire(
-                        '¡Eliminado!',
-                        'Las inscripciones se han eliminado correctamente',
-                        'success'
-                    );
-                    this.buscarInscripciones();
-                } catch (error) {
-                    console.log(error);
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'No se pudo eliminar todas las inscripciones. Inténtelo de nuevo más tarde.',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    });
-                }
-            }
-        });
     }
 
     /**
@@ -195,6 +157,8 @@ export class Inscripciones {
         document.getElementById('linkUsuarios').classList.remove('active');
         document.getElementById('linkCorreos').classList.remove('active');
         document.getElementById('linkMarcas').classList.remove('active');
+        document.getElementById('linkTallas').classList.remove('d-none');
+        document.getElementById('linkNuevaSanRomilla').classList.remove('d-none');
     }
 
     /**

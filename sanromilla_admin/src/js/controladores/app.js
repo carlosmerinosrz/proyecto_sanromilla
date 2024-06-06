@@ -12,6 +12,8 @@ import { Usuarios } from "../vistas/usuarios/usuarios.js"
 import { Correos } from "../vistas/correos/correos.js"
 import { Categorias } from "../vistas/categorias/categorias.js"
 import { Marcas } from "../vistas/marcas/marcas.js"
+import { Talla } from "../vistas/talla/talla.js"
+import { Nuevasanromilla } from "../vistas/nuevasanromilla/nuevasanromilla.js"
 
 /**
  * Clase Controlador que maneja todas las vistas de Administración
@@ -27,6 +29,25 @@ export class Controlador{
         //Ejecutamos el mostrarInicio para que muestre la vista del inicio
         this.mostrarInicio()
 	}
+
+    /**
+     * Método para cerrar la sesión
+     */
+    doLogout() {
+        sessionStorage.clear();
+        localStorage.clear();
+        
+        // borrar cookies
+        let cookies = document.cookie.split("; ");
+        for (let c of cookies) {
+            let cookieName = c.split("=")[0];
+            document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+    
+        window.location.reload();
+    
+        this.mostrarInicio();
+    }
 
     /**
      * Método que inicia la web y añede los métodos a los botones 
@@ -56,6 +77,10 @@ export class Controlador{
         categorias.onclick = this.mostrarCategorias.bind(this)
         let marcas = document.getElementById('linkMarcas')
         marcas.onclick = this.mostrarMarcas.bind(this)
+        let tallas = document.getElementById('linkTallas')
+        tallas.onclick = this.mostrarTallas.bind(this)
+        let nuevasanromilla = document.getElementById('linkNuevaSanRomilla')
+        nuevasanromilla.onclick = this.mostrarNuevaSanRomilla.bind(this)
     }
 
     /**
@@ -93,6 +118,12 @@ export class Controlador{
         this.ocultarMenu()
         this.router.cargar("inscripciones")
         this.vistaPago = new Inscripciones(this)
+    }
+
+    mostrarNuevaSanRomilla(){
+        this.ocultarMenu()
+        this.router.cargar("nuevasanromilla")
+        this.vistaNuevaSanRomilla= new Nuevasanromilla(this)
     }
 
     /**
@@ -167,6 +198,16 @@ export class Controlador{
         let datos = await this.modelo.getInscripciones(tipoBusqueda, codigo)
         return datos;
     }
+
+    async getInscripcionesTalla(codigo){
+        let datos = await this.modelo.getInscripcionesTalla(codigo)
+        return datos;
+    }
+
+    async setCambios(datos) {
+        let response = await this.modelo.setCambios(datos);
+        return response;
+    }    
 
     /**
      * Método para obtener el precio de la camiseta.
@@ -359,6 +400,12 @@ export class Controlador{
         this.ocultarMenu()
         this.router.cargar("marcas")
         this.vistaMarcas = new Marcas(this)
+    }
+
+    async mostrarTallas(){
+        this.ocultarMenu()
+        this.router.cargar("talla")
+        this.vistaTallas = new Talla(this)
     }
 
     async getCategorias(){

@@ -56,6 +56,22 @@ class inscripcionesController{
           echo $cosas;
     }
 
+    public function getInscripcionesTalla(){
+        $datos= $this->modelo->getInscripcionesTalla();
+
+        header('Content-type: application/json; charset=uft-8');
+        // // print_r ($datos);
+         $cosas= json_encode($datos);
+          echo $cosas;
+    }
+
+    public function setCambios() {
+        $datos = $_POST['datos'];
+        $result = $this->modelo->setCambios($datos);
+        echo json_encode($result);
+    }
+    
+
 
     public function searchInscripciones() {
         $data = json_decode(file_get_contents('php://input'), true);

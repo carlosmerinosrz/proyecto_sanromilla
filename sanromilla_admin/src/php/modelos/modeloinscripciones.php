@@ -97,6 +97,8 @@ class ModeloInscripciones{
         if (isset($_GET['codigo']) && isset($_GET['tipoBusqueda'])){
             $argumento=$_GET['codigo'];
             $tipoBusqueda=$_GET['tipoBusqueda'];
+            //print_r($argumento);
+            //print_r($tipoBusqueda);
             $this->conectar();
 
             if($tipoBusqueda == 'codigo'){
@@ -110,11 +112,12 @@ class ModeloInscripciones{
 
             // Nuevo Carlos, permitir la búsqueda mediante teléfono
             if($tipoBusqueda == 'telefono'){
-                $resultado= $this->conexion->prepare("SELECT MIN(id_inscripcion) as id_inscripcion, codigo_inscripcion, MIN(fecha_inscripcion) as fecha_inscripcion FROM inscripciones WHERE telefono = ? AND estado_pago = 0 GROUP BY codigo_inscripcion;");
+                $resultado= $this->conexion->prepare("SELECT DISTINCT codigo_inscripcion, telefono FROM inscripciones WHERE telefono = ? AND estado_pago = 0;");
                 $resultado->bind_param('s', $argumento);
                 $resultado->execute();
                 $datos = $resultado->get_result();
                 $array=$datos->fetch_all(MYSQLI_ASSOC);
+                //print_r($array);
                 return $array;
             }
 
@@ -133,6 +136,47 @@ class ModeloInscripciones{
         }
 
     }
+
+    function getInscripcionesTalla(){
+        if (isset($_GET['codigo'])){
+            $argumento=$_GET['codigo'];
+            $this->conectar();
+
+            $resultado= $this->conexion->prepare("SELECT * FROM inscripciones i WHERE i.codigo_inscripcion = ? AND i.estado_pago = 1;");
+            $resultado->bind_param('s', $argumento);
+            $resultado->execute();
+            $datos = $resultado->get_result();
+            $array=$datos->fetch_all(MYSQLI_ASSOC);
+            return $array;
+
+        }else{
+
+            return -1;
+        }
+
+    }
+
+    function setCambios($datos) {
+        $datosArray = json_decode($datos, true);
+        $this->conectar();
+    
+        foreach ($datosArray as $dato) {
+            $id_talla = $dato['id_talla'];
+            $id_inscripcion = $dato['idInscripcion'];
+    
+            // Primero eliminar el id_talla existente de la inscripción
+            $stmt = $this->conexion->prepare("UPDATE inscripciones SET id_talla = NULL WHERE id_inscripcion = ?");
+            $stmt->bind_param('i', $id_inscripcion);
+            $stmt->execute();
+    
+            // Luego actualizar con el nuevo id_talla
+            $stmt = $this->conexion->prepare("UPDATE inscripciones SET id_talla = ? WHERE id_inscripcion = ?");
+            $stmt->bind_param('ii', $id_talla, $id_inscripcion);
+            $stmt->execute();
+        }
+    
+        return 1;  // Retornar algún indicador de éxito
+    }  
 
     function searchInscripciones($input, $tipoBusqueda) {
         $this->conectar();

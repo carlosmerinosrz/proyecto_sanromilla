@@ -47,18 +47,18 @@ export class Home{
     comprobarRoles(datosToken){
         for (let rol of datosToken.roles){
             if (rol.id_rol === 1) {
-                document.getElementById('item-nav-home').classList.remove('d-none');
+                document.getElementById('navTop').classList.remove('d-none');
+                document.getElementById('linkHome').classList.remove('d-none');
                 document.getElementById('linkFotos').classList.remove('d-none');
                 document.getElementById('linkPagos').classList.remove('d-none');
                 document.getElementById('linkCarrera').classList.remove('d-none');
                 document.getElementById('linkCategorias').classList.remove('d-none');
                 document.getElementById('linkInscripciones').classList.remove('d-none');
                 document.getElementById('linkUsuarios').classList.remove('d-none');
-                document.getElementById('linkMarcas').classList.remove('d-none');
                 document.getElementById('linkCorreos').classList.remove('d-none');
                 document.getElementById('linkMarcas').classList.remove('d-none');
-
-
+                document.getElementById('linkTallas').classList.remove('d-none');
+                document.getElementById('linkNuevaSanRomilla').classList.remove('d-none');
                 break;
             }
 
@@ -68,6 +68,8 @@ export class Home{
 
             if(rol.id_rol === 3){
                 document.getElementById('linkPagos').classList.remove('d-none');
+                document.getElementById('linkInscripciones').classList.remove('d-none');
+                document.getElementById('linkTallas').classList.remove('d-none');
             }
 
         }

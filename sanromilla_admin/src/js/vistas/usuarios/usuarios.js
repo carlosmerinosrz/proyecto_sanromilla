@@ -139,7 +139,6 @@ export class Usuarios {
      * @param {array} usuario 
      */
     async editarUsuario(usuario){
-        console.log(usuario)
         $('#app-container').empty()
     
         let contenedor=document.createElement('div')
@@ -188,7 +187,6 @@ export class Usuarios {
         let html = '';
         let respuesta = await this.controlador.getRoles();
         if(respuesta.data.length != 0){
-            console.log(respuesta.data);
             for(let item of respuesta.data){
                 // console.log('*******');
                 // console.log(item);
@@ -269,7 +267,6 @@ export class Usuarios {
     
         let respuesta = await this.controlador.getRoles();
         if (respuesta.data.length != 0) {
-            console.log(respuesta.data);
             for (let item of respuesta.data) {
                 let checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
@@ -311,6 +308,8 @@ export class Usuarios {
         document.getElementById('linkUsuarios').classList.add('active');
         document.getElementById('linkCorreos').classList.remove('active');
         document.getElementById('linkMarcas').classList.remove('active');
+        document.getElementById('linkTallas').classList.remove('d-none');
+        document.getElementById('linkNuevaSanRomilla').classList.remove('d-none');
     }
 
     /**

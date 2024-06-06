@@ -63,7 +63,7 @@ export class Pago {
             console.error('No se puede determinar el tipo de búsqueda.');
             return;
         }
-
+        console.log('TIPO DE BUSQUEDA: '+ tipoBusqueda + ' / '+ inputBuscar );
         this.datos = await this.controlador.getInscripciones(tipoBusqueda, inputBuscar);
 
         if (this.datos.data.length != 0) {
@@ -173,8 +173,9 @@ export class Pago {
     }
 
     async buscarInscripciones2(codigo) {
+        //console.log('TIPO DE BUSQUEDA: '+ tipoBusqueda + ' / '+ inputBuscar );
         this.datos = await this.controlador.getInscripciones('codigo', codigo);
-
+        console.log('HOLA')
         if (this.datos.data.length != 0) {
             this.introDatos(this.datos.data);
         } else {
@@ -182,7 +183,7 @@ export class Pago {
             var fila = document.createElement("tr");
             var inscripcion = document.createElement("td");
             inscripcion.colSpan = 5;
-            inscripcion.textContent = 'No hay ninguna inscripción con ese código o dni.';
+            inscripcion.textContent = 'No hay ninguna inscripción con ese código o número de teléfono..';
             fila.appendChild(inscripcion);
             var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
             tbody.appendChild(fila);
@@ -354,6 +355,8 @@ export class Pago {
         document.getElementById('linkUsuarios').classList.remove('active');
         document.getElementById('linkCorreos').classList.remove('active');
         document.getElementById('linkMarcas').classList.remove('active');
+        document.getElementById('linkTallas').classList.remove('d-none');
+        document.getElementById('linkNuevaSanRomilla').classList.remove('d-none');
     }
 
     obtenerImporteInscripcion(idInscripcion) {

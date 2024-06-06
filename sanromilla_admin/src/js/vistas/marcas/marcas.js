@@ -54,6 +54,8 @@ export class Marcas {
         document.getElementById('linkUsuarios').classList.remove('active');
         document.getElementById('linkCorreos').classList.remove('active');
         document.getElementById('linkMarcas').classList.add('active');
+        document.getElementById('linkTallas').classList.remove('d-none');
+        document.getElementById('linkNuevaSanRomilla').classList.remove('d-none');
     }
 
     guardarEstadoVista() {
