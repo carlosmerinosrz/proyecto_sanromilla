@@ -45,15 +45,15 @@ export class Marcas {
     
     activarNavbar() {
         document.getElementById('navTop').classList.remove('d-none');
-        document.getElementById('linkHome').classList.remove('active');
-        document.getElementById('linkFotos').classList.remove('active');
-        document.getElementById('linkPagos').classList.remove('active');
-        document.getElementById('linkCarrera').classList.remove('active');
-        document.getElementById('linkCategorias').classList.remove('active');
-        document.getElementById('linkInscripciones').classList.remove('active');
-        document.getElementById('linkUsuarios').classList.remove('active');
-        document.getElementById('linkCorreos').classList.remove('active');
-        document.getElementById('linkMarcas').classList.add('active');
+        document.getElementById('linkHome').classList.remove('d-none');
+        document.getElementById('linkFotos').classList.remove('d-none');
+        document.getElementById('linkPagos').classList.remove('d-none');
+        document.getElementById('linkCarrera').classList.remove('d-none');
+        document.getElementById('linkCategorias').classList.remove('d-none');
+        document.getElementById('linkInscripciones').classList.remove('d-none');
+        document.getElementById('linkUsuarios').classList.remove('d-none');
+        document.getElementById('linkCorreos').classList.remove('d-none');
+        document.getElementById('linkMarcas').classList.add('d-none');
         document.getElementById('linkTallas').classList.remove('d-none');
         document.getElementById('linkNuevaSanRomilla').classList.remove('d-none');
     }
