@@ -36,9 +36,10 @@ export class Usuarios {
         document.getElementById('tbody-usuarios').innerHTML = '';
 
         this.usuarios = await this.controlador.getUsuarios();
-        console.log(this.usuarios)
+        // console.log(this.usuarios)
         this.usuarios.forEach((usuario) => {
             // Crea una nueva fila en la tabla
+            console.log("usuarios obtenidos con exito")
             const fila = document.createElement('tr');
 
 
@@ -139,7 +140,6 @@ export class Usuarios {
      * @param {array} usuario 
      */
     async editarUsuario(usuario){
-        console.log(usuario)
         $('#app-container').empty()
     
         let contenedor=document.createElement('div')
@@ -188,7 +188,6 @@ export class Usuarios {
         let html = '';
         let respuesta = await this.controlador.getRoles();
         if(respuesta.data.length != 0){
-            console.log(respuesta.data);
             for(let item of respuesta.data){
                 // console.log('*******');
                 // console.log(item);
@@ -207,6 +206,7 @@ export class Usuarios {
                 rolesContainer.append(label);
                 rolesContainer.append(document.createElement('br'));
             }
+            this.addCheckboxListeners();
         } else {
             html += `<option>No hay roles</option>`;
         }
@@ -269,7 +269,6 @@ export class Usuarios {
     
         let respuesta = await this.controlador.getRoles();
         if (respuesta.data.length != 0) {
-            console.log(respuesta.data);
             for (let item of respuesta.data) {
                 let checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
@@ -283,6 +282,8 @@ export class Usuarios {
                 formulario.append(label);
                 formulario.append(document.createElement('br')); // Salto de línea para separar los checkboxes
             }
+            this.addCheckboxListeners();
+            console.log("added")
         } else {
             let noRolesLabel = document.createElement('label');
             noRolesLabel.textContent = 'No hay roles disponibles';
@@ -309,6 +310,7 @@ export class Usuarios {
         document.getElementById('linkCategorias').classList.remove('active');
         document.getElementById('linkInscripciones').classList.remove('active');
         document.getElementById('linkUsuarios').classList.add('active');
+        document.getElementById('linkCorreos').classList.remove('active');
         document.getElementById('linkMarcas').classList.remove('active');
     }
 
@@ -330,10 +332,17 @@ export class Usuarios {
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
-        } else if (correo == '') {
+        } else if(correo === ''){
             Swal.fire({
                 title: 'Correo vacío',
                 text: 'Recuerde rellenar el correo.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+        } else if (rolesSeleccionados.length === 0) { // Check if no checkboxes are selected
+            Swal.fire({
+                title: 'Selecciona al menos un rol',
+                text: 'Por favor, selecciona al menos un rol.',
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
@@ -393,6 +402,13 @@ export class Usuarios {
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
+        } else if (rolesSeleccionados.length === 0) { // Check if no checkboxes are selected
+            Swal.fire({
+                title: 'Selecciona al menos un rol',
+                text: 'Por favor, selecciona al menos un rol.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
         } else {
             if(this.validarCorreoElectronico(correo)){
                 let respuesta = await this.controlador.updateUsuario(usuario.id_colaborador, nombre, correo, rolesSeleccionados);
@@ -441,4 +457,29 @@ export class Usuarios {
 
         return true;
     }
+
+          /**
+     * Event listener al Superadministrador para disabilitar las otras checkboxes
+     */
+          addCheckboxListeners() {
+            const superadminCheckbox = document.getElementById('rol_1');
+            const otherCheckboxes = document.querySelectorAll("input[type='checkbox']:not(#rol_1)");
+        
+            superadminCheckbox.addEventListener('change', () => {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.disabled = superadminCheckbox.checked;
+                    // If Superadministrador is checked, uncheck other checkboxes
+                    if (superadminCheckbox.checked) {
+                        checkbox.checked = false;
+                    }
+                });
+            });
+        
+            // Initial check to disable checkboxes if Superadministrador is already checked
+            if (superadminCheckbox.checked) {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.disabled = true;
+                });
+            }
+        }
 }

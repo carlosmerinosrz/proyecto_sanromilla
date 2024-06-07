@@ -1,0 +1,31 @@
+<div class="container" id="talla">
+  <div class="row">
+      <h1 class="text-center">Cambio de Tallas</h1>
+      <div class="d-flex flex-row px-3 py-2 my-3 formStyle rounded">
+          <div class="col-5" style="width: 100%;display: flex;justify-content: center;align-items: center;">
+              <input type="text" class="form-control" id="codigoBuscar" placeholder="Introduzca el codigo de Inscripción">
+              <button class="btn btn-primary mb-3" id="buscar">Buscar</button>
+          </div>
+      </div>
+      <table class="text-center w-100 my-3" id="tabla-datos">
+          <thead>
+              <tr>
+                  <th style="width: 15%">Codigo de Inscripcion</th>
+                  <th style="width: 10%">Camiseta</th>
+                  <th style="width: 10%">Nombre</th>
+              </tr>
+          </thead>
+          <tbody></tbody>
+      </table>
+  </div>
+  <div class="row my-2 justify-content-center">
+      <div class="col-auto">
+          <div class="card hide">
+              <div class="card-footer d-flex justify-content-around">
+                  <button id="volver" class="btn btn-danger text-white">Volver Atrás</button>
+                  <button id="confirmar" class="btn btn-success text-white">Confirmar Cambios</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -65,18 +65,20 @@ class ModeloInformacion{
 public function modificarArchivos($arch) {
     $this->conectar();
 
+    // Print the $_FILES array for debugging
     print_r($_FILES);
 
-    if (!isset($arch['cartel']) || !isset($arch['reglamento'])) {
-        echo "Missing required files.";
+    // Ensure both "cartel" and "reglamento" files are set and no errors occurred during upload
+    if (!isset($arch['cartel']) || !isset($arch['reglamento']) || $arch['cartel']['error'] != UPLOAD_ERR_OK || $arch['reglamento']['error'] != UPLOAD_ERR_OK) {
+        echo "Missing required files or file upload error.";
         return false;
     }
 
-    $cartel = $arch['cartel']['name'];
-    $reglamento = $arch['reglamento']['name'];
-    print_r($cartel);
-    var_dump($reglamento);
+    // Retrieve entire file arrays for "cartel" and "reglamento"
+    $cartel = $arch['cartel'];
+    $reglamento = $arch['reglamento'];
 
+    // Perform validations and processing on entire file arrays
     if (!$this->esPngOJpg($cartel)) {
         echo "Cartel file must be PNG or JPG.";
         return false;
@@ -94,11 +96,16 @@ public function modificarArchivos($arch) {
 
     $this->clearDirectory($directorio);
 
-    $nombre_cartel = $cartel['name'];
-    $nombre_reglamento = $reglamento['name'];
+    // Sanitize filenames
+    $nombre_cartel = preg_replace('/[^A-Za-z0-9\-_\.]/', '', str_replace(' ', '', $cartel['name']));
+    $nombre_reglamento = preg_replace('/[^A-Za-z0-9\-_\.]/', '', str_replace(' ', '', $reglamento['name']));
 
     $ruta_destino_cartel = $directorio . $nombre_cartel;
     $ruta_destino_reglamento = $directorio . $nombre_reglamento;
+
+    // Print file paths for debugging
+    echo "Cartel Path: " . $ruta_destino_cartel . "\n";
+    echo "Reglamento Path: " . $ruta_destino_reglamento . "\n";
 
     if (!move_uploaded_file($cartel['tmp_name'], $ruta_destino_cartel)) {
         echo "Failed to move cartel file.";
@@ -120,6 +127,8 @@ public function modificarArchivos($arch) {
     $consulta->close();
     return true;
 }
+
+
 
 
 /**

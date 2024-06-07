@@ -9,14 +9,7 @@ class inscripcionesController{
     function __construct(){
         $this->modelo=new ModeloInscripciones();
     }
-
-
-    /**
-     * Método que asigna un dorsal a una participación
-     * Si la modificación va bien devuelve 1
-     * Si la modificación va mal devuelve -1
-     * Si no se envían todos los datos devuelve 0
-     */
+    
     public function asignarDorsal(){
 
         $datos = json_decode($_POST['datos']);
@@ -63,7 +56,40 @@ class inscripcionesController{
           echo $cosas;
     }
 
+    public function getInscripcionesTalla(){
+        $datos= $this->modelo->getInscripcionesTalla();
 
+        header('Content-type: application/json; charset=uft-8');
+        // // print_r ($datos);
+         $cosas= json_encode($datos);
+          echo $cosas;
+    }
+
+    public function setCambios() {
+        $datos = $_POST['datos'];
+        $result = $this->modelo->setCambios($datos);
+        echo json_encode($result);
+    }
+    
+
+
+    public function searchInscripciones() {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $input = $data['input'];
+        $tipoBusqueda = $data['tipoBusqueda'];
+    
+        $datos = $this->modelo->searchInscripciones($input, $tipoBusqueda);
+    
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($datos);
+    }
+
+    public function eliminarSanRomilla() {
+        $datos = $this->modelo->eliminarSanRomilla();
+
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($datos);
+    }
 }
 
 ?>

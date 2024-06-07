@@ -109,9 +109,10 @@ nav li a{
     min-height: 80%;
 }
 
-
-
-
+#cartel {
+    max-width: 80%;
+    height: auto;
+}
 
 /* ---------INICIO----------- */
 
@@ -184,10 +185,62 @@ nav li a{
 
 
 
-/* ---------CLASIFICACION---------- */
+/* ---------CAROUSEL FOTOS---------- */
 
 
 
+/* Customize the carousel size and appearance */
+#contacto{
+    margin-top: -50px !important;
+}
+
+#camisetaCarousel {
+    width: 500px; /* Increase width for a grander appearance */
+    margin: 0 auto; /* Center the carousel */
+    border-radius: 10px; /* Add border radius for a smoother look */
+    overflow: hidden; /* Hide overflowing content for a cleaner appearance */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+#camisetaCarousel .carousel-inner {
+    height: 400px; /* Adjust height as needed */
+}
+
+#camisetaCarousel .carousel-inner img {
+    object-fit: cover; /* Ensures images cover the entire carousel item */
+    height: 100%; /* Adjust height to fill carousel */
+    width: 100%; /* Ensure image covers the whole area */
+}
+
+#camisetaCarousel .carousel-control-prev-icon,
+#camisetaCarousel .carousel-control-next-icon {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 50%; /* Make the icons circular */
+    padding: 12px; /* Slightly larger padding for better visibility */
+    color: #333; /* Icon color */
+}
+
+#camisetaCarousel .carousel-control-prev-icon:hover,
+#camisetaCarousel .carousel-control-next-icon:hover {
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+}
+
+/* Optional: Add some space between the carousel and other elements */
+#camisetaCarousel {
+    margin-bottom: 30px; /* Increase margin for more separation */
+}
+
+#mini {
+    width: 100px;
+    height: auto;
+    perspective: 1000px; /* Add perspective for 3D effect */
+    transition: transform 0.5s;
+
+}
+
+#mini:hover {
+    transform: rotateY(180deg); /* Rotate on hover */
+}
 
 
 
@@ -212,17 +265,25 @@ nav li a{
     margin-top: 50px;
 }
 
-.fotosCarrera{
+.fotosCarrera {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 250px;
+    height: 250px; /* Initial height */
+    transition: transform 0.5s; /* Smooth transition effect */
 }
 
-.titulosFotos{
-    text-align: center;
-    margin-top: 100px;
+.fotosCarrera:hover {
+    transform: scale(1.5); /* Expand the image on hover */
 }
+
+/* General styles for the image gallery titles */
+.titulosFotos {
+    text-align: center;
+    margin-top: 50px; /* Adjust margin as needed */
+    font-size: 24px; /* Adjust font size as needed */
+}
+
 
 
 /* ----------FOOTER------------ */

@@ -32,21 +32,40 @@ export class Inicio{
      Recoge los datos y los envía al servidor para identificar al usuarioRecibe el token del login con Google y lo envía al servidor para identificar al usuario.
      @param token {Object} Token de identificación de usuario de Google.
      **/
-    login (token) {
+     login (token) {
         this.controlador.loginGoogle(token.credential)
             .then(tokenSesion => {
                 sessionStorage.setItem('token', tokenSesion)
                 let datosToken= JSON.parse (atob (tokenSesion.split('.')[1]));
-                console.log(datosToken);
-
-                Swal.fire({
-                    title: 'Login realizado con éxito',
-                    text: 'Bienvenido, ' + datosToken.nombre,
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                }).then((result) => {
-                    this.controlador.mostrarHome();
-                })
+    
+                // Enviar el token al servidor
+                fetch('php/guardar_token.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ token: tokenSesion })
+                }).then(response => response.json())
+                  .then(data => {
+                      if (data.success) {
+                          Swal.fire({
+                              title: 'Login realizado con éxito',
+                              text: 'Bienvenido, ' + datosToken.nombre,
+                              icon: 'success',
+                              confirmButtonText: 'Aceptar'
+                          }).then((result) => {
+                              this.controlador.mostrarHome();
+                          })
+                      } else {
+                          Swal.fire({
+                              title: 'Error',
+                              text: 'No se pudo guardar el token en el servidor.',
+                              icon: 'error',
+                              confirmButtonText: 'Aceptar'
+                          });
+                      }
+                  });
+    
             })
             .catch(e => {
                 Swal.fire({
@@ -57,5 +76,6 @@ export class Inicio{
                 });
             })
     }
+    
 
 }

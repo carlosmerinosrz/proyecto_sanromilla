@@ -15,6 +15,15 @@ class ModeloInscripciones{
         $this->usuario = constant('USUARIO');
         $this->contrasenia = constant('CONTRASENIA');
         $this->bd = constant('BD');
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['token'])) {
+            header('Location: ../../../');
+            exit;
+        }
     }
 
     /**
@@ -88,6 +97,8 @@ class ModeloInscripciones{
         if (isset($_GET['codigo']) && isset($_GET['tipoBusqueda'])){
             $argumento=$_GET['codigo'];
             $tipoBusqueda=$_GET['tipoBusqueda'];
+            //print_r($argumento);
+            //print_r($tipoBusqueda);
             $this->conectar();
 
             if($tipoBusqueda == 'codigo'){
@@ -101,11 +112,12 @@ class ModeloInscripciones{
 
             // Nuevo Carlos, permitir la búsqueda mediante teléfono
             if($tipoBusqueda == 'telefono'){
-                $resultado= $this->conexion->prepare("SELECT MIN(id_inscripcion) as id_inscripcion, codigo_inscripcion, MIN(fecha_inscripcion) as fecha_inscripcion FROM inscripciones WHERE telefono = ? AND estado_pago = 0 GROUP BY codigo_inscripcion;");
+                $resultado= $this->conexion->prepare("SELECT DISTINCT codigo_inscripcion, telefono FROM inscripciones WHERE telefono = ? AND estado_pago = 0;");
                 $resultado->bind_param('s', $argumento);
                 $resultado->execute();
                 $datos = $resultado->get_result();
                 $array=$datos->fetch_all(MYSQLI_ASSOC);
+                //print_r($array);
                 return $array;
             }
 
@@ -124,6 +136,112 @@ class ModeloInscripciones{
         }
 
     }
+
+    function getInscripcionesTalla(){
+        if (isset($_GET['codigo'])){
+            $argumento=$_GET['codigo'];
+            $this->conectar();
+
+            $resultado= $this->conexion->prepare("SELECT * FROM inscripciones i WHERE i.codigo_inscripcion = ? AND i.estado_pago = 1;");
+            $resultado->bind_param('s', $argumento);
+            $resultado->execute();
+            $datos = $resultado->get_result();
+            $array=$datos->fetch_all(MYSQLI_ASSOC);
+            return $array;
+
+        }else{
+
+            return -1;
+        }
+
+    }
+
+    function setCambios($datos) {
+        $datosArray = json_decode($datos, true);
+        $this->conectar();
+    
+        foreach ($datosArray as $dato) {
+            $id_talla = $dato['id_talla'];
+            $id_inscripcion = $dato['idInscripcion'];
+    
+            // Primero eliminar el id_talla existente de la inscripción
+            $stmt = $this->conexion->prepare("UPDATE inscripciones SET id_talla = NULL WHERE id_inscripcion = ?");
+            $stmt->bind_param('i', $id_inscripcion);
+            $stmt->execute();
+    
+            // Luego actualizar con el nuevo id_talla
+            $stmt = $this->conexion->prepare("UPDATE inscripciones SET id_talla = ? WHERE id_inscripcion = ?");
+            $stmt->bind_param('ii', $id_talla, $id_inscripcion);
+            $stmt->execute();
+        }
+    
+        return 1;  // Retornar algún indicador de éxito
+    }  
+
+    function searchInscripciones($input, $tipoBusqueda) {
+        $this->conectar();
+    
+        $datos = 0;
+        if ($tipoBusqueda === 'telefono') {
+            $query = "SELECT telefono FROM inscripciones WHERE telefono = ? AND estado_pago = 1";
+        } else {
+            $query = "SELECT codigo_inscripcion FROM inscripciones WHERE codigo_inscripcion = ?";
+        }
+        $consulta = $this->conexion->prepare($query);
+        $consulta->bind_param("s", $input);
+        $consulta->execute();
+    
+        $resultado = $consulta->get_result();
+    
+        if ($resultado->num_rows > 0) {
+            $datos = 1;
+        }
+    
+        $consulta->close();
+        $this->conexion->close();
+    
+        return $datos;
+    }
+    
+    function eliminarSanRomilla() {
+        $this->conectar();
+    
+        $datos = 0;
+    
+        // Eliminar todas las filas de la tabla inscripciones
+        $queryDelete = "DELETE FROM inscripciones";
+    
+        // Reiniciar el contador de AUTO_INCREMENT
+        $queryResetAutoIncrement = "ALTER TABLE inscripciones AUTO_INCREMENT = 1";
+    
+        try {
+            // Iniciar la transacción
+            $this->conexion->begin_transaction();
+    
+            // Ejecutar la eliminación de datos
+            $consultaDelete = $this->conexion->prepare($queryDelete);
+            $consultaDelete->execute();
+            $consultaDelete->close();
+    
+            // Ejecutar el reinicio del AUTO_INCREMENT
+            $consultaResetAutoIncrement = $this->conexion->prepare($queryResetAutoIncrement);
+            $consultaResetAutoIncrement->execute();
+            $consultaResetAutoIncrement->close();
+    
+            // Confirmar la transacción
+            $this->conexion->commit();
+            $datos = 1;
+        } catch (Exception $e) {
+            // Revertir la transacción en caso de error
+            $this->conexion->rollback();
+            error_log("Error al eliminar San Romilla: " . $e->getMessage());
+        }
+    
+        $this->conexion->close();
+    
+        return $datos;
+    }
+    
 
 }
 

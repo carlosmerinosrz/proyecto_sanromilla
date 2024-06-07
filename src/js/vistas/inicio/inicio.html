@@ -33,7 +33,6 @@
     <!-- INFORMACIÓN -->
     <div class="row text-center mb-5">
       <div class="col-sm-6 mt-5 ps-5 pe-5">
-        <h2>IX SAN ROMILLA </h2><u><a href="./assets/images/erasmusSergioAcosta.pdf" target="_blank">test</a></u>
         <p>miércoles, 23 de abril de 2025</br>  
         </br>
         <h4>PRECIOS</h4>DORSAL ADULTOS 4€</br>
@@ -53,19 +52,42 @@
     <hr />
 
     <!-- CAMISETA -->
-    <div class="row text-center mt-5 mb-5" id="camiseta">
-      <div class="col-sm-6">
-        <img src="./assets/images/camiseta.webp">
+<div class="row text-center mt-5 mb-5" id="camiseta">
+  <div class="col-sm-6">
+    <!-- Carousel -->
+    <div id="camisetaCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./assets/images/camiseta1.png" class="d-block w-100" alt="Camiseta 1">
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/camiseta2.png" class="d-block w-100" alt="Camiseta 2">
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/camiseta3.png" class="d-block w-100" alt="Camiseta 3">
+        </div>
       </div>
-      <div class="col-sm-6 p-5">
-        <h2>¿Te gusta nuestra nueva camiseta?</h2>
-        <h5>Con ella estarías contribuyendo aún más con la causa de esta carrera benéfica. Puedes adquirirla al comprar tu dorsal una vez rellenes los datos de la inscripción.</h5>
-        <!--<h4>Solo cuesta <b><span class="preciocamiseta"></span></b></h4>-->
-        <h4>Para más información, preguntar en portería.</h4>
-        <p>*Recuerda que solo se puede adquirir si se adquiere también el dorsal.</p>
-        <h2 class="mt-5">¡Corre que vuelan!</h2>
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#camisetaCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#camisetaCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
     </div>
+  </div>
+  <div class="col-sm-6 p-5">
+    <h2>¿Te gustan nuestras camiseta?</h2>
+    <h5>Con ella estarías contribuyendo aún más con la causa de esta carrera benéfica. Puedes adquirirla al comprar tu dorsal una vez rellenes los datos de la inscripción.</h5>
+    <!--<h4>Solo cuesta <b><span class="preciocamiseta"></span></b></h4>-->
+    <h4>Para más información, preguntar en portería.</h4>
+    <p>*Recuerda que solo se puede adquirir si se adquiere también el dorsal.</p>
+    <h2 class="mt-5">¡Corre que vuelan!</h2>
+    <img id="mini" src="./assets/images/chibi.png" alt="Mini imagen">
+  </div>
+</div>
+
 
     
 

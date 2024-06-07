@@ -23,7 +23,7 @@ export class Fotos {
 
         //Trae las categorías
         this.categorias = await this.controlador.getCategoriasFotos();
-        console.log(this.categorias);
+        // console.log(this.categorias);
 
         //Montar select
         this.categorias.data.forEach((categoria) => {
@@ -206,7 +206,7 @@ export class Fotos {
     /**
      * Para mostrar el item del navbar activo
      */
-    activeNavbar() {
+    activeNavbar(){
         document.getElementById('navTop').classList.remove('d-none');
         document.getElementById('linkHome').classList.remove('active');
         document.getElementById('linkFotos').classList.add('active');

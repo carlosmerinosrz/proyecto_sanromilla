@@ -12,6 +12,8 @@ import { Usuarios } from "../vistas/usuarios/usuarios.js"
 import { Correos } from "../vistas/correos/correos.js"
 import { Categorias } from "../vistas/categorias/categorias.js"
 import { Marcas } from "../vistas/marcas/marcas.js"
+import { Talla } from "../vistas/talla/talla.js"
+import { Nuevasanromilla } from "../vistas/nuevasanromilla/nuevasanromilla.js"
 
 /**
  * Clase Controlador que maneja todas las vistas de Administración
@@ -27,6 +29,25 @@ export class Controlador{
         //Ejecutamos el mostrarInicio para que muestre la vista del inicio
         this.mostrarInicio()
 	}
+
+    /**
+     * Método para cerrar la sesión
+     */
+    doLogout() {
+        sessionStorage.clear();
+        localStorage.clear();
+        
+        // borrar cookies
+        let cookies = document.cookie.split("; ");
+        for (let c of cookies) {
+            let cookieName = c.split("=")[0];
+            document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+    
+        window.location.reload();
+    
+        this.mostrarInicio();
+    }
 
     /**
      * Método que inicia la web y añede los métodos a los botones 
@@ -56,8 +77,10 @@ export class Controlador{
         categorias.onclick = this.mostrarCategorias.bind(this)
         let marcas = document.getElementById('linkMarcas')
         marcas.onclick = this.mostrarMarcas.bind(this)
-        let correo5 = document.getElementById('linkCorreo5')
-        correo5.onclick = this.mostrarCorreos.bind(this)
+        let tallas = document.getElementById('linkTallas')
+        tallas.onclick = this.mostrarTallas.bind(this)
+        let nuevasanromilla = document.getElementById('linkNuevaSanRomilla')
+        nuevasanromilla.onclick = this.mostrarNuevaSanRomilla.bind(this)
     }
 
     /**
@@ -95,6 +118,12 @@ export class Controlador{
         this.ocultarMenu()
         this.router.cargar("inscripciones")
         this.vistaPago = new Inscripciones(this)
+    }
+
+    mostrarNuevaSanRomilla(){
+        this.ocultarMenu()
+        this.router.cargar("nuevasanromilla")
+        this.vistaNuevaSanRomilla= new Nuevasanromilla(this)
     }
 
     /**
@@ -169,6 +198,16 @@ export class Controlador{
         let datos = await this.modelo.getInscripciones(tipoBusqueda, codigo)
         return datos;
     }
+
+    async getInscripcionesTalla(codigo){
+        let datos = await this.modelo.getInscripcionesTalla(codigo)
+        return datos;
+    }
+
+    async setCambios(datos) {
+        let response = await this.modelo.setCambios(datos);
+        return response;
+    }    
 
     /**
      * Método para obtener el precio de la camiseta.
@@ -363,6 +402,12 @@ export class Controlador{
         this.vistaMarcas = new Marcas(this)
     }
 
+    async mostrarTallas(){
+        this.ocultarMenu()
+        this.router.cargar("talla")
+        this.vistaTallas = new Talla(this)
+    }
+
     async getCategorias(){
         this.data = await this.modelo.getCategorias();
         return this.data;
@@ -394,6 +439,18 @@ export class Controlador{
         return datos;
     }
 
+    async searchInscripciones(input, tipoBusqueda) {
+        let result = await this.modelo.searchInscripciones(input, tipoBusqueda);
+        return result;
+    }
+
+
+    async eliminarSanRomilla(){
+        let result = await this.modelo.eliminarSanRomilla();
+        return result;
+
+    }
+
         /**
      * Método para enviar los datos del correo al modelo
      * @param {string} subject - El asunto del correo
@@ -403,6 +460,21 @@ export class Controlador{
     async enviarCorreo(subject, message) {
         console.log("11"+subject,message)
         let datos = await this.modelo.enviarCorreo(subject, message);
+        return datos;
+    }
+
+    async enviarDatosCarrera(raceData){
+        let datos = await this.modelo.enviarDatosCarrera(raceData);
+        return datos;
+    }
+
+    async comprobarCategoria(id_categoria){
+        let datos = await this.modelo.comprobarCategoria(id_categoria);
+        return datos;
+    }
+    
+    async exportarExcel(id_categoria){
+        let datos = await this.modelo.exportarExcel(id_categoria);
         return datos;
     }
 

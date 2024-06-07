@@ -14,12 +14,11 @@ export class Inscripciones {
      * @param {*} controlador 
      */
     async iniciar(controlador){
-        this.div=document.getElementById('inscripciones')
+        this.div = document.getElementById('inscripciones');
         this.activeNavbar();
         this.inscripciones = await this.buscarInscripciones();
-
-
-        //Guardar página para recargar
+    
+        // Guardar página para recargar
         this.saveViewState();
     }
 
@@ -34,17 +33,16 @@ export class Inscripciones {
         
         if(this.datos.data.length!=0){
             this.introDatos(this.datos.data)
-        }else{
+        } else {
             $('#tabla-datos > tbody').empty();
-            var fila = document.createElement("tr")
-            var inscripcion = document.createElement("td")
-            inscripcion.colSpan =5
-            inscripcion.textContent = 'Ha habido algún error'
-            fila.appendChild(inscripcion)
-            var tbody= document.getElementById("tabla-datos").getElementsByTagName("tbody")[0]
-            tbody.appendChild(fila)
-            document.getElementsByClassName('card')[0].setAttribute('style', 'display:none !important');
-        }
+            var fila = document.createElement("tr");
+            var inscripcion = document.createElement("td");
+            inscripcion.colSpan = 5;
+            inscripcion.textContent = 'No existen datos disponibles';
+            fila.appendChild(inscripcion);
+            var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
+            tbody.appendChild(fila);
+        }        
     }
 
     /**
@@ -145,21 +143,38 @@ export class Inscripciones {
 
     }
 
-    /**
-     * Método para mostrar el item del navbar activo
-     */
-    activeNavbar() {
+    activeNavbar(){
         document.getElementById('navTop').classList.remove('d-none');
         document.getElementById('linkHome').classList.remove('active');
-        document.getElementById('linkFotos').classList.remove('active');
+        document.getElementById('linkFotos').classList.add('active');
         document.getElementById('linkPagos').classList.remove('active');
         document.getElementById('linkCarrera').classList.remove('active');
         document.getElementById('linkCategorias').classList.remove('active');
-        document.getElementById('linkInscripciones').classList.add('active');
+        document.getElementById('linkInscripciones').classList.remove('active');
         document.getElementById('linkUsuarios').classList.remove('active');
         document.getElementById('linkCorreos').classList.remove('active');
         document.getElementById('linkMarcas').classList.remove('active');
+        document.getElementById('linkTallas').classList.remove('d-none');
+        document.getElementById('linkNuevaSanRomilla').classList.remove('active');
     }
+
+    /**
+     * Método para mostrar el item del navbar activo
+     */
+    // activeNavbar(){
+    //     document.getElementById('navTop').classList.remove('d-none');
+    //     document.getElementById('linkHome').classList.remove('d-none');
+    //     document.getElementById('linkFotos').classList.remove('d-none');
+    //     document.getElementById('linkPagos').classList.remove('d-none');
+    //     document.getElementById('linkCarrera').classList.remove('d-none');
+    //     document.getElementById('linkCategorias').classList.remove('d-none');
+    //     document.getElementById('linkInscripciones').classList.remove('d-none');
+    //     document.getElementById('linkUsuarios').classList.remove('d-none');
+    //     document.getElementById('linkCorreos').classList.remove('d-none');
+    //     document.getElementById('linkMarcas').classList.remove('d-none');
+    //     document.getElementById('linkTallas').classList.remove('d-none');
+    //     document.getElementById('linkNuevaSanRomilla').classList.remove('d-none');
+    // }
 
     /**
      * Método que guarda la vista

@@ -1,0 +1,172 @@
+[02-Jun-2024 19:54:01 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._whit...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 19:57:12 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._port...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:06:53 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._port...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:08:46 UTC] PHP Warning:  mkdir(): File exists in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 68
+[02-Jun-2024 20:08:46 UTC] PHP Warning:  mkdir(): File exists in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 68
+[02-Jun-2024 20:12:05 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('dzozfjuwi4981.p...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:19:09 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._carr...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:20:46 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._carr...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:22:36 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._carr...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:23:49 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._carr...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:26:29 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('thecorvus._carr...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[02-Jun-2024 20:28:32 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:198
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(94): ModeloInformacion->esPngOJpg('thecorvus._carr...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 198
+[02-Jun-2024 20:39:23 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:170
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(80): ModeloInformacion->esPngOJpg('36da81b7dee165d...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 170
+[04-Jun-2024 17:29:56 UTC] PHP Warning:  fopen(../../assets/clasificacion/Marcas - Categoria JUVENIL.xlsx): Failed to open stream: No such file or directory in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/BaseWriter.php on line 117
+[04-Jun-2024 17:29:56 UTC] PHP Fatal error:  Uncaught PhpOffice\PhpSpreadsheet\Writer\Exception: Could not open file "../../assets/clasificacion/Marcas - Categoria JUVENIL.xlsx" for writing. in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/BaseWriter.php:119
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx.php(501): PhpOffice\PhpSpreadsheet\Writer\BaseWriter->openFileHandle('../../assets/cl...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php(190): PhpOffice\PhpSpreadsheet\Writer\Xlsx->save('../../assets/cl...')
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('7')
+#3 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#4 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/BaseWriter.php on line 119
+[05-Jun-2024 19:00:09 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:179
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(89): ModeloInformacion->esPngOJpg('Cartel RRSS VII...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 179
+[05-Jun-2024 19:03:08 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:179
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(89): ModeloInformacion->esPngOJpg('CartelRRSSVIIIS...')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 179
+[05-Jun-2024 19:05:47 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[05-Jun-2024 19:09:19 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php:179
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php(89): ModeloInformacion->esPngOJpg('cartel.png')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladorinformacion.php(29): ModeloInformacion->modificarArchivos(Array)
+#2 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): informacionController->modificarArchivos()
+#3 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modeloinformacion.php on line 179
+[05-Jun-2024 20:40:41 UTC] PHP Warning:  Undefined array key "rol" in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelousuarios.php on line 160
+[05-Jun-2024 20:40:41 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelousuarios.php on line 160
+[05-Jun-2024 20:40:55 UTC] PHP Warning:  Undefined array key "rol" in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelousuarios.php on line 160
+[05-Jun-2024 20:40:55 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelousuarios.php on line 160
+[06-Jun-2024 11:27:06 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[06-Jun-2024 11:28:13 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[06-Jun-2024 11:29:50 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[06-Jun-2024 11:30:33 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[06-Jun-2024 11:31:13 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[06-Jun-2024 11:32:44 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[06-Jun-2024 11:34:42 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[06-Jun-2024 11:41:28 UTC] PHP Fatal error:  Uncaught Error: Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php:150
+Stack trace:
+#0 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/controladores/controladormarcas.php(31): ModeloMarcas->exportarExcel('1')
+#1 /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/index.php(37): MarcasController->exportarExcel()
+#2 {main}
+  thrown in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelomarcas.php on line 150
+[06-Jun-2024 13:03:08 UTC] PHP Warning:  mkdir(): File exists in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 77
+[06-Jun-2024 13:03:08 UTC] PHP Warning:  mkdir(): File exists in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 77
+[06-Jun-2024 13:03:08 UTC] PHP Warning:  mkdir(): File exists in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 77
+[06-Jun-2024 13:03:47 UTC] PHP Warning:  Undefined variable $nombre_archivo in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 158
+[06-Jun-2024 13:03:47 UTC] PHP Warning:  unlink(): No such file or directory in /home/user2daw/public_html/22/proyecto_sanromilla/sanromilla_admin/src/php/modelos/modelofotos.php on line 164
