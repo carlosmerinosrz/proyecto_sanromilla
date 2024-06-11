@@ -235,6 +235,32 @@ th#total {
     border: 1px solid #1fa2bf !important;
 }
 
+
+.busqtlfn p {
+    color: #ffffff; /* Blue color for text */
+    cursor: pointer; /* Change cursor to pointer to indicate interactivity */
+    display: inline-block; /* Make the paragraph behave like a block element */
+    padding: 5px 10px; /* Add padding for spacing */
+    border: 1px solid #ffffff; /* Add border with blue color */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    background-color: #007bff; /* Set background color to white */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none; /* Remove default underline */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
+}
+
+.busqtlfn p:hover {
+    background-color: #170057; /* Change background color to blue on hover */
+    color: #ffffff; /* Change text color to white on hover */
+}
+
+tr{
+    margin-bottom: 5px;
+}
+
+
+
+
 /** Vista fotos admin **/
 #dropzone{
     padding: 18px 40px;

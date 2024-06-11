@@ -68,7 +68,7 @@ class ModeloFotos
                     $nombre_archivo = $archivos['name'][$indice];
                     $extension = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
     
-                    // Construct the relative path based on the script's directory
+                    $nombre_archivo = str_replace(' ', '', $nombre_archivo); // Remove spaces from the filename
                     $ruta_destino = dirname(__DIR__) . "../../assets/images/categorias/" . $nombreCategoria . "/" . $nombre_archivo;
     
                     // Ensure the directory exists

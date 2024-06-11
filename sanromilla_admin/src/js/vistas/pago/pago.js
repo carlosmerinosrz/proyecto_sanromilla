@@ -46,13 +46,9 @@ export class Pago {
         this.saveViewState();
     }
 
-    /**
-     * Método que busca las inscripciones
-     * @returns {Promise<void>}
-     */
     async buscarInscripciones() {
         let inputBuscar = $('#codigoBuscar').val();
-
+    
         // Verificamos si el texto introducido es un código de inscripción o un número de teléfono
         let tipoBusqueda;
         if (inputBuscar.length >= 1 && inputBuscar.length <= 8) {
@@ -63,9 +59,9 @@ export class Pago {
             console.error('No se puede determinar el tipo de búsqueda.');
             return;
         }
-        console.log('TIPO DE BUSQUEDA: '+ tipoBusqueda + ' / '+ inputBuscar );
+        console.log('TIPO DE BUSQUEDA: ' + tipoBusqueda + ' / ' + inputBuscar);
         this.datos = await this.controlador.getInscripciones(tipoBusqueda, inputBuscar);
-
+    
         if (this.datos.data.length != 0) {
             this.introDatos(this.datos.data);
         } else {
@@ -80,13 +76,101 @@ export class Pago {
             } else {
                 inscripcion.textContent = 'No existe ninguna inscripción con ese código o número de teléfono.';
             }
-
+    
             fila.appendChild(inscripcion);
             var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
             tbody.appendChild(fila);
-            document.getElementsByClassName('card')[0].setAttribute('style', 'display:none !important');
         }
+    
+        // Check if the search type is "telefono"
+        if (tipoBusqueda === 'telefono') {
+            console.log("BUSQUEDADA TELEFONO")
+            // Add the 'busqtlfn' class to the table
+            var table = document.getElementById('tabla-datos');
+            table.classList.add('busqtlfn');
+    
+            // Add the 'busqtlfn' class to all "Inscripción" column cells
+            var inscripcionCells = document.querySelectorAll('#tabla-datos tbody td:first-child');
+            inscripcionCells.forEach(cell => {
+                cell.classList.add('busqtlfn');
+            });
+    
+            // Hide all columns except for the "Inscripción" column
+            var thElements = document.querySelectorAll('#tabla-datos th');
+            thElements.forEach(th => {
+                if (th.textContent !== 'Inscripción') {
+                    th.style.display = 'none';
+                }
+            });
+    
+            // Hide the table footer
+            var tfoot = document.querySelector('#tabla-datos tfoot');
+            tfoot.style.display = 'none';
+    
+            // Show only the "Inscripción" column in the table body
+            var tdElements = document.querySelectorAll('#tabla-datos tbody td');
+            tdElements.forEach(td => {
+                if (td.cellIndex !== 0) {
+                    td.style.display = 'none';
+                }
+            });
+    
+            // Add 'telefono-button' class to <p> elements in the "Inscripción" column
+            var pElements = document.querySelectorAll('#tabla-datos tbody tr td:first-child p');
+            pElements.forEach(p => {
+                p.classList.add('telefono-button');
+            });
+    
+            // Center the table
+            var table = document.getElementById('tabla-datos');
+            table.style.margin = 'auto';
+    
+            // Set the column width to 100%
+            var thElement = document.querySelector('#tabla-datos th');
+            thElement.style.width = '100%';
+        } else {
+            // Remove styles applied for telefono search
+            var table = document.getElementById('tabla-datos');
+            table.classList.remove('busqtlfn');
+    
+            var inscripcionCells = document.querySelectorAll('#tabla-datos tbody td:first-child');
+            inscripcionCells.forEach(cell => {
+                cell.classList.remove('busqtlfn');
+            });
+    
+            var thElements = document.querySelectorAll('#tabla-datos th');
+            thElements.forEach(th => {
+                th.style.display = ''; // reset to default
+            });
+    
+            var tfoot = document.querySelector('#tabla-datos tfoot');
+            tfoot.style.display = ''; // reset to default
+    
+            var tdElements = document.querySelectorAll('#tabla-datos tbody td');
+            tdElements.forEach(td => {
+                td.style.display = ''; // reset to default
+            });
+    
+            var pElements = document.querySelectorAll('#tabla-datos tbody tr td:first-child p');
+            pElements.forEach(p => {
+                p.classList.remove('telefono-button');
+            });
+    
+            var table = document.getElementById('tabla-datos');
+            table.style.margin = ''; // reset to default
+    
+            var thElement = document.querySelector('#tabla-datos th');
+            thElement.style.width = ''; // reset to default
+        }
+    
+        document.getElementsByClassName('card')[0].setAttribute('style', 'display:none !important');
     }
+    
+    
+    
+    
+    
+    
 
     async confirmarDorsales() {
         var tabla = document.getElementById("tabla-datos");
@@ -173,12 +257,21 @@ export class Pago {
     }
 
     async buscarInscripciones2(codigo) {
-        //console.log('TIPO DE BUSQUEDA: '+ tipoBusqueda + ' / '+ inputBuscar );
         this.datos = await this.controlador.getInscripciones('codigo', codigo);
-        console.log('HOLA')
+        console.log('HOLA');
+        var inscripcionColumn = document.querySelector('#tabla-datos th:first-child');
+        inscripcionColumn.style.width = '15%';
+        // Remove the class from the "Inscripción" column text to revert styling
+        var tdElements = document.querySelectorAll('#tabla-datos tbody td');
+        tdElements.forEach(td => {
+            if (td.classList.contains('telefono-button')) {
+                td.classList.remove('telefono-button');
+            }
+        });
         if (this.datos.data.length != 0) {
             this.introDatos(this.datos.data);
         } else {
+            console.log("WANANAINONAINO")
             $('#tabla-datos > tbody').empty();
             var fila = document.createElement("tr");
             var inscripcion = document.createElement("td");
@@ -187,9 +280,34 @@ export class Pago {
             fila.appendChild(inscripcion);
             var tbody = document.getElementById("tabla-datos").getElementsByTagName("tbody")[0];
             tbody.appendChild(fila);
+            
+            // Hide all columns except for the "Inscripción" column
+            var thElements = document.querySelectorAll('#tabla-datos th');
+            thElements.forEach(th => {
+                if (th.textContent !== 'Inscripción') {
+                    th.style.display = 'none';
+                }
+            });
+            
+            // Hide the table footer
+            var tfoot = document.querySelector('#tabla-datos tfoot');
+            tfoot.style.display = 'none';
+            
+            // Show only the "Inscripción" column in the table body
+            var tdElements = document.querySelectorAll('#tabla-datos tbody td');
+            tdElements.forEach(td => {
+                if (td.cellIndex !== 0) {
+                    td.style.display = 'none';
+                }
+            });
+    
             document.getElementsByClassName('card')[0].setAttribute('style', 'display:none !important');
         }
     }
+    
+    
+    
+
 
     introDatos(datos) {
         let importe = 0;
